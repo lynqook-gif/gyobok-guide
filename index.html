@@ -426,6 +426,16 @@ footer p{margin:0 0 7px} footer b{color:var(--ink-2); font-weight:600}
   .lane,.flowcard,.tablebox,.pit{box-shadow:none; break-inside:avoid}
   .lane.folded{display:none}
 }
+
+/* 공문 학교명·학년도 입력칸 */
+.docvars{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin:0 0 14px;padding:12px 14px;border:1px solid #cfe0f5;border-radius:10px;background:#f3f8ff;font-size:14px;color:#1e3a5f}
+.docvars b{font-weight:700}
+.docvars label{display:flex;align-items:center;gap:6px}
+.docvars input{font:inherit;padding:6px 9px;border:1px solid #b9cde6;border-radius:7px;background:#fff;color:#1e3a5f}
+.docvars input[data-dv="school"]{width:11em}
+.docvars input[data-dv="year"]{width:5.5em}
+.docvars .dv-note{flex-basis:100%;font-size:12.5px;color:#5a6f88}
+@media print{.docvars{display:none}}
 </style>
 <link rel="stylesheet" href="design/dashboard.css?v=14">
 <script defer src="design/dashboard.js?v=14"></script>
@@ -501,14 +511,14 @@ footer p{margin:0 0 7px} footer b{color:var(--ink-2); font-weight:600}
   <div class="docs">
     <div class="doccard" id="doc-s1-committee" data-role="gyomu">
       <div class="dochead"><span class="blabel">공문 1-2</span><span class="tag g">교무 기안</span><span class="when">위원 명단과 서약서가 모이면 바로</span></div>
-<pre class="doctext title"><span class="ph">2026</span>학년도 교복 학교주관구매 추진을 위한 교복선정위원회 구성</pre>
-<pre class="doctext">1. 관련: 교복 학교주관구매 운영 매뉴얼(<span class="ph">2026. 9.</span>)
-2. <span class="ph">2026</span>학년도 교복 학교주관구매 추진을 위한 교복선정위원회를 붙임과 같이 구성하고자 합니다.
+<pre class="doctext title"><span class="ph">2027</span>학년도 교복 학교주관구매 추진을 위한 교복선정위원회 구성</pre>
+<pre class="doctext">1. 관련: 교복 학교주관구매 운영 매뉴얼(2026. 9.)
+2. <span class="ph">2027</span>학년도 교복 학교주관구매 추진을 위한 교복선정위원회를 붙임과 같이 구성하고자 합니다.
   가. 구성: 총 <span class="ph">0</span>명(교원 <span class="ph">0</span>명, 학교운영위원 <span class="ph">0</span>명, 학부모 <span class="ph">0</span>명, 학생 <span class="ph">0</span>명)
   나. 역할: 품질 심사 기준 설정 및 제안서 정성평가, 제작 상황 감독, 구매 결과 평가
   다. 위원 전원 수락 및 확인서, 청렴 및 보안 서약서 징구
 
-붙임  <span class="ph">2026</span>학년도 교복선정위원회 규정 및 명단 1부.  끝.</pre>
+붙임  <span class="ph">2027</span>학년도 교복선정위원회 규정 및 명단 1부.  끝.</pre>
       <div class="attach"><span class="al">붙임 파일</span>
         <a href="files/step1-committee.hwp" download="1단계_교복선정위원회 구성(규정·명단).hwp"><span class="ext">HWP</span>교복선정위원회 규정 및 명단</a>
         <a href="files/form7-acceptance.hwpx" download="서식7_위원 수락 및 확인서.hwpx"><span class="ext">HWPX</span>[척따1-1] 위원 수락 및 확인서</a>
@@ -517,17 +527,17 @@ footer p{margin:0 0 7px} footer b{color:var(--ink-2); font-weight:600}
     </div>
     <div class="doccard" id="doc-s1-meeting" data-role="gyomu">
       <div class="dochead"><span class="blabel">공문 1-3</span><span class="tag g">교무 기안</span><span class="when">위원회 소집 전 — 회의 개최 결재</span></div>
-<pre class="doctext title"><span class="ph">2026</span>학년도 교복 학교주관구매 교복 적격업체 선정 평가기준 및 교복 사양서 결정회의</pre>
-<pre class="doctext">1. 관련: <span class="ph">○○고등학교-10410(2025. 10. 2.)</span>
-2. <span class="ph">2026</span>학년도 교복 학교주관구매 교복 적격업체 선정 평가기준 및 교복 사양서 결정을 위한 교복선정위원회 회의를 실시하고자 합니다.
-  가. 일시: <span class="ph">2025. 10. 27.(월) 13:00~13:50</span>
+<pre class="doctext title"><span class="ph">2027</span>학년도 교복 학교주관구매 교복 적격업체 선정 평가기준 및 교복 사양서 결정회의</pre>
+<pre class="doctext">1. 관련: <span class="ph">○○고등학교-10410(2026. 10. 2.)</span>
+2. <span class="ph">2027</span>학년도 교복 학교주관구매 교복 적격업체 선정 평가기준 및 교복 사양서 결정을 위한 교복선정위원회 회의를 실시하고자 합니다.
+  가. 일시: <span class="ph">2026. 10. 27.(○) 13:00~13:50</span>
   나. 장소: <span class="ph">○○고등학교 교무실</span>
-  다. 안건: <span class="ph">2026</span>학년도 교복 학교주관구매 교복 적격업체 선정 평가기준 및 교복 사양서 결정
-  라. 참석대상: <span class="ph">2025</span>년 교복선정위원회 위원(<span class="ph">9</span>명)
+  다. 안건: <span class="ph">2027</span>학년도 교복 학교주관구매 교복 적격업체 선정 평가기준 및 교복 사양서 결정
+  라. 참석대상: <span class="ph">2026</span>년 교복선정위원회 위원(<span class="ph">9</span>명)
 
-붙임  1. <span class="ph">2026</span>학년도 교복 사양서 1부.
-      2. <span class="ph">2026</span>학년도 신입생 교복 학교주관구매 적격업체 선정 평가기준표 1부.
-      3. <span class="ph">2025</span>년 교복선정위원회 명단 1부.  끝.</pre>
+붙임  1. <span class="ph">2027</span>학년도 교복 사양서 1부.
+      2. <span class="ph">2027</span>학년도 신입생 교복 학교주관구매 적격업체 선정 평가기준표 1부.
+      3. <span class="ph">2026</span>년 교복선정위원회 명단 1부.  끝.</pre>
       <div class="attach"><span class="al">붙임 파일</span>
         <a href="files/att2-design-spec.hwpx" download="붙임2_교복 디자인 및 규격서.hwpx"><span class="ext">HWPX</span>[척따7-2] 교복 디자인 및 규격서(사양서)</a>
         <a href="files/att3-evaluation-criteria.hwpx" download="붙임3_제안서 평가항목 및 배점기준.hwpx"><span class="ext">HWPX</span>[척따7-3] 제안서 평가항목 및 배점기준</a>
@@ -536,13 +546,13 @@ footer p{margin:0 0 7px} footer b{color:var(--ink-2); font-weight:600}
     </div>
     <div class="doccard" id="doc-s1-decision" data-role="gyomu">
       <div class="dochead"><span class="blabel">공문 1-5</span><span class="tag g">교무 기안</span><span class="when">회의 직후 — 결과 결재 후 행정 인계</span></div>
-<pre class="doctext title"><span class="ph">2026</span>학년도 교복 학교주관구매 교복 적격업체 선정 평가기준 및 교복사양서 결정</pre>
-<pre class="doctext">1. 관련: <span class="ph">○○고등학교-11104(2025. 10. 24.)</span>
-2. <span class="ph">2026</span>학년도 신입생 교복(동복, 하복) 학교주관구매 적격업체 선정 평가기준 및 교복 디자인 사양서를 교복선정위원회 협의 결과 붙임과 같이 결정하였습니다.
+<pre class="doctext title"><span class="ph">2027</span>학년도 교복 학교주관구매 교복 적격업체 선정 평가기준 및 교복사양서 결정</pre>
+<pre class="doctext">1. 관련: <span class="ph">○○고등학교-11104(2026. 10. 24.)</span>
+2. <span class="ph">2027</span>학년도 신입생 교복(동복, 하복) 학교주관구매 적격업체 선정 평가기준 및 교복 디자인 사양서를 교복선정위원회 협의 결과 붙임과 같이 결정하였습니다.
 
 붙임  1. 교복선정위원회 회의록 1부.
-      2. <span class="ph">2026</span>학년도 신입생 교복(동복, 하복) 학교주관구매 제안서 평가항목 및 배점기준표 1부.
-      3. <span class="ph">2026</span>학년도 교복 디자인 사양서 1부.  끝.</pre>
+      2. <span class="ph">2027</span>학년도 신입생 교복(동복, 하복) 학교주관구매 제안서 평가항목 및 배점기준표 1부.
+      3. <span class="ph">2027</span>학년도 교복 디자인 사양서 1부.  끝.</pre>
       <div class="attach"><span class="al">붙임 파일</span>
         <span class="noatt">회의록 — 회의 후 직접 작성</span>
         <a href="files/att3-evaluation-criteria.hwpx" download="붙임3_제안서 평가항목 및 배점기준.hwpx"><span class="ext">HWPX</span>[척따7-3] 제안서 평가항목 및 배점기준</a>
@@ -745,11 +755,11 @@ footer p{margin:0 0 7px} footer b{color:var(--ink-2); font-weight:600}
     </div>
     <div class="doccard" id="doc-s3-price" data-role="haeng">
       <div class="dochead"><span class="blabel">공문 예시</span><span class="tag h">행정 기안</span><span class="when">사양서로 견적서를 받은 뒤, 입찰공고 전</span></div>
-<pre class="doctext title"><span class="ph">2026</span>학년도 교복 기초금액 산출</pre>
-<pre class="doctext">교복 학교주관 공동구매 계약 운영 요령(2단계 입찰 등 계약분야)에 의하여 <span class="ph">2026</span>학년도 교복 견적서 제출을 의뢰하여 접수한 결과, 평균가격인 <span class="ph">338,100</span>원을 기초금액으로 정하고자 합니다.
+<pre class="doctext title"><span class="ph">2027</span>학년도 교복 기초금액 산출</pre>
+<pre class="doctext">교복 학교주관 공동구매 계약 운영 요령(2단계 입찰 등 계약분야)에 의하여 <span class="ph">2027</span>학년도 교복 견적서 제출을 의뢰하여 접수한 결과, 평균가격인 <span class="ph">338,100</span>원을 기초금액으로 정하고자 합니다.
 
-붙임  1. <span class="ph">2026</span>학년도 교복 견적서 1부.
-      2. <span class="ph">2026</span>학년도 교복 기초금액 산출표 1부.  끝.</pre>
+붙임  1. <span class="ph">2027</span>학년도 교복 견적서 1부.
+      2. <span class="ph">2027</span>학년도 교복 기초금액 산출표 1부.  끝.</pre>
       <div class="attach"><span class="al">붙임 파일</span>
         <span class="noatt">견적서 — 업체에서 받은 것</span>
         <a href="files/chuk-02-2-2.hwp" download="02-2-2_2027학년도 교복 기초금액 산출조서.hwp"><span class="ext">HWP</span>[척따2-2-2] 기초금액 산출조서</a>
@@ -851,20 +861,20 @@ footer p{margin:0 0 7px} footer b{color:var(--ink-2); font-weight:600}
   <div class="docs">
     <div class="doccard" id="doc-s5-notice" data-role="haeng">
       <div class="dochead"><span class="blabel">공문 예시</span><span class="tag h">행정 기안</span><span class="when">기초금액·평가기준 결재 후 — 나라장터 게시 전 (교무 공문은 1단계 참고)</span></div>
-<pre class="doctext title"><span class="ph">2026</span>학년도 <span class="ph">○○고등학교</span> 교복 학교주관구매 입찰공고</pre>
-<pre class="doctext"><span class="ph">2026</span>학년도 <span class="ph">○○고등학교</span> 교복 학교주관구매 입찰을 아래와 같이 공고하고자 합니다.
+<pre class="doctext title"><span class="ph">2027</span>학년도 <span class="ph">○○고등학교</span> 교복 학교주관구매 입찰공고</pre>
+<pre class="doctext"><span class="ph">2027</span>학년도 <span class="ph">○○고등학교</span> 교복 학교주관구매 입찰을 아래와 같이 공고하고자 합니다.
 
-1. 관련: <span class="ph">○○고등학교-11306(2025. 10. 28.)</span>
-2. 공고명: <span class="ph">2026</span>학년도 <span class="ph">○○고등학교</span> 교복 학교주관구매 입찰공고(<span class="ph">2단계 규격·가격 분리 동시입찰</span>)
-3. 제안서 및 가격서 제출기한: <span class="ph">2025. 11. 10.(월) 11:00 ~ 2025. 11. 27.(목) 14:00</span>
+1. 관련: <span class="ph">○○고등학교-11306(2026. 10. 28.)</span>
+2. 공고명: <span class="ph">2027</span>학년도 <span class="ph">○○고등학교</span> 교복 학교주관구매 입찰공고(<span class="ph">2단계 규격·가격 분리 동시입찰</span>)
+3. 제안서 및 가격서 제출기한: <span class="ph">2026. 11. 10.(○) 11:00 ~ 2026. 11. 27.(○) 14:00</span>
 4. 구매예정 제작 벌수: <span class="ph">120</span>벌(구매 수량은 신청 학생 수에 따라 최종 확정)
 5. 기초금액: 금<span class="ph">338,100</span>원(금<span class="ph">삼십삼만팔천일백</span>원)
-6. 제안서 평가 일시 및 장소: <span class="ph">2025. 12. 2.(화) 11:00, ○○실</span>
+6. 제안서 평가 일시 및 장소: <span class="ph">2026. 12. 2.(○) 11:00, ○○실</span>
   ※ 제안서 평가는 교복선정위원회에서 제안서 및 견본품으로 블라인드 심사
-7. 개찰 일시 및 장소: <span class="ph">2025. 12. 5.(금) 11:00</span> 이후, 입찰집행관 PC
+7. 개찰 일시 및 장소: <span class="ph">2026. 12. 5.(○) 11:00</span> 이후, 입찰집행관 PC
 8. 입찰 방법: 단가입찰, <span class="ph">2단계 규격-가격(동시)</span>, 지역제한(<span class="ph">전북특별자치도</span>)
 
-붙임  <span class="ph">2026</span>학년도 <span class="ph">○○고등학교</span> 교복 학교주관구매 입찰 공고문 1부.  끝.</pre>
+붙임  <span class="ph">2027</span>학년도 <span class="ph">○○고등학교</span> 교복 학교주관구매 입찰 공고문 1부.  끝.</pre>
       <div class="attach"><span class="al">붙임 파일</span>
         <a href="files/form3-bid-notice.hwpx" download="서식3_입찰 공고문.hwpx"><span class="ext">HWPX</span>[척따7] 입찰 공고문</a>
         <a href="files/att1-special-terms.hwpx" download="붙임1_계약 특수조건.hwpx"><span class="ext">HWPX</span>[척따7-1] 계약 특수조건</a>
@@ -2008,6 +2018,53 @@ footer p{margin:0 0 7px} footer b{color:var(--ink-2); font-weight:600}
     card.classList.add("flash");
     setTimeout(function(){ card.classList.remove("flash"); }, 1600);
   });
+
+  /* ---- 공문 학교명·학년도 입력: 노란 밑줄(.ph)의 학교 이름과 연도를 바꿔 보여 주고, 그대로 복사된다 ---- */
+  (function(){
+    var BASE = 2027;                                   // 예시 공문이 쓰인 학년도
+    var SCHOOL = /○{2,4}(?:고등|중)?학교/g;
+    var phs = Array.prototype.slice.call(document.querySelectorAll(".doctext .ph"));
+    phs.forEach(function(s){ s.dataset.tpl = s.textContent; });
+    function load(k, d){ try { return localStorage.getItem("gyobok-dv-" + k) || d; } catch (e) { return d; } }
+    function save(k, v){ try { localStorage.setItem("gyobok-dv-" + k, v); } catch (e) {} }
+    var vals = { school: load("school", ""), year: load("year", String(BASE)) };
+    function apply(){
+      var y = parseInt(vals.year, 10);
+      var shift = (y >= 2000 && y <= 2100) ? y - BASE : 0;
+      var school = vals.school.trim();
+      phs.forEach(function(s){
+        var t = s.dataset.tpl;
+        if (shift) t = t.replace(/20[2-3]\d/g, function(m){ return String(+m + shift); });
+        if (school) t = t.replace(SCHOOL, school);
+        s.textContent = t;
+      });
+      document.querySelectorAll(".docvars input").forEach(function(inp){
+        if (inp.value !== vals[inp.dataset.dv]) inp.value = vals[inp.dataset.dv];
+      });
+    }
+    function bar(){
+      var d = document.createElement("div");
+      d.className = "docvars";
+      d.innerHTML = '<b>공문에 넣을 값</b>' +
+        '<label>학교명 <input type="text" data-dv="school" placeholder="예: ○○고등학교"></label>' +
+        '<label>학년도 <input type="number" data-dv="year" min="2020" max="2099" step="1"></label>' +
+        '<span class="dv-note">입력하면 노란 밑줄 부분의 학교 이름과 연도(학년도·시행 연도)가 바뀌고, 복사하면 바뀐 내용 그대로 들어갑니다. 날짜·번호·금액은 붙여넣은 뒤 고치세요.</span>';
+      return d;
+    }
+    // 단계 화면의 공문 묶음 위, 공문 예시 모음 맨 위에 하나씩
+    document.querySelectorAll(".page .docs").forEach(function(box){
+      if (box.closest("#docall") || box.closest("#chukdocs")) return;
+      box.parentNode.insertBefore(bar(), box);
+    });
+    var docall = document.getElementById("docall");
+    if (docall) docall.parentNode.insertBefore(bar(), docall);
+    document.addEventListener("input", function(e){
+      var inp = e.target;
+      if (!inp.dataset || !inp.dataset.dv || !inp.closest(".docvars")) return;
+      vals[inp.dataset.dv] = inp.value; save(inp.dataset.dv, inp.value); apply();
+    });
+    apply();
+  })();
 
   /* ---- 공문 복사 ---- */
   function copyText(text, done){
