@@ -383,6 +383,9 @@ button.lc-node:hover{transform:translateY(-2px); box-shadow:0 8px 16px -10px rgb
 .figs{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; margin:0}
 @media(max-width:1100px){.figs{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:620px){.figs{grid-template-columns:1fr}}
+.figgroup{display:flex; align-items:center; gap:10px; margin:30px 0 14px; font-size:19px; font-weight:800; color:var(--ink)}
+.figgroup:first-of-type{margin-top:6px}
+.figgroup span{display:inline-block; padding:3px 12px; border-radius:999px; background:#1e3a5f; color:#fff; font-size:14px; font-weight:700}
 .fig{background:var(--surface); border:1px solid var(--line); border-left:5px solid #9db4cf; border-radius:12px; padding:18px 20px; box-shadow:var(--shadow-s); word-break:keep-all}
 .fig.hot{border-left-color:var(--red)}
 .fig dt{font-size:15px; font-weight:700; color:var(--ink); margin:0 0 8px; line-height:1.4}
@@ -1118,6 +1121,7 @@ footer p{margin:0 0 7px} footer b{color:var(--ink-2); font-weight:600}
     <h1>외우지 말고 확인할 숫자</h1>
     <p>공고문과 계약서에서 가장 자주 틀리는 값들입니다.</p>
   </div>
+  <h2 class="figgroup"><span>계약 전</span>준비 단계 — 가격·품목·위원회</h2>
   <dl class="figs">
     <div class="fig hot"><dt>정장형 교복 상한 가격 (2026)</dt><dd>339,300원<small>동복 240,950 · 하복 98,350 · 전년 동결</small></dd></div>
     <div class="fig hot"><dt>생활형 교복 품목별 상한 (2026)</dt><dd>339,000원<small>후드 점퍼 65,000 · 짚업티 52,000 · 맨투맨티 40,000 · 긴바지 29,000 · 반팔티 28,000 (9개 기준)</small></dd></div>
@@ -1125,18 +1129,27 @@ footer p{margin:0 0 7px} footer b{color:var(--ink-2); font-weight:600}
     <div class="fig"><dt>교복 품목 수</dt><dd>6개 이내<small>2026. 9. 매뉴얼 · 생활형도 6개 품목까지(반바지는 긴바지 단가 이내)</small></dd></div>
     <div class="fig"><dt>교복 구입비 지원 단가</dt><dd>339,000원<small>2026. 9. 매뉴얼 · 1인당 한도 · 상한가(339,300원)와 다른 개념</small></dd></div>
     <div class="fig"><dt>교복선정위원회</dt><dd>7명 이상<small>교원 제외 위원이 과반 · 교장·행정실장 제외</small></dd></div>
+  </dl>
+  <h2 class="figgroup"><span>계약 전</span>입찰·계약 단계 — 공고부터 계약 체결까지</h2>
+  <dl class="figs">
+    <div class="fig"><dt>구매규격 사전공개</dt><dd>5일 이상<small>추정가격 5천만원 이상 · 긴급 3일</small></dd></div>
     <div class="fig"><dt>입찰 공고 기간</dt><dd>10일 이상<small>게시일·마감일 제외 &#8594; 실제 12일 이상 확보</small></dd></div>
     <div class="fig hot"><dt>견본품 제작 기간</dt><dd>1개월 이상<small>공고일 ~ 제안서 평가일 · 2026. 9. 변경(종전 2주)</small></dd></div>
-    <div class="fig"><dt>구매규격 사전공개</dt><dd>5일 이상<small>추정가격 5천만원 이상 · 긴급 3일</small></dd></div>
     <div class="fig hot"><dt>전북 소재 요건</dt><dd>공고일 180일 전부터<small>입찰일까지 · 2026. 10. 25. 이후 공고분</small></dd></div>
+    <div class="fig"><dt>입찰보증금</dt><dd>5 / 100<small>기한 내 미계약 시 낙찰금액 기준 납부</small></dd></div>
+    <div class="fig hot"><dt>계약 체결</dt><dd>10일 이내<small>낙찰자 통지를 받은 날부터 · 2026. 9. 변경(종전 7일)</small></dd></div>
+  </dl>
+  <h2 class="figgroup"><span>계약 후</span>치수 측정·납품 단계</h2>
+  <dl class="figs">
     <div class="fig"><dt>치수 측정 기간</dt><dd>5일 이상<small>주말 포함</small></dd></div>
     <div class="fig"><dt>납품 기한</dt><dd>40일 이상<small>치수 측정 완료일 기준</small></dd></div>
-    <div class="fig hot"><dt>계약 체결</dt><dd>10일 이내<small>낙찰자 통지를 받은 날부터 · 2026. 9. 변경(종전 7일)</small></dd></div>
-    <div class="fig"><dt>만족도 감점</dt><dd>60점 미만 -5점<small>다음 입찰 평가 반영 · 종전 55점</small></dd></div>
     <div class="fig hot"><dt>지연배상금</dt><dd>0.8 / 1,000<small>1일당 · 계약금액 기준, 대금에서 공제</small></dd></div>
+  </dl>
+  <h2 class="figgroup"><span>납품 후</span>대금·하자·만족도</h2>
+  <dl class="figs">
     <div class="fig"><dt>대금 지급</dt><dd>5일 이내<small>검수 후 청구일부터, 토·공휴일 제외</small></dd></div>
     <div class="fig"><dt>무상 A/S · 하자보증</dt><dd>각 1년<small>품질보증은 납품일부터 3년</small></dd></div>
-    <div class="fig"><dt>입찰보증금</dt><dd>5 / 100<small>기한 내 미계약 시 낙찰금액 기준 납부</small></dd></div>
+    <div class="fig"><dt>만족도 감점</dt><dd>60점 미만 -5점<small>다음 입찰 평가 반영 · 종전 55점</small></dd></div>
   </dl>
   <p class="note">상한 가격은 전북특별자치도교육청 학교안전과 「2026년 교복 학교주관구매 상한가격 및 교복 품목 간소화 추진 안내」(학교안전과-3789, 2026. 5. 8.) 기준입니다. 상한 가격은 기초금액의 <b>상한선</b>이지 기초금액이 아닙니다. 정장형+생활형 혼용 학교는 339,300원 범위 안에서 필수품목 중심으로 구성합니다. 지원 단가는 사업 부서 공문으로 따로 안내되니 당해 연도 값을 다시 확인하세요.</p>
   <div class="basis" style="margin-top:12px"><b>근거 공문 붙임</b><br>
