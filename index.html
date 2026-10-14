@@ -380,11 +380,14 @@ button.lc-node:hover{transform:translateY(-2px); box-shadow:0 8px 16px -10px rgb
 .navhint{font-size:11.5px; color:var(--ink-3); width:100%; margin-top:2px}
 
 /* ============ 참고 페이지 ============ */
-.figs{display:grid; grid-template-columns:repeat(auto-fill,minmax(186px,1fr)); gap:1px; background:var(--line-soft); border:1px solid var(--line); border-radius:14px; overflow:hidden; box-shadow:var(--shadow-s)}
-.fig{background:var(--surface); padding:13px 15px 14px}
-.fig dt{font-size:11.5px; color:var(--ink-3); margin:0 0 3px}
-.fig dd{margin:0; font-family:var(--mono); font-size:16px; font-weight:600; font-variant-numeric:tabular-nums; letter-spacing:-.02em}
-.fig dd small{display:block; font-family:var(--body); font-size:11.5px; font-weight:400; color:var(--ink-2); letter-spacing:0; margin-top:3px; line-height:1.5}
+.figs{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; margin:0}
+@media(max-width:1100px){.figs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.figs{grid-template-columns:1fr}}
+.fig{background:var(--surface); border:1px solid var(--line); border-left:5px solid #9db4cf; border-radius:12px; padding:18px 20px; box-shadow:var(--shadow-s); word-break:keep-all}
+.fig.hot{border-left-color:var(--red)}
+.fig dt{font-size:15px; font-weight:700; color:var(--ink); margin:0 0 8px; line-height:1.4}
+.fig dd{margin:0; font-size:24px; font-weight:800; color:#1e3a5f; font-variant-numeric:tabular-nums; letter-spacing:-.01em; line-height:1.3}
+.fig dd small{display:block; font-family:var(--body); font-size:14px; font-weight:400; color:var(--ink-2); letter-spacing:0; margin-top:10px; padding-top:10px; border-top:1px solid var(--line-soft); line-height:1.65}
 .fig.hot dd{color:var(--red)}
 .note{font-size:12.5px; color:var(--ink-3); margin:12px 2px 0; line-height:1.7}
 .note b{color:var(--ink-2); font-weight:600}
@@ -409,12 +412,14 @@ td.dl{white-space:nowrap; width:1%}
 td.dl a{font-size:12px; font-weight:600; color:var(--blue-ink); text-decoration:none; background:var(--blue-soft); border:1px solid var(--blue-edge); border-radius:7px; padding:3px 9px}
 td.dl a:hover{border-color:var(--blue)}
 
-.pits{display:grid; grid-template-columns:repeat(auto-fit,minmax(288px,1fr)); gap:13px}
-.pit{background:var(--surface); border:1px solid var(--line); border-top:4px solid var(--red); border-radius:12px; padding:15px 17px 16px; box-shadow:var(--shadow-s)}
-.pit h3{font-family:var(--disp); margin:0 0 7px; font-size:15px; font-weight:700; line-height:1.4}
-.pit p{margin:0; font-size:13.5px; color:var(--ink-2); line-height:1.6}
-.pit p+p{margin-top:8px; padding-top:8px; border-top:1px solid var(--line-soft); color:var(--teal-ink)}
-.pit p+p b{color:var(--teal); font-weight:700}
+.pits{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; counter-reset:pit}
+@media(max-width:900px){.pits{grid-template-columns:1fr}}
+.pit{background:var(--surface); border:1px solid var(--line); border-left:5px solid var(--red); border-radius:12px; padding:20px 22px; box-shadow:var(--shadow-s); word-break:keep-all; counter-increment:pit}
+.pit h3{font-family:var(--disp); margin:0 0 10px; font-size:18px; font-weight:800; line-height:1.45; color:var(--ink)}
+.pit h3::before{content:counter(pit); display:inline-grid; place-items:center; width:26px; height:26px; margin-right:9px; border-radius:50%; background:var(--red); color:#fff; font-size:14px; vertical-align:2px}
+.pit p{margin:0; font-size:15px; color:var(--ink-2); line-height:1.75}
+.pit p+p{margin-top:14px; padding:12px 14px; border-radius:9px; background:#eef6f5; color:var(--teal-ink)}
+.pit p+p b{display:inline-block; margin-right:8px; padding:1px 8px; border-radius:5px; background:var(--teal); color:#fff; font-size:13px; font-weight:700}
 
 footer{margin-top:26px; padding-top:16px; border-top:1px solid var(--line); font-size:12px; color:var(--ink-3); line-height:1.75}
 footer p{margin:0 0 7px} footer b{color:var(--ink-2); font-weight:600}
