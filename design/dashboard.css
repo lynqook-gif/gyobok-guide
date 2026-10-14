@@ -90,3 +90,7 @@ body.desk-layout{font-size:15px;line-height:1.65;color:#20324b}.desk-menu button
 .desk-credit b{font-weight:700}
 .desk-credit a{color:inherit;text-decoration:none}
 .desk-credit div:last-child a{color:var(--desk-accent,#2775ce);font-weight:700}
+
+/* 교복: 홈 화면 (업데이트 안내·사이트 바로가기) */
+.homepage{display:flex;flex-direction:column;gap:28px}
+.homepage .desk-home-updates,.homepage .desk-related-sites{margin:0}

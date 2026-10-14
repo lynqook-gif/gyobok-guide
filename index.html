@@ -445,15 +445,15 @@ footer p{margin:0 0 7px} footer b{color:var(--ink-2); font-weight:600}
 .docvars .dv-note{flex-basis:100%;font-size:12.5px;color:#5a6f88}
 @media print{.docvars{display:none}}
 </style>
-<link rel="stylesheet" href="design/dashboard.css?v=15">
-<script defer src="design/dashboard.js?v=15"></script>
+<link rel="stylesheet" href="design/dashboard.css?v=16">
+<script defer src="design/dashboard.js?v=16"></script>
 </head>
 <body>
 
 <!-- ================= 헤더 ================= -->
 <header class="topbar" id="topbar">
   <div class="topbar-in">
-    <button class="homebtn" type="button" data-go="flow">
+    <button class="homebtn" type="button" data-go="home">
       <img id="homeart" alt="">
       <b>교행e의 교복길라잡이</b>
     </button>
@@ -466,6 +466,11 @@ footer p{margin:0 0 7px} footer b{color:var(--ink-2); font-weight:600}
 </header>
 
 <main id="main">
+
+<!-- ================= 홈 ================= -->
+<div class="page" data-page="home" hidden>
+  <div class="homepage"></div>
+</div>
 
 <!-- ================= 추진 절차 ================= -->
 <div class="page" data-page="flow" hidden>
@@ -2180,7 +2185,7 @@ footer p{margin:0 0 7px} footer b{color:var(--ink-2); font-weight:600}
     pages.forEach(function(p){ p.hidden = (p !== target); });
 
     var idx = ORDER.indexOf(id);
-    if (id === "flow"){
+    if (id === "home" || id === "flow"){
       pagenav.hidden = true;
     } else if (idx === -1){
       // 참고 페이지 — 이전/다음 없이 절차도로만
@@ -2197,7 +2202,7 @@ footer p{margin:0 0 7px} footer b{color:var(--ink-2); font-weight:600}
       nextBtn.innerHTML = (idx === ORDER.length - 1 ? "다음" : (idx + 2) + "단계") + ' <span class="k">&#8594;</span>';
     }
     countPage(target);
-    document.title = id === "flow" ? "교행e의 교복길라잡이" : TITLES[id] + " · 교행e의 교복길라잡이";
+    document.title = (id === "home" || id === "flow") ? "교행e의 교복길라잡이" : TITLES[id] + " · 교행e의 교복길라잡이";
     window.scrollTo(0, 0);
   }
 
@@ -2224,7 +2229,7 @@ footer p{margin:0 0 7px} footer b{color:var(--ink-2); font-weight:600}
   });
 
   applyRole();
-  show("flow");
+  show("home");
 })();
 </script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "33565624ac7745a29e49c5e4f23c42eb"}'></script><!-- End Cloudflare Web Analytics -->
