@@ -1301,7 +1301,7 @@ footer p{margin:0 0 7px} footer b{color:var(--ink-2); font-weight:600}
   <div class="phead">
     <p class="pkicker">참고</p>
     <h1>기초자료 입력</h1>
-    <p>학교·일정·금액·위원·업체·문서번호를 여기서 한 번 입력하면 <b>공문 예시의 노란 밑줄 칸</b>이 모두 채워집니다(채워진 칸은 초록색). 입력값은 이 창 안에서만 쓰이고 서버로 보내지 않으며, 창을 닫으면 지워집니다. <b>[엑셀로 저장]</b>해 두었다가 다음에 <b>[엑셀 올리기]</b>로 불러오세요. 처음이라면 [빈 양식 내려받기]로 엑셀을 받아 채운 뒤 [엑셀 올리기]로 올려도 됩니다. 한글 서식 옆의 <b>[채워서 받기]</b>를 누르면 학교명·학년도(입찰 공고문은 일정·금액·문의처까지)가 들어간 한글 파일을 받을 수 있습니다(인터넷 사이트에서만).</p>
+    <p>학교·일정·금액·위원·업체·문서번호를 여기서 한 번 입력하면 <b>공문 예시의 노란 밑줄 칸</b>이 모두 채워집니다(채워진 칸은 초록색). 입력값은 이 창 안에서만 쓰이고 서버로 보내지 않으며, 창을 닫으면 지워집니다. <b>[엑셀로 저장]</b>해 두었다가 다음에 <b>[엑셀 올리기]</b>로 불러오세요. 처음이라면 [빈 양식 내려받기]로 엑셀을 받아 채운 뒤 [엑셀 올리기]로 올려도 됩니다. 한글 서식 옆의 <b>[채워서 받기]</b>를 누르면 학교명·학년도와 서식에 따라 일정·금액·위원 명단·낙찰 업체 등이 들어간 한글 파일을 받을 수 있습니다(인터넷 사이트에서만).</p>
   </div>
   <div class="bd-tools">
     <button type="button" class="primary" data-bd="save">엑셀로 저장 (양식 겸용)</button>
@@ -2519,14 +2519,37 @@ footer p{margin:0 0 7px} footer b{color:var(--ink-2); font-weight:600}
     function nmem(){ return mem().length; }
     function period(){ var a = at("bidStart", "bidStartTime"), b = at("bidEnd", "bidEndTime"); return a && b ? a + " ∼ " + b : ""; }
     var COMMON = [ // 모든 서식: 학교명, 학년도
-      [/[○◯](?: [○◯]){1,3} 학 교 장/g, function(){ return base() ? base().split("").join(" ") + " 학 교 장" : ""; }],
+      [/[○◯](?: [○◯]){1,3} 학 교( 장)?/g, function(m, j){ return base() ? base().split("").join(" ") + " 학 교" + (j || "") : ""; }],
       [/[○◯]{2,4} ?(?:고등|중)?(?=학교)/g, function(){ return base(); }, true],
-      [/202[67](?=학년도|\s*년|\s*\.\s*(?:[0○◯.]|$))/g, function(m){
+      [/202[67](?=학년도|\s*년|\s*\.\s*(?:[0O○◯.]|$))/g, function(m){
         var y = parseInt(F("year"), 10); return y >= 2000 && y <= 2100 ? String(+m + y - BASE) : "";
       }]
     ];
     var FORMS = { // 서식 번호 → 그 서식만의 칸 (COMMON보다 먼저 적용)
       "01-1":[], "01-2":[], "04-1":[], "07-02":[], "07-04":[], "07-05":[], "07-12":[], "07-17":[], "07-18":[], "11-3":[], "15-1":[], "16-2":[],
+      "02-1":function(){ // 구매 계획(안): 표지 날짜(문서번호 대장의 '교복 학교주관구매 계획' 날짜), 위원 명단 표
+        return [[/^\s*\d{4}\. ○\.\s*$/g, function(){ var d = pd((D.docs.plan || {}).date); return d ? d.getFullYear() + ". " + (d.getMonth() + 1) + "." : ""; }]].concat(committee());
+      },
+      "03-1":function(){ return committee(); },  // 학운위 심의(안): 위원 명단 표
+      "02-2-1":[ // 견적 의뢰서
+        [/[○◯]{3}(?=명입니다)/g, function(){ return comma(num(F("qty"))); }],
+        [/\d{4}\. ○○\. ○○\.\(○\)/g, function(){ return dotw(F("quoteDue")); }]
+      ],
+      "07-01":[ // 계약 특수조건
+        [/(상대자 )○○교복사/g, function(m, p){ return F("winner") ? p + F("winner") : ""; }],
+        [/(대표 )[○◯]{3}(?=\(이하)/g, function(m, p){ var c = FMT.winnerCeo(); return c ? p + c : ""; }],
+        [/(동복|하복): \d{4}\.OO\.OO\(요일\)/g, function(m, w){ var s = dotw(F(w === "동복" ? "winterDue" : "summerDue")); return s ? w + ": " + s : ""; }]
+      ],
+      "07-08":[ // 입찰 참가 신고서: 공고일
+        [/\d{4}\.00\.00\.(?= 일자로)/g, function(){ return dot(F("bidStart")); }]
+      ],
+      "11-1":[ // 평가위원회 참석 등록부
+        [/(일시：)\d{4}\.○\.○\. ○○:○○/g, function(m, p){ var s = at("evalDate", "evalTime"); return s ? p + s : ""; }],
+        [/^(2\. 장소：)회의실$/g, function(m, p){ return F("evalPlace") ? p + F("evalPlace") : ""; }]
+      ],
+      "16-1":[ // 교복 지원 안내문: 교복 가격(투찰 단가)
+        [/(가격은 )000원/g, function(m, p){ var n = comma(num(F("bidPrice"))); return n ? p + n + "원" : ""; }]
+      ],
       "07":[ // 입찰 공고문
         [/금000,000원/g, function(){ var n = comma(num(F("basePrice"))); return n ? "금" + n + "원" : ""; }],
         [/각 000벌/g, function(){ var n = comma(num(F("qty"))); return n ? "각 " + n + "벌" : ""; }],
@@ -2546,6 +2569,18 @@ footer p{margin:0 0 7px} footer b{color:var(--ink-2); font-weight:600}
     function formId(href){ // 원본 "…척척따라하기 서식(2027학년도)/07-01_….hwpx", 사이트 "files/chuk-07-01.hwpx"
       var m = /(?:척척따라하기 서식\([^)]*\)\/|chuk-)(\d+(?:-\d+)*)(?:_[^\/]*)?\.hwpx$/.exec(decodeURIComponent(href || ""));
       return m && FORMS.hasOwnProperty(m[1]) ? m[1] : "";
+    }
+    function rulesOf(id){ var f = FORMS[id]; return (typeof f === "function" ? f() : f).concat(COMMON); } // 함수인 서식은 누를 때마다 새로 (표 줄 세기)
+    function committee(){ // 위원 명단 표: 위에서 k번째 줄의 구분·직위·성명 칸에 k번째 위원(위원장·부위원장 먼저). 표 줄 수는 서식 그대로
+      var rank = function(m){ var i = ["위원장","부위원장"].indexOf(m.role); return i < 0 ? 2 : i; };
+      var list = mem().map(function(m, i){ return [m, i]; }).sort(function(a, b){ return rank(a[0]) - rank(b[0]) || a[1] - b[1]; }).map(function(x){ return x[0]; });
+      var idx = { r:0, p:0, n:0 };
+      function next(k, f){ var m = list[idx[k]++]; return m ? f(m) : ""; }
+      return [
+        [/^(위원장|위  원)$/g, function(){ return next("r", function(m){ return m.role || "위원"; }); }],
+        [/^(교 *감|교 *사|학부모|학 *생)$/g, function(){ return next("p", function(m){ return String(m.pos || "").trim() || m.grp || ""; }); }],
+        [/^[○◯]{3}$/g, function(){ return next("n", function(m){ return m.name.trim(); }); }]
+      ];
     }
     function unx(s){ return s.replace(/&(lt|gt|quot|apos|amp);/g, function(m, e){ return { lt:"<", gt:">", quot:'"', apos:"'", amp:"&" }[e]; }); }
     function enx(s){ return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
@@ -2604,7 +2639,7 @@ footer p{margin:0 0 7px} footer b{color:var(--ink-2); font-weight:600}
         fetch(btn.dataset.href).then(function(r){ if (!r.ok) throw new Error(r.status); return r.arrayBuffer(); })
           .then(function(buf){ return JSZip.loadAsync(buf); })
           .then(function(zip){
-            var rules = FORMS[id].concat(COMMON), jobs = [];
+            var rules = rulesOf(id), jobs = [];
             zip.forEach(function(name, f){
               if (/^Contents\/section\d+\.xml$/.test(name)) jobs.push(f.async("string").then(function(x){ zip.file(name, fillXml(x, rules).xml); }));
             });
@@ -2627,7 +2662,7 @@ footer p{margin:0 0 7px} footer b{color:var(--ink-2); font-weight:600}
       var href = a.getAttribute("href"), id = formId(href); if (!id) return;
       var b = document.createElement("button");
       b.type = "button"; b.className = "hwpfill"; b.textContent = "채워서 받기";
-      b.title = "기초자료의 학교명·학년도" + (id === "07" ? "·일정·금액·문의처" : "") + "를 넣은 한글 파일로 내려받기 (사이트에서만)";
+      b.title = "기초자료의 학교명·학년도" + (typeof FORMS[id] === "function" || FORMS[id].length ? "·일정·금액 등" : "") + "를 넣은 한글 파일로 내려받기 (사이트에서만)";
       b.dataset.fill = id; b.dataset.href = href;
       b.dataset.name = a.getAttribute("download") || decodeURIComponent(href.split("/").pop());
       a.insertAdjacentElement("afterend", b);
