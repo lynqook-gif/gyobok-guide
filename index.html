@@ -444,9 +444,37 @@ footer p{margin:0 0 7px} footer b{color:var(--ink-2); font-weight:600}
 .docvars input[data-dv="year"]{width:5.5em}
 .docvars .dv-note{flex-basis:100%;font-size:12.5px;color:#5a6f88}
 @media print{.docvars{display:none}}
+/* 기초자료 입력 (기능용 최소 스타일 — 모양은 디자인 담당이 다듬음) */
+.ph.ph-ok{background:#e3f4e8;border-bottom-color:#3a9a5b}
+.docvars .dv-go{font:inherit;font-weight:700;padding:6px 12px;border:1px solid #2f6fd6;border-radius:7px;background:#2f6fd6;color:#fff;cursor:pointer}
+.docvars .dv-count{font-size:13px;color:#2f6a3f;font-weight:700}
+.bd-tools{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px}
+.bd-tools button{font:inherit;font-weight:700;padding:8px 14px;border:1px solid #b9cde6;border-radius:8px;background:#fff;color:#1e3a5f;cursor:pointer}
+.bd-tools .bd-link{font-weight:700;padding:8px 14px;border:1px solid #b9cde6;border-radius:8px;background:#fff;color:#1e3a5f;text-decoration:none}
+.bd-tools button.primary{background:#1e3a5f;border-color:#1e3a5f;color:#fff}
+.bd-sec{margin:0 0 18px;padding:16px 18px;border:1px solid #d7e2f0;border-radius:12px;background:#fff}
+.bd-sec h2{margin:0 0 10px;font-size:17px;color:#1e3a5f}
+.bd-note{margin:-4px 0 10px;font-size:13px;color:#5a6f88}
+.bd-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px 16px}
+.bd-field{display:flex;flex-direction:column;gap:4px;font-size:14px}
+.bd-field span{font-weight:700;color:#1e3a5f}
+.bd-field small{font-size:12px;color:#6b7f96}
+.bd-sec input,.bd-sec select{font:inherit;width:100%;box-sizing:border-box;padding:6px 8px;border:1px solid #b9cde6;border-radius:7px;background:#fff;color:#1e3a5f}
+.bd-tablewrap{overflow-x:auto}
+.bd-table{width:100%;border-collapse:collapse;font-size:14px}
+.bd-table th,.bd-table td{padding:5px 6px;border-bottom:1px solid #e3eaf3;text-align:left;white-space:nowrap}
+.bd-table td input,.bd-table td select{min-width:76px}
+.bd-add,.bd-del{font:inherit;cursor:pointer;border:1px solid #b9cde6;border-radius:7px;background:#f4f8fd;color:#1e3a5f}
+.bd-add{margin-top:8px;padding:6px 12px}
+.bd-del{padding:3px 8px}
+@media print{.bd-tools,.bd-add,.bd-del{display:none}}
+.hwpfill{font:inherit;font-size:12px;font-weight:600;padding:3px 9px;border:1px dashed #7aa7d9;border-radius:7px;background:#fff;color:#1e3a5f;cursor:pointer}
+.hwpfill:hover{border-style:solid}
+.hwpfill:disabled{opacity:.6;cursor:wait}
+@media print{.hwpfill{display:none}}
 </style>
-<link rel="stylesheet" href="design/dashboard.css?v=16">
-<script defer src="design/dashboard.js?v=17"></script>
+<link rel="stylesheet" href="design/dashboard.css?v=18">
+<script defer src="design/dashboard.js?v=18"></script>
 </head>
 <body>
 
@@ -480,16 +508,18 @@ footer p{margin:0 0 7px} footer b{color:var(--ink-2); font-weight:600}
     </div>
     <div class="homebottom">
       <div class="reflinks">
+        <button class="reflink wide" type="button" data-go="basedata"><b>기초자료 입력</b><span>한 번 입력하면 공문 예시 23건의 날짜·번호·금액·위원·업체가 자동으로 채워짐 · 엑셀 저장/올리기</span></button>
         <button class="reflink wide" type="button" data-go="figures"><b>확인할 숫자</b><span>2026년 상한 가격, 공고 기간, 납품 기한 등 18가지</span></button>
         <button class="reflink" type="button" data-go="g2b"><b>나라장터(G2B) 입찰 진행</b><span>사전규격 공개부터 공고·개찰·계약까지 13단계</span></button>
-        <button class="reflink" type="button" data-go="forms"><b>지침 서식 내려받기</b><span>전북특별자치도교육청 운영요령 서식·붙임 파일</span></button>
+        <button class="reflink" type="button" data-go="suui"><b>수의계약으로 업체 정하기</b><span>추정가격 기준, 1인·2인 견적, 유찰 후 수의계약</span></button>
+        <button class="reflink" type="button" data-go="forms"><b>지침 서식 내려받기</b><span>운영 매뉴얼(2026. 9.) 척척 따라하기 서식</span></button>
         <button class="reflink" type="button" data-go="docs"><b>공문 예시 모음</b><span>실제 내부결재 5건 + 매뉴얼 기안문 18건 — 제목·본문 복사, 붙임 한글 파일</span></button>
         <button class="reflink" type="button" data-go="pitfalls"><b>자주 하는 실수</b><span>민원·감사로 이어지기 쉬운 10가지</span></button>
       </div>
       <div class="basis">
         <b>기준</b> 이 안내는 전북특별자치도교육청 「<b>교복 학교주관구매 운영 매뉴얼</b>」(2026. 9., 학교안전과-7715 2026. 9. 29.)을 기준으로 정리했습니다. 서식 번호 <b>[척따○]</b>는 매뉴얼 [부록1] '척척 따라하기' 번호입니다. 내려받는 한글 파일은 새 매뉴얼 서식을 2027학년도 신입생(2026년 추진) 기준으로 고쳐 둔 것입니다.<br>
         <a href="files/manual-2026-09.pdf" download="교복 학교주관구매 운영 매뉴얼(2026.9.).pdf"><span class="ext">PDF</span>2026. 9. 운영 매뉴얼 원문(PDF)</a>
-        <a href="files/guideline-2025-09.hwpx" download="교복학교주관구매운영요령(2025.9.개정).hwpx"><span class="ext">HWPX</span>2025. 9. 운영요령(서식 원본)</a>
+        <a href="files/guideline-2025-09.hwpx" download="교복학교주관구매운영요령(2025.9.개정).hwpx"><span class="ext">HWPX</span>2025. 9. 운영요령(이전 판)</a>
       </div>
     </div>
     <div class="homeflow flowcard">
@@ -524,52 +554,52 @@ footer p{margin:0 0 7px} footer b{color:var(--ink-2); font-weight:600}
   <div class="docs">
     <div class="doccard" id="doc-s1-committee" data-role="gyomu">
       <div class="dochead"><span class="blabel">공문 1-2</span><span class="tag g">교무 기안</span><span class="when">위원 명단과 서약서가 모이면 바로</span></div>
-<pre class="doctext title"><span class="ph">2027</span>학년도 교복 학교주관구매 추진을 위한 교복선정위원회 구성</pre>
+<pre class="doctext title"><span class="ph" data-k="year">2027</span>학년도 교복 학교주관구매 추진을 위한 교복선정위원회 구성</pre>
 <pre class="doctext">1. 관련: 교복 학교주관구매 운영 매뉴얼(2026. 9.)
-2. <span class="ph">2027</span>학년도 교복 학교주관구매 추진을 위한 교복선정위원회를 붙임과 같이 구성하고자 합니다.
-  가. 구성: 총 <span class="ph">0</span>명(교원 <span class="ph">0</span>명, 학교운영위원 <span class="ph">0</span>명, 학부모 <span class="ph">0</span>명, 학생 <span class="ph">0</span>명)
+2. <span class="ph" data-k="year">2027</span>학년도 교복 학교주관구매 추진을 위한 교복선정위원회를 붙임과 같이 구성하고자 합니다.
+  가. 구성: 총 <span class="ph" data-k="cnt:">0</span>명(교원 <span class="ph" data-k="cnt:교원">0</span>명, 학교운영위원 <span class="ph" data-k="cnt:학교운영위원">0</span>명, 학부모 <span class="ph" data-k="cnt:학부모">0</span>명, 학생 <span class="ph" data-k="cnt:학생">0</span>명)
   나. 역할: 품질 심사 기준 설정 및 제안서 정성평가, 제작 상황 감독, 구매 결과 평가
   다. 위원 전원 수락 및 확인서, 청렴 및 보안 서약서 징구
 
-붙임  <span class="ph">2027</span>학년도 교복선정위원회 규정 및 명단 1부.  끝.</pre>
+붙임  <span class="ph" data-k="year">2027</span>학년도 교복선정위원회 규정 및 명단 1부.  끝.</pre>
       <div class="attach"><span class="al">붙임 파일</span>
         <a href="files/step1-committee.hwpx" download="1단계_교복선정위원회 구성(규정·명단).hwpx"><span class="ext">HWPX</span>교복선정위원회 규정 및 명단</a>
-        <a href="files/form7-acceptance.hwpx" download="서식7_위원 수락 및 확인서.hwpx"><span class="ext">HWPX</span>[척따1-1] 위원 수락 및 확인서</a>
-        <a href="files/form8-integrity-pledge.hwpx" download="서식8_위원 청렴 및 보안 서약서.hwpx"><span class="ext">HWPX</span>[척따1-2] 위원 청렴 및 보안 서약서</a>
+        <a href="files/chuk-01-1.hwpx" download="01-1_교복선정위원회 위원 수락 및 확인서.hwpx"><span class="ext">HWPX</span>[척따1-1] 위원 수락 및 확인서</a>
+        <a href="files/chuk-01-2.hwpx" download="01-2_교복선정위원회 위원 청렴 및 보안 서약서.hwpx"><span class="ext">HWPX</span>[척따1-2] 위원 청렴 및 보안 서약서</a>
       </div>
     </div>
     <div class="doccard" id="doc-s1-meeting" data-role="gyomu">
       <div class="dochead"><span class="blabel">공문 1-3</span><span class="tag g">교무 기안</span><span class="when">위원회 소집 전 — 회의 개최 결재</span></div>
-<pre class="doctext title"><span class="ph">2027</span>학년도 교복 학교주관구매 교복 적격업체 선정 평가기준 및 교복 사양서 결정회의</pre>
-<pre class="doctext">1. 관련: <span class="ph">○○고등학교-10410(2026. 10. 2.)</span>
-2. <span class="ph">2027</span>학년도 교복 학교주관구매 교복 적격업체 선정 평가기준 및 교복 사양서 결정을 위한 교복선정위원회 회의를 실시하고자 합니다.
-  가. 일시: <span class="ph">2026. 10. 27.(○) 13:00~13:50</span>
-  나. 장소: <span class="ph">○○고등학교 교무실</span>
-  다. 안건: <span class="ph">2027</span>학년도 교복 학교주관구매 교복 적격업체 선정 평가기준 및 교복 사양서 결정
-  라. 참석대상: <span class="ph">2026</span>년 교복선정위원회 위원(<span class="ph">9</span>명)
+<pre class="doctext title"><span class="ph" data-k="year">2027</span>학년도 교복 학교주관구매 교복 적격업체 선정 평가기준 및 교복 사양서 결정회의</pre>
+<pre class="doctext">1. 관련: <span class="ph" data-k="rel:committee">○○고등학교-10410(2026. 10. 2.)</span>
+2. <span class="ph" data-k="year">2027</span>학년도 교복 학교주관구매 교복 적격업체 선정 평가기준 및 교복 사양서 결정을 위한 교복선정위원회 회의를 실시하고자 합니다.
+  가. 일시: <span class="ph" data-k="meetTime">2026. 10. 27.(○) 13:00~13:50</span>
+  나. 장소: <span class="ph" data-k="v:meetPlace">○○고등학교 교무실</span>
+  다. 안건: <span class="ph" data-k="year">2027</span>학년도 교복 학교주관구매 교복 적격업체 선정 평가기준 및 교복 사양서 결정
+  라. 참석대상: <span class="ph" data-k="yearPrev">2026</span>년 교복선정위원회 위원(<span class="ph" data-k="cnt:">9</span>명)
 
-붙임  1. <span class="ph">2027</span>학년도 교복 사양서 1부.
-      2. <span class="ph">2027</span>학년도 신입생 교복 학교주관구매 적격업체 선정 평가기준표 1부.
-      3. <span class="ph">2026</span>년 교복선정위원회 명단 1부.  끝.</pre>
+붙임  1. <span class="ph" data-k="year">2027</span>학년도 교복 사양서 1부.
+      2. <span class="ph" data-k="year">2027</span>학년도 신입생 교복 학교주관구매 적격업체 선정 평가기준표 1부.
+      3. <span class="ph" data-k="yearPrev">2026</span>년 교복선정위원회 명단 1부.  끝.</pre>
       <div class="attach"><span class="al">붙임 파일</span>
-        <a href="files/att2-design-spec.hwpx" download="붙임2_교복 디자인 및 규격서.hwpx"><span class="ext">HWPX</span>[척따7-2] 교복 디자인 및 규격서(사양서)</a>
-        <a href="files/att3-evaluation-criteria.hwpx" download="붙임3_제안서 평가항목 및 배점기준.hwpx"><span class="ext">HWPX</span>[척따7-3] 제안서 평가항목 및 배점기준</a>
+        <a href="files/chuk-07-02.hwpx" download="07-02_교복 디자인 및 규격서.hwpx"><span class="ext">HWPX</span>[척따7-2] 교복 디자인 및 규격서(사양서)</a>
+        <a href="files/chuk-07-03.hwpx" download="07-03_제안서 평가항목 및 배점기준.hwpx"><span class="ext">HWPX</span>[척따7-3] 제안서 평가항목 및 배점기준</a>
         <a href="files/step1-committee.hwpx" download="1단계_교복선정위원회 구성(규정·명단).hwpx"><span class="ext">HWPX</span>위원회 명단</a>
       </div>
     </div>
     <div class="doccard" id="doc-s1-decision" data-role="gyomu">
       <div class="dochead"><span class="blabel">공문 1-5</span><span class="tag g">교무 기안</span><span class="when">회의 직후 — 결과 결재 후 행정 인계</span></div>
-<pre class="doctext title"><span class="ph">2027</span>학년도 교복 학교주관구매 교복 적격업체 선정 평가기준 및 교복사양서 결정</pre>
-<pre class="doctext">1. 관련: <span class="ph">○○고등학교-11104(2026. 10. 24.)</span>
-2. <span class="ph">2027</span>학년도 신입생 교복(동복, 하복) 학교주관구매 적격업체 선정 평가기준 및 교복 디자인 사양서를 교복선정위원회 협의 결과 붙임과 같이 결정하였습니다.
+<pre class="doctext title"><span class="ph" data-k="year">2027</span>학년도 교복 학교주관구매 교복 적격업체 선정 평가기준 및 교복사양서 결정</pre>
+<pre class="doctext">1. 관련: <span class="ph" data-k="rel:meeting">○○고등학교-11104(2026. 10. 24.)</span>
+2. <span class="ph" data-k="year">2027</span>학년도 신입생 교복(동복, 하복) 학교주관구매 적격업체 선정 평가기준 및 교복 디자인 사양서를 교복선정위원회 협의 결과 붙임과 같이 결정하였습니다.
 
 붙임  1. 교복선정위원회 회의록 1부.
-      2. <span class="ph">2027</span>학년도 신입생 교복(동복, 하복) 학교주관구매 제안서 평가항목 및 배점기준표 1부.
-      3. <span class="ph">2027</span>학년도 교복 디자인 사양서 1부.  끝.</pre>
+      2. <span class="ph" data-k="year">2027</span>학년도 신입생 교복(동복, 하복) 학교주관구매 제안서 평가항목 및 배점기준표 1부.
+      3. <span class="ph" data-k="year">2027</span>학년도 교복 디자인 사양서 1부.  끝.</pre>
       <div class="attach"><span class="al">붙임 파일</span>
         <span class="noatt">회의록 — 회의 후 직접 작성</span>
-        <a href="files/att3-evaluation-criteria.hwpx" download="붙임3_제안서 평가항목 및 배점기준.hwpx"><span class="ext">HWPX</span>[척따7-3] 제안서 평가항목 및 배점기준</a>
-        <a href="files/att2-design-spec.hwpx" download="붙임2_교복 디자인 및 규격서.hwpx"><span class="ext">HWPX</span>[척따7-2] 교복 디자인 및 규격서(사양서)</a>
+        <a href="files/chuk-07-03.hwpx" download="07-03_제안서 평가항목 및 배점기준.hwpx"><span class="ext">HWPX</span>[척따7-3] 제안서 평가항목 및 배점기준</a>
+        <a href="files/chuk-07-02.hwpx" download="07-02_교복 디자인 및 규격서.hwpx"><span class="ext">HWPX</span>[척따7-2] 교복 디자인 및 규격서(사양서)</a>
       </div>
     </div>
   </div>
@@ -752,14 +782,14 @@ footer p{margin:0 0 7px} footer b{color:var(--ink-2); font-weight:600}
   <div class="docs">
     <div class="doccard" id="doc-s3-quote" data-role="haeng">
       <div class="dochead"><span class="blabel">공문 예시</span><span class="tag h">행정 · 시행문</span><span class="when">사양서가 정해지면 — 교복업체에 견적 의뢰(수신: 교복업체)</span></div>
-<pre class="doctext title"><span class="ph">2027</span>학년도 <span class="ph">○○학교</span> 교복 견적 의뢰</pre>
-<pre class="doctext">1. 관련: <span class="ph">○○학교-0000(2026. ○. ○.)</span>
-2. <span class="ph">2027</span>학년도 <span class="ph">○○학교</span> 교복(동복 및 하복) 학교주관구매를 위해 실거래 가격을 조사하기 위하여 아래와 같이 견적을 요청하오니 회신하여 주시기 바랍니다.
-   가. 회신기한: <span class="ph">2026. ○○. ○○.</span>
-   나. 요청내용: <span class="ph">2027</span>학년도 <span class="ph">○○학교</span> 교복(동복, 하복) 견적
-   다. 회신방법: 팩스(<span class="ph">000-0000</span>) 또는 이메일(<span class="ph">00000@jbedu.kr</span>)
+<pre class="doctext title"><span class="ph" data-k="year">2027</span>학년도 <span class="ph" data-k="school">○○학교</span> 교복 견적 의뢰</pre>
+<pre class="doctext">1. 관련: <span class="ph" data-k="rel:plan">○○학교-0000(2026. ○. ○.)</span>
+2. <span class="ph" data-k="year">2027</span>학년도 <span class="ph" data-k="school">○○학교</span> 교복(동복 및 하복) 학교주관구매를 위해 실거래 가격을 조사하기 위하여 아래와 같이 견적을 요청하오니 회신하여 주시기 바랍니다.
+   가. 회신기한: <span class="ph" data-k="date:quoteDue">2026. ○○. ○○.</span>
+   나. 요청내용: <span class="ph" data-k="year">2027</span>학년도 <span class="ph" data-k="school">○○학교</span> 교복(동복, 하복) 견적
+   다. 회신방법: 팩스(<span class="ph" data-k="v:fax">000-0000</span>) 또는 이메일(<span class="ph" data-k="v:email">00000@jbedu.kr</span>)
 
-붙임  1. <span class="ph">2027</span>학년도 <span class="ph">○○학교</span> 교복 견적 의뢰서 1부.
+붙임  1. <span class="ph" data-k="year">2027</span>학년도 <span class="ph" data-k="school">○○학교</span> 교복 견적 의뢰서 1부.
       2. 교복 상세 규격(사양)서 1부.  끝.</pre>
       <div class="attach"><span class="al">붙임 파일</span>
         <a href="files/chuk-02-2-1.hwpx" download="02-2-1_2027학년도 교복 견적 의뢰서.hwpx"><span class="ext">HWPX</span>[척따2-2-1] 교복 견적 의뢰서</a>
@@ -768,11 +798,11 @@ footer p{margin:0 0 7px} footer b{color:var(--ink-2); font-weight:600}
     </div>
     <div class="doccard" id="doc-s3-price" data-role="haeng">
       <div class="dochead"><span class="blabel">공문 예시</span><span class="tag h">행정 기안</span><span class="when">사양서로 견적서를 받은 뒤, 입찰공고 전</span></div>
-<pre class="doctext title"><span class="ph">2027</span>학년도 교복 기초금액 산출</pre>
-<pre class="doctext">교복 학교주관 공동구매 계약 운영 요령(2단계 입찰 등 계약분야)에 의하여 <span class="ph">2027</span>학년도 교복 견적서 제출을 의뢰하여 접수한 결과, 평균가격인 <span class="ph">338,100</span>원을 기초금액으로 정하고자 합니다.
+<pre class="doctext title"><span class="ph" data-k="year">2027</span>학년도 교복 기초금액 산출</pre>
+<pre class="doctext">「교복 학교주관구매 운영 매뉴얼」(2026. 9.)에 따라 <span class="ph" data-k="year">2027</span>학년도 교복 견적서 제출을 의뢰하여 접수한 결과, 평균가격인 <span class="ph" data-k="n:basePrice">338,100</span>원을 기초금액으로 정하고자 합니다.
 
-붙임  1. <span class="ph">2027</span>학년도 교복 견적서 1부.
-      2. <span class="ph">2027</span>학년도 교복 기초금액 산출표 1부.  끝.</pre>
+붙임  1. <span class="ph" data-k="year">2027</span>학년도 교복 견적서 1부.
+      2. <span class="ph" data-k="year">2027</span>학년도 교복 기초금액 산출표 1부.  끝.</pre>
       <div class="attach"><span class="al">붙임 파일</span>
         <span class="noatt">견적서 — 업체에서 받은 것</span>
         <a href="files/chuk-02-2-2.hwpx" download="02-2-2_2027학년도 교복 기초금액 산출조서.hwpx"><span class="ext">HWPX</span>[척따2-2-2] 기초금액 산출조서</a>
@@ -801,8 +831,8 @@ footer p{margin:0 0 7px} footer b{color:var(--ink-2); font-weight:600}
           <li><label><input type="checkbox"><span>기초금액 = 추정가격 + 부가가치세 (추정가격이 수의계약·공고기간 판단 기준)</span></label></li>
           <li><label><input type="checkbox"><span>생활형 단가 비율 기준: 후드점퍼 30 · 집업티 24 · 맨투맨티 19 · 긴바지 14 · 라운드반팔티 13% (±3% 가감) <code>척따7-13</code></span></label></li>
           <li><label><input type="checkbox"><span>계약 방법 결정 <code>수의계약</code> <code>2단계 입찰</code> <code>적격심사</code> <code>협상에 의한 계약</code></span></label></li>
-          <li><label><input type="checkbox"><span>수의계약: 추정가격 <span class="num">2천만원</span> 이하, <span class="num">2천만원 초과 ~ 1억원</span> 이하 소기업·소상공인, 또는 <strong>2회 이상 유찰</strong> <code>지방계약법 시행령 §25</code></span></label></li>
-          <li><label><input type="checkbox"><span>협상에 의한 계약은 정성·정량 <strong>70점 이상</strong> 중 고득점 순 협상 <code>시행령 §43</code></span></label></li>
+          <li><label><input type="checkbox"><span>수의계약: 추정가격 <span class="num">2천만원</span> 이하, <span class="num">2천만원 초과 ~ 1억원</span> 이하 소기업·소상공인 <code>지방계약법 시행령 제25조제1항제5호</code>, 또는 <strong>2회 이상 유찰</strong>(재공고입찰까지 유찰) <code>시행령 제26조</code> — 2인 이상 견적이 원칙, 2천만원 이하는 1인 견적 가능 <code>시행령 제30조</code></span></label></li>
+          <li><label><input type="checkbox"><span>협상에 의한 계약은 정성·정량 <strong>70점 이상</strong> 중 고득점 순 협상 <code>시행령 제43조</code></span></label></li>
           <li><label><input type="checkbox"><span>계약심사 대상 여부 확인, 학교회계 예산 편성</span></label></li>
           <li><label><input type="checkbox"><span>넥타이·리본 포함 시 금액 산출하여 공고 반영(상한가격 외 금액, 무상 제공 불가)</span></label></li>
         </ul>
@@ -857,7 +887,7 @@ footer p{margin:0 0 7px} footer b{color:var(--ink-2); font-weight:600}
     <span class="prog" data-prog>0 / 0</span>
   </div>
   <div class="sflow">
-    <div class="sflow-head"><h2>세부 흐름</h2><p>공고 전 평가기준을 확정하고, 제안서는 학교에서·가격은 나라장터에서 받아 적격자만 개찰합니다.</p><button class="golink" type="button" data-go="g2b">나라장터 입찰 진행 보기 &#8594;</button></div>
+    <div class="sflow-head"><h2>세부 흐름</h2><p>공고 전 평가기준을 확정하고, 제안서는 학교에서·가격은 나라장터에서 받아 적격자만 개찰합니다.</p><button class="golink" type="button" data-go="g2b">나라장터 입찰 진행 보기 &#8594;</button><button class="golink" type="button" data-go="suui">수의계약이면 &#8594;</button></div>
     <div class="lanescroll"><div class="lanechart" data-chart="s5"></div></div>
   </div>
   <div class="band hand"><span class="blabel">인계</span><ul>
@@ -874,26 +904,26 @@ footer p{margin:0 0 7px} footer b{color:var(--ink-2); font-weight:600}
   <div class="docs">
     <div class="doccard" id="doc-s5-notice" data-role="haeng">
       <div class="dochead"><span class="blabel">공문 예시</span><span class="tag h">행정 기안</span><span class="when">기초금액·평가기준 결재 후 — 나라장터 게시 전 (교무 공문은 1단계 참고)</span></div>
-<pre class="doctext title"><span class="ph">2027</span>학년도 <span class="ph">○○고등학교</span> 교복 학교주관구매 입찰공고</pre>
-<pre class="doctext"><span class="ph">2027</span>학년도 <span class="ph">○○고등학교</span> 교복 학교주관구매 입찰을 아래와 같이 공고하고자 합니다.
+<pre class="doctext title"><span class="ph" data-k="year">2027</span>학년도 <span class="ph" data-k="school">○○고등학교</span> 교복 학교주관구매 입찰공고</pre>
+<pre class="doctext"><span class="ph" data-k="year">2027</span>학년도 <span class="ph" data-k="school">○○고등학교</span> 교복 학교주관구매 입찰을 아래와 같이 공고하고자 합니다.
 
-1. 관련: <span class="ph">○○고등학교-11306(2026. 10. 28.)</span>
-2. 공고명: <span class="ph">2027</span>학년도 <span class="ph">○○고등학교</span> 교복 학교주관구매 입찰공고(<span class="ph">2단계 규격·가격 분리 동시입찰</span>)
-3. 제안서 및 가격서 제출기한: <span class="ph">2026. 11. 10.(○) 11:00 ~ 2026. 11. 27.(○) 14:00</span>
-4. 구매예정 제작 벌수: <span class="ph">120</span>벌(구매 수량은 신청 학생 수에 따라 최종 확정)
-5. 기초금액: 금<span class="ph">338,100</span>원(금<span class="ph">삼십삼만팔천일백</span>원)
-6. 제안서 평가 일시 및 장소: <span class="ph">2026. 12. 2.(○) 11:00, ○○실</span>
+1. 관련: <span class="ph" data-k="rel:price">○○고등학교-11306(2026. 10. 28.)</span>
+2. 공고명: <span class="ph" data-k="year">2027</span>학년도 <span class="ph" data-k="school">○○고등학교</span> 교복 학교주관구매 입찰공고(<span class="ph">2단계 규격·가격 분리 동시입찰</span>)
+3. 제안서 및 가격서 제출기한: <span class="ph" data-k="bidPeriod">2026. 11. 10.(○) 11:00 ~ 2026. 12. 10.(○) 14:00</span>
+4. 구매예정 제작 벌수: <span class="ph" data-k="n:qty">120</span>벌(구매 수량은 신청 학생 수에 따라 최종 확정)
+5. 기초금액: 금<span class="ph" data-k="n:basePrice">338,100</span>원(금<span class="ph" data-k="han:basePrice">삼십삼만팔천일백</span>원)
+6. 제안서 평가 일시 및 장소: <span class="ph" data-k="evalWhen">2026. 12. 11.(○) 11:00, ○○실</span>
   ※ 제안서 평가는 교복선정위원회에서 제안서 및 견본품으로 블라인드 심사
-7. 개찰 일시 및 장소: <span class="ph">2026. 12. 5.(○) 11:00</span> 이후, 입찰집행관 PC
+7. 개찰 일시 및 장소: <span class="ph" data-k="dt:openAt">2026. 12. 14.(○) 11:00</span> 이후, 입찰집행관 PC
 8. 입찰 방법: 단가입찰, <span class="ph">2단계 규격-가격(동시)</span>, 지역제한(<span class="ph">전북특별자치도</span>)
 
-붙임  <span class="ph">2027</span>학년도 <span class="ph">○○고등학교</span> 교복 학교주관구매 입찰 공고문 1부.  끝.</pre>
+붙임  <span class="ph" data-k="year">2027</span>학년도 <span class="ph" data-k="school">○○고등학교</span> 교복 학교주관구매 입찰 공고문 1부.  끝.</pre>
       <div class="attach"><span class="al">붙임 파일</span>
-        <a href="files/form3-bid-notice.hwpx" download="서식3_입찰 공고문.hwpx"><span class="ext">HWPX</span>[척따7] 입찰 공고문</a>
-        <a href="files/att1-special-terms.hwpx" download="붙임1_계약 특수조건.hwpx"><span class="ext">HWPX</span>[척따7-1] 계약 특수조건</a>
-        <a href="files/att2-design-spec.hwpx" download="붙임2_교복 디자인 및 규격서.hwpx"><span class="ext">HWPX</span>[척따7-2] 디자인 및 규격서</a>
-        <a href="files/att3-evaluation-criteria.hwpx" download="붙임3_제안서 평가항목 및 배점기준.hwpx"><span class="ext">HWPX</span>[척따7-3] 평가항목 및 배점기준</a>
-        <a href="files/att4-17-vendor-forms.hwpx" download="붙임4-17_업체 제출 서식.hwpx"><span class="ext">HWPX</span>[척따7-7~7-19] 업체 제출 서식</a>
+        <a href="files/chuk-07.hwpx" download="07_2027학년도 교복 학교주관구매 입찰 공고문.hwpx"><span class="ext">HWPX</span>[척따7] 입찰 공고문</a>
+        <a href="files/chuk-07-01.hwpx" download="07-01_2027학년도 교복 학교주관구매 계약 특수조건.hwpx"><span class="ext">HWPX</span>[척따7-1] 계약 특수조건</a>
+        <a href="files/chuk-07-02.hwpx" download="07-02_교복 디자인 및 규격서.hwpx"><span class="ext">HWPX</span>[척따7-2] 디자인 및 규격서</a>
+        <a href="files/chuk-07-03.hwpx" download="07-03_제안서 평가항목 및 배점기준.hwpx"><span class="ext">HWPX</span>[척따7-3] 평가항목 및 배점기준</a>
+        <a href="#" data-go="forms"><span class="ext">HWPX</span>[척따7-6~7-19] 업체 제출 서식 (서식 내려받기에서 하나씩)</a>
       </div>
     </div>
   </div>
@@ -917,12 +947,12 @@ footer p{margin:0 0 7px} footer b{color:var(--ink-2); font-weight:600}
         <ul class="tasks">
           <li><label><input type="checkbox"><span>사업자 선정 <strong>8월 말까지 완료</strong> 권고(국민권익위 협조 요청)</span></label></li>
           <li><label><input type="checkbox"><span><code>척따7</code> 공고문·<code>척따7~7-19</code> 작성, 학교 홈페이지·지정정보처리장치 게재('학생 교복에 관한 규정' 함께)</span></label></li>
-          <li><label><input type="checkbox"><span>공고 기간: 1억원 미만 <strong class="num">10일 이상</strong>(토·공휴일 산입, 게시일·마감일 제외 → 실제 <strong class="num">12일 이상</strong>) <code>시행령 §35</code></span></label></li>
+          <li><label><input type="checkbox"><span>공고 기간: 1억원 미만 <strong class="num">10일 이상</strong>(토·공휴일 산입, 게시일·마감일 제외 → 실제 <strong class="num">12일 이상</strong>) <code>시행령 제35조</code></span></label></li>
           <li><label><input type="checkbox"><span>공고문 필수 명시: <strong>"구매 물량은 학생(신입생)의 신청에 의하여 확정"</strong>, <strong>단가계약</strong></span></label></li>
           <li><label><input type="checkbox"><span>견본품 제작 기간 <strong class="num">1개월 이상</strong> 보장(공고일 ~ 제안서 평가일), 견본품은 제안서 평가일 이전까지 납품</span></label></li>
           <li><label><input type="checkbox"><span>참가 자격(공고문): 소기업·소상공인 확인서(추정가격 <span class="num">1억원 미만</span>), <span class="num">1억원 이상</span>이면 중기업 추가(중소기업 또는 소상공인 확인서)</span></label></li>
           <li><label><input type="checkbox"><span>지역 제한: <strong>공고일 180일 전부터</strong> 입찰일까지 전북 소재 업체(신규사업자 기준 포함) — <strong>2026. 10. 25. 이후 공고</strong>부터 적용</span></label></li>
-          <li><label><input type="checkbox"><span>조세포탈 등 유죄판결 확정일부터 2년이 지나지 않은 자 입찰 참여 제한 <code>지방계약법 §31의5</code>, 전자입찰특별유의서 신원확인 입찰 적용</span></label></li>
+          <li><label><input type="checkbox"><span>조세포탈 등 유죄판결 확정일부터 2년이 지나지 않은 자 입찰 참여 제한 <code>지방계약법 제31조의5</code>, 전자입찰특별유의서 신원확인 입찰 적용</span></label></li>
           <li><label><input type="checkbox"><span>제출 서류: <strong>교복 제출서류 자기확인서</strong> 신설, <strong>서약서 삭제</strong> — 제안서 제출 평일 09:00~16:30, 대리인 접수 시 위임장·재직증명서·신분증·<strong>4대보험 가입증명서</strong>, 양면 상철 권장</span></label></li>
           <li><label><input type="checkbox"><span>납품 지연 등 <strong>계약 위반 전력</strong> 업체 감점 — 정량평가 감점 요인으로 반영 가능, <strong>기준·감점 폭은 공고에 미리 공지</strong></span></label></li>
           <li><label><input type="checkbox"><span>단가 비율표에 별도 문구(추가구매분 추가금액 청구 등)가 있는지 확인 — <strong>공고문과 배치되는 제안은 효력 없음</strong>을 공고문에 명시</span></label></li>
@@ -933,7 +963,7 @@ footer p{margin:0 0 7px} footer b{color:var(--ink-2); font-weight:600}
           <li><label><input type="checkbox"><span>결제 방법: 매장 직접 결제, 신용카드·지역화폐 등 현금 외 결제 가능 명시</span></label></li>
           <li><label><input type="checkbox"><span>품질검사 부적합 판정 시 업체 보상 방법 명시</span></label></li>
           <li><label><input type="checkbox"><span>가격 개찰·정량평가는 <strong>계약담당자 별도 진행</strong></span></label></li>
-          <li><label><input type="checkbox"><span>부정당업자 해당 여부 검토 <code>지방계약법 §31 · 시행령 §92</code></span></label></li>
+          <li><label><input type="checkbox"><span>부정당업자 해당 여부 검토 <code>지방계약법 제31조 · 시행령 제92조</code></span></label></li>
           <li><label><input type="checkbox"><span>낙찰자 통지를 받은 날부터 <strong class="num">10일 이내</strong> 계약 체결(2026. 9. 매뉴얼 — 공고문·입찰참가신청서 문구 통일)</span></label></li>
           <li><label><input type="checkbox"><span>계약 시 수령: <strong>계약보증서</strong>, 청렴계약 이행각서, <code>척따7-19</code> 품목별 단가표 — 최종 낙찰자는 <strong>의류 시험성적서를 계약서 작성 전 의무 제출</strong></span></label></li>
           <li><label><input type="checkbox"><span><code>척따7-1</code> 계약 특수조건: 지연배상금 <span class="num">0.8/1,000</span>, 하자보증 1년, 무상 A/S 1년, 하도급 금지, 디자인 소유권 학교 귀속, Q마크·국산 섬유제품 인증마크 부착, 업체 구입 원단 시험성적서 납품 시 제출</span></label></li>
@@ -1108,7 +1138,7 @@ footer p{margin:0 0 7px} footer b{color:var(--ink-2); font-weight:600}
         <ul class="tasks">
           <li><label><input type="checkbox"><span><strong>분할 정산</strong> — 동복·하복 납품 완료 시 각각 지급</span></label></li>
           <li><label><input type="checkbox"><span>검사·검수 후 청구일부터 <strong class="num">5일 이내</strong>(토·공휴일 제외) 지급</span></label></li>
-          <li><label><input type="checkbox"><span>대금 청구 시 <strong>보험료 체납 사실 없음 증명</strong> 확인 <code>국민연금법 §95의2</code></span></label></li>
+          <li><label><input type="checkbox"><span>대금 청구 시 <strong>보험료 체납 사실 없음 증명</strong> 확인 <code>국민연금법 제95조의2</code></span></label></li>
           <li><label><input type="checkbox"><span>지연배상금 공제 반영, 지급액 확정</span></label></li>
           <li><label><input type="checkbox"><span>계약 위반 시 <strong>도교육청 부정당업자 신고</strong> 검토(시정 완료 시 제외)</span></label></li>
           <li><label><input type="checkbox"><span>대금 지급 후 전·편입생 교복 지원: <strong>상·하반기(6월, 11월)</strong> 신청 공문에 따라 신청 — 급하면 학교 예산으로 먼저 지급 후 일괄 신청</span></label></li>
@@ -1171,7 +1201,7 @@ footer p{margin:0 0 7px} footer b{color:var(--ink-2); font-weight:600}
   </div>
   <div class="basis" style="margin-bottom:14px"><b>지침 원문</b> 서식 전체와 참고자료(섬유 종류, 품질기준, 자주 묻는 질문 등)는 원문에 있습니다.<br>
     <a href="files/manual-2026-09.pdf" download="교복 학교주관구매 운영 매뉴얼(2026.9.).pdf"><span class="ext">PDF</span>2026. 9. 운영 매뉴얼 원문(PDF)</a>
-    <a href="files/guideline-2025-09.hwpx" download="교복학교주관구매운영요령(2025.9.개정).hwpx"><span class="ext">HWPX</span>2025. 9. 운영요령(서식 원본)</a></div>
+    <a href="files/guideline-2025-09.hwpx" download="교복학교주관구매운영요령(2025.9.개정).hwpx"><span class="ext">HWPX</span>2025. 9. 운영요령(이전 판)</a></div>
   <div class="tablebox"><div class="tablescroll">
     <table>
       <caption>출처: 전북특별자치도교육청 「교복 학교주관구매 운영 매뉴얼」(2026. 9.) [부록1]~[부록3] — 학교 실정에 맞게 고쳐 씁니다. 종전 [붙임14] 서약서는 삭제되었습니다.</caption>
@@ -1267,6 +1297,94 @@ footer p{margin:0 0 7px} footer b{color:var(--ink-2); font-weight:600}
 </div>
 
 <!-- ================= 나라장터 ================= -->
+<div class="page" data-page="basedata" hidden>
+  <div class="phead">
+    <p class="pkicker">참고</p>
+    <h1>기초자료 입력</h1>
+    <p>학교·일정·금액·위원·업체·문서번호를 여기서 한 번 입력하면 <b>공문 예시의 노란 밑줄 칸</b>이 모두 채워집니다(채워진 칸은 초록색). 입력값은 이 창 안에서만 쓰이고 서버로 보내지 않으며, 창을 닫으면 지워집니다. <b>[엑셀로 저장]</b>해 두었다가 다음에 <b>[엑셀 올리기]</b>로 불러오세요. 처음이라면 [빈 양식 내려받기]로 엑셀을 받아 채운 뒤 [엑셀 올리기]로 올려도 됩니다. 한글 서식 옆의 <b>[채워서 받기]</b>를 누르면 학교명·학년도(입찰 공고문은 일정·금액·문의처까지)가 들어간 한글 파일을 받을 수 있습니다(인터넷 사이트에서만).</p>
+  </div>
+  <div class="bd-tools">
+    <button type="button" class="primary" data-bd="save">엑셀로 저장 (양식 겸용)</button>
+    <a class="bd-link" href="files/base-data-template.xlsx" download="교복길라잡이_기초자료_양식.xlsx">빈 양식 내려받기</a>
+    <button type="button" data-bd="load">엑셀 올리기</button>
+    <button type="button" data-go="docs">공문 예시 보기 &#8594;</button>
+    <button type="button" data-bd="clear">모두 지우기</button>
+    <input type="file" id="bd-file" accept=".xlsx,.xls" hidden>
+  </div>
+  <div id="bdform"></div>
+</div>
+
+<div class="page" data-page="suui" hidden>
+  <div class="phead">
+    <p class="pkicker">참고</p>
+    <h1>수의계약으로 업체를 정할 때</h1>
+    <p>교복 물량이 적어 추정가격이 작거나, 입찰이 2회 이상 유찰되면 입찰 대신 견적을 받아 수의계약할 수 있습니다. 디자인·학운위 심의·희망 조사·검수·대금 지급은 입찰과 같고, <b>7단계(사업자 선정·계약)</b>만 아래처럼 바뀝니다.</p>
+  </div>
+  <div class="gtools"><button type="button" data-gopen="all">모두 펼치기</button><button type="button" data-gopen="none">모두 접기</button></div>
+  <div class="gsteps">
+    <details class="gstep" id="suui-1" open>
+      <summary><span class="gno">Step 1</span><span class="gtitle">우리 학교 추정가격 계산</span><span class="tag h">행정</span></summary>
+      <div class="gbody">
+        <p class="gbasis"><b>근거</b>전북특별자치도교육청 운영 매뉴얼(2026. 9.) Ⅲ-⑧ 계약 방법</p>
+        <ul>
+          <li>추정가격 = 기초금액(1인 단가) × 예상 인원 ÷ 1.1 — <b>부가가치세를 뺀 금액</b>으로 판단합니다</li>
+          <li>예) 338,100원 × 120명 = 40,572,000원 → ÷ 1.1 = 약 <b>3,688만원</b> → 2천만원 초과 1억원 이하</li>
+          <li>상한 가격 이내에서 기초금액을 산출하는 방법은 입찰과 같습니다(5단계, <code>척따2-2</code>)</li>
+        </ul>
+      </div>
+    </details>
+    <details class="gstep" id="suui-2" open>
+      <summary><span class="gno">Step 2</span><span class="gtitle">계약 방법 정하기</span><span class="tag h">행정</span></summary>
+      <div class="gbody">
+        <p class="gbasis"><b>근거</b>지방계약법 시행령 제25조제1항제5호·제26조·제30조</p>
+        <ul>
+          <li>추정가격 <b>2천만원 이하</b> → 수의계약, <b>1인 견적</b> 가능 <code>시행령 제25조제1항제5호나목 · 제30조제1항제2호</code></li>
+          <li>추정가격 <b>2천만원 초과 ~ 1억원 이하</b> → <b>소기업·소상공인</b>과 수의계약 가능, <b>2인 이상 견적</b> <code>시행령 제25조제1항제5호라목 · 제30조제1항</code></li>
+          <li><b>2회 이상 유찰</b>(재공고입찰까지 유찰) → 수의계약 가능. 단, 보증금·기한 말고는 <b>처음 입찰 때 정한 가격과 조건을 바꿀 수 없음</b> <code>시행령 제26조제1항·제3항</code></li>
+          <li>그 밖의 경우 → 입찰(2단계 입찰 등) <a href="#" data-go="g2b">나라장터 입찰 진행 보기 &#8594;</a></li>
+          <li>교육청 계약 관련 지침(수의계약 가능 기준 특례, 계약업무 처리 지침, 계약심사업무 처리 지침)도 함께 확인 — 매뉴얼 Ⅲ-⑧</li>
+        </ul>
+        <div class="gmeta"><a href="https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EC%A7%80%EB%B0%A9%EC%9E%90%EC%B9%98%EB%8B%A8%EC%B2%B4%EB%A5%BC%EB%8B%B9%EC%82%AC%EC%9E%90%EB%A1%9C%ED%95%98%EB%8A%94%EA%B3%84%EC%95%BD%EC%97%90%EA%B4%80%ED%95%9C%EB%B2%95%EB%A5%A0%EC%8B%9C%ED%96%89%EB%A0%B9" target="_blank" rel="noopener"><span class="ext law">법령</span>지방계약법 시행령</a></div>
+      </div>
+    </details>
+    <details class="gstep" id="suui-3">
+      <summary><span class="gno">Step 3</span><span class="gtitle">견적 받기</span><span class="tag h">행정</span></summary>
+      <div class="gbody">
+        <p class="gbasis"><b>근거</b>지방계약법 시행령 제30조</p>
+        <ul>
+          <li>2인 이상 견적은 <b>나라장터(지정정보처리장치)</b>로 받습니다 — 품질 확인·예산 절감 필요성이 큰 경우 등 행정안전부장관이 정한 경우만 예외 <code>시행령 제30조제2항</code></li>
+          <li>나라장터로 받았는데 1인만 냈고, 다시 받아도 1인일 것이 명백하면 그 1인 견적으로 계약할 수 있습니다 <code>시행령 제30조제1항제3호</code></li>
+          <li>견적 요청서에 <code>척따7-2</code> 디자인 및 규격서(사양서)를 붙이고, 입찰과 같은 조건을 적어 두면 분쟁을 줄일 수 있습니다: "구매 물량은 학생(신입생)의 신청에 의하여 확정", 단가계약, 추가 구매 시 해당 연도 계약단가 적용</li>
+          <li>추정가격 5천만원 이상이어도 수의계약 대상이면 구매규격 사전공개는 생략할 수 있습니다(Step 1 참고 <a href="#" data-go="g2b">나라장터 입찰 진행</a>)</li>
+        </ul>
+        <div class="gmeta"><a href="files/chuk-07-02.hwpx" download="07-02_교복 디자인 및 규격서.hwpx"><span class="ext">HWPX</span>[척따7-2] 디자인 및 규격서</a><a href="files/chuk-02-2-1.hwpx" download="02-2-1_2027학년도 교복 견적 의뢰서.hwpx"><span class="ext">HWPX</span>[척따2-2-1] 교복 견적 의뢰서</a></div>
+      </div>
+    </details>
+    <details class="gstep" id="suui-4">
+      <summary><span class="gno">Step 4</span><span class="gtitle">품질 확인</span><span class="tag g">교무</span></summary>
+      <div class="gbody">
+        <p class="gbasis"><b>근거</b>전북특별자치도교육청 운영 매뉴얼(2026. 9.) 교복선정위원회 역할</p>
+        <ul>
+          <li>교복선정위원회의 역할(품질 심사 기준 설정, 제작 상황 감독, 구매 결과 평가)은 계약 방법과 상관없이 그대로입니다</li>
+          <li>사양서와 견본품이 맞는지 위원회가 확인하고, 결과를 회의록으로 남깁니다</li>
+        </ul>
+      </div>
+    </details>
+    <details class="gstep" id="suui-5">
+      <summary><span class="gno">Step 5</span><span class="gtitle">계약 체결과 이후 단계</span><span class="tag h">행정</span></summary>
+      <div class="gbody">
+        <p class="gbasis"><b>근거</b>지방계약법 시행령 제49조~제54조, 운영 매뉴얼 [척따7-1] 계약 특수조건</p>
+        <ul>
+          <li>계약서, 청렴계약 이행서약서, <code>척따7-1</code> 계약 특수조건(지연배상금·하자보증·A/S·디자인 소유권), <code>척따7-19</code> 품목별 금액표를 받습니다</li>
+          <li>계약보증금은 면제 대상인지 시행령 제53조(계약보증금 면제)로 확인합니다</li>
+          <li>계약 뒤에는 입찰과 같습니다: 희망 조사(8단계) → 치수 측정·수량 확정(9단계) → 검수(10단계) → 대금 지급·만족도(11단계)</li>
+        </ul>
+        <div class="gmeta"><a href="files/chuk-07-01.hwpx" download="07-01_2027학년도 교복 학교주관구매 계약 특수조건.hwpx"><span class="ext">HWPX</span>[척따7-1] 계약 특수조건</a><a href="files/chuk-07-19.hwpx" download="07-19_교복 품목별 금액표.hwpx"><span class="ext">HWPX</span>[척따7-19] 교복 품목별 금액표</a></div>
+      </div>
+    </details>
+  </div>
+</div>
+
 <div class="page" data-page="g2b" hidden>
   <div class="phead">
     <p class="pkicker">참고</p>
@@ -1289,7 +1407,7 @@ footer p{margin:0 0 7px} footer b{color:var(--ink-2); font-weight:600}
           <li>공개 서류: <code>척따7-2</code> 교복 디자인 및 규격서(사양서) 등 — 업체 의견이 들어오면 검토 후 공고에 반영</li>
           <li>생략 가능: 추정가격 5천만원 미만, 수의계약 대상, 해당 연도에 이미 사전공개한 경우, 긴급 수요 등</li>
         </ul>
-        <div class="gmeta"><a href="https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EC%A7%80%EB%B0%A9%EC%9E%90%EC%B9%98%EB%8B%A8%EC%B2%B4%EB%A5%BC%EB%8B%B9%EC%82%AC%EC%9E%90%EB%A1%9C%ED%95%98%EB%8A%94%EA%B3%84%EC%95%BD%EC%97%90%EA%B4%80%ED%95%9C%EB%B2%95%EB%A5%A0%EC%8B%9C%ED%96%89%EB%A0%B9" target="_blank" rel="noopener"><span class="ext law">법령</span>지방계약법 시행령</a><a href="files/att2-design-spec.hwpx" download="붙임2_교복 디자인 및 규격서.hwpx"><span class="ext">HWPX</span>[척따7-2] 디자인 및 규격서</a></div>
+        <div class="gmeta"><a href="https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EC%A7%80%EB%B0%A9%EC%9E%90%EC%B9%98%EB%8B%A8%EC%B2%B4%EB%A5%BC%EB%8B%B9%EC%82%AC%EC%9E%90%EB%A1%9C%ED%95%98%EB%8A%94%EA%B3%84%EC%95%BD%EC%97%90%EA%B4%80%ED%95%9C%EB%B2%95%EB%A5%A0%EC%8B%9C%ED%96%89%EB%A0%B9" target="_blank" rel="noopener"><span class="ext law">법령</span>지방계약법 시행령</a><a href="files/chuk-07-02.hwpx" download="07-02_교복 디자인 및 규격서.hwpx"><span class="ext">HWPX</span>[척따7-2] 디자인 및 규격서</a></div>
       </div>
     </details>
     <details class="gstep" id="g2b-2">
@@ -1310,7 +1428,7 @@ footer p{margin:0 0 7px} footer b{color:var(--ink-2); font-weight:600}
           <li>적격 기준 점수(예: <b>80점 이상</b>)와 제안서 평가 일시·장소, 견본품 제출 기한(공고일부터 <b>1개월 이상</b> 보장) 명시</li>
           <li>사업자 선정은 <b>8월 말까지 완료</b> 권고 — 공고일은 이 날짜에서 거꾸로 계산</li>
         </ul>
-        <div class="gmeta"><a href="files/form3-bid-notice.hwpx" download="서식3_입찰 공고문.hwpx"><span class="ext">HWPX</span>[척따7] 입찰 공고문</a><a href="files/att1-special-terms.hwpx" download="붙임1_계약 특수조건.hwpx"><span class="ext">HWPX</span>[척따7-1] 계약 특수조건</a><a href="files/att3-evaluation-criteria.hwpx" download="붙임3_제안서 평가항목 및 배점기준.hwpx"><span class="ext">HWPX</span>[척따7-3] 평가항목 및 배점기준</a><a href="files/att4-17-vendor-forms.hwpx" download="붙임4-17_업체 제출 서식.hwpx"><span class="ext">HWPX</span>[척따7-7~7-19] 업체 제출 서식</a><a href="https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EC%A7%80%EB%B0%A9%EC%9E%90%EC%B9%98%EB%8B%A8%EC%B2%B4%EB%A5%BC%EB%8B%B9%EC%82%AC%EC%9E%90%EB%A1%9C%ED%95%98%EB%8A%94%EA%B3%84%EC%95%BD%EC%97%90%EA%B4%80%ED%95%9C%EB%B2%95%EB%A5%A0%EC%8B%9C%ED%96%89%EB%A0%B9" target="_blank" rel="noopener"><span class="ext law">법령</span>지방계약법 시행령</a></div>
+        <div class="gmeta"><a href="files/chuk-07.hwpx" download="07_2027학년도 교복 학교주관구매 입찰 공고문.hwpx"><span class="ext">HWPX</span>[척따7] 입찰 공고문</a><a href="files/chuk-07-01.hwpx" download="07-01_2027학년도 교복 학교주관구매 계약 특수조건.hwpx"><span class="ext">HWPX</span>[척따7-1] 계약 특수조건</a><a href="files/chuk-07-03.hwpx" download="07-03_제안서 평가항목 및 배점기준.hwpx"><span class="ext">HWPX</span>[척따7-3] 평가항목 및 배점기준</a><a href="#" data-go="forms"><span class="ext">HWPX</span>[척따7-6~7-19] 업체 제출 서식 (서식 내려받기에서 하나씩)</a><a href="https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EC%A7%80%EB%B0%A9%EC%9E%90%EC%B9%98%EB%8B%A8%EC%B2%B4%EB%A5%BC%EB%8B%B9%EC%82%AC%EC%9E%90%EB%A1%9C%ED%95%98%EB%8A%94%EA%B3%84%EC%95%BD%EC%97%90%EA%B4%80%ED%95%9C%EB%B2%95%EB%A5%A0%EC%8B%9C%ED%96%89%EB%A0%B9" target="_blank" rel="noopener"><span class="ext law">법령</span>지방계약법 시행령</a></div>
       </div>
     </details>
     <details class="gstep" id="g2b-3">
@@ -1371,7 +1489,7 @@ footer p{margin:0 0 7px} footer b{color:var(--ink-2); font-weight:600}
           <li>평가표 분리: <b>[1단계] 정량(40점) 계약부서</b>, <b>[2단계] 정성(60점) 교복선정위원회</b></li>
           <li><b>정량·정성 배점과 적격 기준 점수(예: 80점)는 예시</b>입니다 — 교복선정위원회에서 학교 실정에 맞게 조정할 수 있고, 정한 기준은 <b>입찰 공고 전에 확정해 공고문에 명시</b>합니다</li>
         </ul>
-        <div class="gmeta"><a href="files/att3-evaluation-criteria.hwpx" download="붙임3_제안서 평가항목 및 배점기준.hwpx"><span class="ext">HWPX</span>[척따7-3] 평가항목 및 배점기준</a></div>
+        <div class="gmeta"><a href="files/chuk-07-03.hwpx" download="07-03_제안서 평가항목 및 배점기준.hwpx"><span class="ext">HWPX</span>[척따7-3] 평가항목 및 배점기준</a></div>
       </div>
     </details>
     <details class="gstep" id="g2b-7">
@@ -1423,7 +1541,7 @@ footer p{margin:0 0 7px} footer b{color:var(--ink-2); font-weight:600}
           <li>받을 서류: 계약서, <b>계약보증서</b>, 청렴계약 이행서약서, <code>척따7-19</code> 품목별 단가표, 의류 시험성적서(<b>계약서 작성 전 의무 제출</b>), 사업자등록증, 법인등기부등본, 사용인감계, 계좌 사본</li>
           <li><code>척따7-1</code> 계약 특수조건: 지연배상금 0.8/1,000, 하자보증 1년, 무상 A/S 1년, 하도급 금지, 디자인 소유권 학교 귀속</li>
         </ul>
-        <div class="gmeta"><a href="files/att1-special-terms.hwpx" download="붙임1_계약 특수조건.hwpx"><span class="ext">HWPX</span>[척따7-1] 계약 특수조건</a><a href="https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EC%9D%B8%EC%A7%80%EC%84%B8%EB%B2%95" target="_blank" rel="noopener"><span class="ext law">법령</span>인지세법</a></div>
+        <div class="gmeta"><a href="files/chuk-07-01.hwpx" download="07-01_2027학년도 교복 학교주관구매 계약 특수조건.hwpx"><span class="ext">HWPX</span>[척따7-1] 계약 특수조건</a><a href="https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EC%9D%B8%EC%A7%80%EC%84%B8%EB%B2%95" target="_blank" rel="noopener"><span class="ext law">법령</span>인지세법</a></div>
       </div>
     </details>
     <details class="gstep" id="g2b-11">
@@ -1442,7 +1560,7 @@ footer p{margin:0 0 7px} footer b{color:var(--ink-2); font-weight:600}
     <details class="gstep" id="g2b-12">
       <summary><span class="gno">Step 12</span><span class="gtitle">대금 지급</span><span class="tag h">행정</span></summary>
       <div class="gbody">
-        <p class="gbasis"><b>근거</b>지방자치단체 입찰 및 계약 집행기준 제6장, 국민연금법 제95조의2, 국민건강보험법 제81조의3</p>
+        <p class="gbasis"><b>근거</b>지방계약법 시행령 제67조, 지방자치단체 입찰 및 계약 집행기준 제6장, 국민연금법 제95조의2, 국민건강보험법 제81조의3</p>
         <ul>
           <li>청구를 받은 날부터 <b>5일 이내</b>(토·공휴일 제외) 지급, 동복·하복 분할 정산</li>
           <li>청구 서류: 대금 청구서·통장 사본, 세금계산서, 국세·지방세 납세증명서(나라장터에서 조회 가능), 4대보험 완납증명서, 하자보증서</li>
@@ -1474,7 +1592,7 @@ footer p{margin:0 0 7px} footer b{color:var(--ink-2); font-weight:600}
     <h1>공문 예시 모음</h1>
     <p>실제 학교에서 결재한 내부결재 공문을 예시로 정리했습니다. 복사 버튼으로 제목과 본문을 따로 가져가 기안문에 붙여넣고, 붙임 파일은 내려받아 고친 뒤 첨부하세요.</p>
   </div>
-  <p class="doclegend"><span class="ph">노란 밑줄</span> 부분은 학교·연도·일시·금액처럼 바꿔 써야 하는 곳입니다. 복사하면 예시 값 그대로 들어가니 붙여넣은 뒤 고치세요. 붙임 파일은 학교명을 ○○로, 위원 성명을 빈칸으로 바꿔 두었고, [서식]·[붙임] 번호가 붙은 파일은 전북특별자치도교육청 「교복 학교주관구매 운영 요령」(2025. 9. 개정) 첨부 서식입니다. 아래쪽에는 「교복 학교주관구매 운영 매뉴얼」(2026. 9.) [부록1] 기안문 예시를 2027학년도용으로 고쳐 넣었습니다.</p>
+  <p class="doclegend"><span class="ph">노란 밑줄</span> 부분은 학교·연도·일시·금액처럼 바꿔 써야 하는 곳입니다. 복사하면 예시 값 그대로 들어가니 붙여넣은 뒤 고치세요. 붙임 파일은 학교명을 ○○로, 위원 성명을 빈칸으로 바꿔 두었고, [척따○] 번호가 붙은 파일은 「교복 학교주관구매 운영 매뉴얼」(2026. 9.) [부록1] 척척 따라하기 서식을 2027학년도용으로 고친 것입니다. 날짜는 실제 추진 사례라 권고 일정(8월 말까지 업체 선정)보다 늦습니다. 우리 학교 일정에 맞춰 고치세요. 아래쪽에는 「교복 학교주관구매 운영 매뉴얼」(2026. 9.) [부록1] 기안문 예시를 2027학년도용으로 고쳐 넣었습니다.</p>
   <div id="docall" style="margin-top:16px"></div>
   <section class="docgroup" id="chukdocs">
     <h2>매뉴얼(2026. 9.) 척척 따라하기 기안문 — 2027학년도용</h2>
@@ -1482,9 +1600,9 @@ footer p{margin:0 0 7px} footer b{color:var(--ink-2); font-weight:600}
     <div class="docs">
     <div class="doccard" data-role="gyomu">
       <div class="dochead"><span class="blabel">척따 1</span><span class="tag g">사업부서 기안</span><span class="when">교복선정위원회 구성 — 위원 명단이 정해지면</span></div>
-<pre class="doctext title"><span class="ph">2027</span>학년도 교복선정위원회 구성(안)</pre>
-<pre class="doctext">1. 관련: <span class="ph">○○학교-000(2026. ○. ○.)</span>
-2. <span class="ph">2027</span>학년도 <span class="ph">○○학교</span> 교복선정을 위한 교복선정위원회를 아래와 같이 구성하고자 합니다.
+<pre class="doctext title"><span class="ph" data-k="year">2027</span>학년도 교복선정위원회 구성(안)</pre>
+<pre class="doctext">1. 관련: <span class="ph" data-k="rel:recv">○○학교-000(2026. ○. ○.)</span>
+2. <span class="ph" data-k="year">2027</span>학년도 <span class="ph" data-k="school">○○학교</span> 교복선정을 위한 교복선정위원회를 아래와 같이 구성하고자 합니다.
   가. 위원회명: 교복선정위원회
   나. 구성인원: 7인 이상(교원위원 3인, 학부모위원 2인, 학생위원 2인)
     ※ 교장 및 행정실장은 위원에서 제외, 교원을 제외한 위원이 1/2 이상 포함되도록 구성
@@ -1494,10 +1612,10 @@ footer p{margin:0 0 7px} footer b{color:var(--ink-2); font-weight:600}
     3) 교복 제작 감독
     4) 구매결과 평가 실시
   라. 위원 명단
-    1) 위원장: 교감 <span class="ph">○○○</span>
-    2) 위원: 교사 <span class="ph">○○○</span>, 교사 <span class="ph">○○○</span>
-    3) 위원: 학부모 <span class="ph">○○○</span>, 학부모 <span class="ph">○○○</span>
-    4) 위원: 학생 <span class="ph">○○○</span>, 학생 <span class="ph">○○○</span>
+    1) 위원장: <span class="ph" data-k="chair">교감 ○○○</span>
+    2) 위원: <span class="ph" data-k="mem:교원">교사 ○○○, 교사 ○○○</span>
+    3) 위원: <span class="ph" data-k="mem:학부모,학교운영위원">학부모 ○○○, 학부모 ○○○</span>
+    4) 위원: <span class="ph" data-k="mem:학생">학생 ○○○, 학생 ○○○</span>
   ※ 교복 업계 이해관계자 위촉 불가, 위원후보자로부터 확인서 및 서약서 징구
 
 붙임  1. 교복선정위원회 위원 수락 및 확인서 1부.
@@ -1506,76 +1624,76 @@ footer p{margin:0 0 7px} footer b{color:var(--ink-2); font-weight:600}
     </div>
     <div class="doccard" data-role="gyomu">
       <div class="dochead"><span class="blabel">척따 2</span><span class="tag g">사업부서 기안</span><span class="when">구매 계획 수립 — 학운위 심의 전</span></div>
-<pre class="doctext title"><span class="ph">2027</span>학년도 교복 학교주관구매 계획(안)</pre>
-<pre class="doctext">1. 관련: <span class="ph">○○학교-0000(2026. ○. ○.)</span>
-2. 공정하고 투명한 교복 선정 및 합리적인 교복 구매를 위해 <span class="ph">○○학교</span> <span class="ph">2027</span>학년도 교복 학교주관구매 계획을 붙임과 같이 수립하여 업무 추진에 만전을 기하고자 합니다.
+<pre class="doctext title"><span class="ph" data-k="year">2027</span>학년도 교복 학교주관구매 계획(안)</pre>
+<pre class="doctext">1. 관련: <span class="ph" data-k="rel:decision">○○학교-0000(2026. ○. ○.)</span>
+2. 공정하고 투명한 교복 선정 및 합리적인 교복 구매를 위해 <span class="ph" data-k="school">○○학교</span> <span class="ph" data-k="year">2027</span>학년도 교복 학교주관구매 계획을 붙임과 같이 수립하여 업무 추진에 만전을 기하고자 합니다.
 
-붙임  <span class="ph">2027</span>학년도 교복 학교주관구매 계획(안) 1부.  끝.</pre>
+붙임  <span class="ph" data-k="year">2027</span>학년도 교복 학교주관구매 계획(안) 1부.  끝.</pre>
       <div class="attach"><span class="al">붙임 파일</span><a href="files/chuk-02-1.hwpx" download="02-1_2027학년도 교복 학교주관구매 계획(안).hwpx"><span class="ext">HWPX</span>[척따2-1] 2027학년도 교복 학교주관구매 계획(안)</a> <a href="files/chuk-02-2.hwpx" download="02-2_교복 품목별 단가 비율표 및 기초금액 산정 절차.hwpx"><span class="ext">HWPX</span>[척따2-2] 교복 품목별 단가 비율표 및 기초금액 산정 절차</a></div>
     </div>
     <div class="doccard" data-role="haeng">
       <div class="dochead"><span class="blabel">척따 2-2</span><span class="tag h">시행문 · 수신: 교복업체</span><span class="when">기초금액 산정 전 — 교육부 제시 품목·규격과 다를 때 견적 의뢰</span></div>
-<pre class="doctext title"><span class="ph">2027</span>학년도 <span class="ph">○○학교</span> 교복 견적 의뢰</pre>
-<pre class="doctext">1. 관련: <span class="ph">○○학교-0000(2026. ○. ○.)</span>
-2. <span class="ph">2027</span>학년도 <span class="ph">○○학교</span> 교복(동복 및 하복) 학교주관구매를 위해 실거래 가격을 조사하기 위하여 아래와 같이 견적을 요청하오니 회신하여 주시기 바랍니다.
-   가. 회신기한: <span class="ph">2026. ○○. ○○.</span>
-   나. 요청내용: <span class="ph">2027</span>학년도 <span class="ph">○○학교</span> 교복(동복, 하복) 견적
-   다. 회신방법: 팩스(<span class="ph">000-0000</span>) 또는 이메일(<span class="ph">00000@jbedu.kr</span>)
+<pre class="doctext title"><span class="ph" data-k="year">2027</span>학년도 <span class="ph" data-k="school">○○학교</span> 교복 견적 의뢰</pre>
+<pre class="doctext">1. 관련: <span class="ph" data-k="rel:plan">○○학교-0000(2026. ○. ○.)</span>
+2. <span class="ph" data-k="year">2027</span>학년도 <span class="ph" data-k="school">○○학교</span> 교복(동복 및 하복) 학교주관구매를 위해 실거래 가격을 조사하기 위하여 아래와 같이 견적을 요청하오니 회신하여 주시기 바랍니다.
+   가. 회신기한: <span class="ph" data-k="date:quoteDue">2026. ○○. ○○.</span>
+   나. 요청내용: <span class="ph" data-k="year">2027</span>학년도 <span class="ph" data-k="school">○○학교</span> 교복(동복, 하복) 견적
+   다. 회신방법: 팩스(<span class="ph" data-k="v:fax">000-0000</span>) 또는 이메일(<span class="ph" data-k="v:email">00000@jbedu.kr</span>)
 
-붙임  <span class="ph">2027</span>학년도 <span class="ph">○○학교</span> 교복 견적 의뢰서 1부.  끝.</pre>
+붙임  <span class="ph" data-k="year">2027</span>학년도 <span class="ph" data-k="school">○○학교</span> 교복 견적 의뢰서 1부.  끝.</pre>
       <div class="attach"><span class="al">붙임 파일</span><a href="files/chuk-02-2-1.hwpx" download="02-2-1_2027학년도 교복 견적 의뢰서.hwpx"><span class="ext">HWPX</span>[척따2-2-1] 2027학년도 교복 견적 의뢰서</a> <a href="files/chuk-04-1.hwpx" download="04-1_교복 사양서.hwpx"><span class="ext">HWPX</span>[척따4-1] 교복 사양서</a> <span class="al">회신 후</span><a href="files/chuk-02-2-2.hwpx" download="02-2-2_2027학년도 교복 기초금액 산출조서.hwpx"><span class="ext">HWPX</span>[척따2-2-2] 2027학년도 교복 기초금액 산출조서</a> <a href="files/chuk-02-2-3.hwpx" download="02-2-3_교복 품목별 단가 비율표 산정.hwpx"><span class="ext">HWPX</span>[척따2-2-3] 교복 품목별 단가 비율표 산정</a> <a href="files/chuk-02-2.hwpx" download="02-2_교복 품목별 단가 비율표 및 기초금액 산정 절차.hwpx"><span class="ext">HWPX</span>[척따2-2] 교복 품목별 단가 비율표 및 기초금액 산정 절차</a></div>
     </div>
     <div class="doccard" data-role="gyomu">
       <div class="dochead"><span class="blabel">척따 3</span><span class="tag g">사업부서 기안</span><span class="when">학교운영위원회에 구매 계획 심의 안건 제출</span></div>
-<pre class="doctext title"><span class="ph">2027</span>학년도 교복 학교주관구매 계획(안) 심의 안건 제출</pre>
-<pre class="doctext">1. 관련: <span class="ph">○○학교-0000(2026. ○. ○.)</span>
-2. 「초·중등교육법」 제30조의2, 제32조 제1항에 따라 <span class="ph">2027</span>학년도 교복 학교주관구매 계획(안)을 붙임과 같이 제출하오니 심의하여 주시기 바랍니다.
+<pre class="doctext title"><span class="ph" data-k="year">2027</span>학년도 교복 학교주관구매 계획(안) 심의 안건 제출</pre>
+<pre class="doctext">1. 관련: <span class="ph" data-k="rel:plan">○○학교-0000(2026. ○. ○.)</span>
+2. 「초·중등교육법」 제30조의2, 제32조 제1항에 따라 <span class="ph" data-k="year">2027</span>학년도 교복 학교주관구매 계획(안)을 붙임과 같이 제출하오니 심의하여 주시기 바랍니다.
 
-붙임  <span class="ph">2027</span>학년도 교복 학교주관구매 계획(안) 1부.  끝.</pre>
+붙임  <span class="ph" data-k="year">2027</span>학년도 교복 학교주관구매 계획(안) 1부.  끝.</pre>
       <div class="attach"><span class="al">붙임 파일</span><a href="files/chuk-03-1.hwpx" download="03-1_교복 학교주관구매 계획 학교운영위원회 심의(안).hwpx"><span class="ext">HWPX</span>[척따3-1] 교복 학교주관구매 계획 학교운영위원회 심의(안)</a> <a href="files/chuk-02-1.hwpx" download="02-1_2027학년도 교복 학교주관구매 계획(안).hwpx"><span class="ext">HWPX</span>[척따2-1] 2027학년도 교복 학교주관구매 계획(안)</a></div>
     </div>
     <div class="doccard" data-role="gyomu">
       <div class="dochead"><span class="blabel">척따 4</span><span class="tag g">사업부서 → 계약부서</span><span class="when">학운위 심의가 끝나면 계약부서에 구매 요청</span></div>
-<pre class="doctext title"><span class="ph">2027</span>학년도 교복 학교주관구매 요청</pre>
-<pre class="doctext">1. 관련: <span class="ph">○○학교-○○(2026. ○. ○.)</span>
-2. <span class="ph">2027</span>학년도 교복 학교주관구매를 위하여 교복 구매 계획에 대한 학교운영위원회 심의가 완료되어, 아래와 같이 구매 요청을 하고자 합니다.
-  가. 대상 및 수량: <span class="ph">2027</span>학년도 신입생 중 학교주관구매 참여자 <span class="ph">○○</span>명
-  나. 예상단가: 동복 <span class="ph">000,000</span>원, 하복 <span class="ph">00,000</span>원
+<pre class="doctext title"><span class="ph" data-k="year">2027</span>학년도 교복 학교주관구매 요청</pre>
+<pre class="doctext">1. 관련: <span class="ph" data-k="rel:review">○○학교-○○(2026. ○. ○.)</span>
+2. <span class="ph" data-k="year">2027</span>학년도 교복 학교주관구매를 위하여 교복 구매 계획에 대한 학교운영위원회 심의가 완료되어, 아래와 같이 구매 요청을 하고자 합니다.
+  가. 대상 및 수량: <span class="ph" data-k="year">2027</span>학년도 신입생 중 학교주관구매 참여자 <span class="ph" data-k="n:qty">○○</span>명
+  나. 예상단가: 동복 <span class="ph" data-k="n:winterPrice">000,000</span>원, 하복 <span class="ph" data-k="n:summerPrice">00,000</span>원
   다. 사양내역: 붙임 참조
-  라. 납품기한: 동복 <span class="ph">2027. ○. ○.</span>, 하복 <span class="ph">2027. ○. ○.</span>
+  라. 납품기한: 동복 <span class="ph" data-k="date:winterDue">2027. ○. ○.</span>, 하복 <span class="ph" data-k="date:summerDue">2027. ○. ○.</span>
 
-붙임  1. <span class="ph">2027</span>학년도 교복 학교주관구매 계획 1부.
+붙임  1. <span class="ph" data-k="year">2027</span>학년도 교복 학교주관구매 계획 1부.
       2. 교복 사양서 1부.  끝.</pre>
       <div class="attach"><span class="al">붙임 파일</span><a href="files/chuk-02-1.hwpx" download="02-1_2027학년도 교복 학교주관구매 계획(안).hwpx"><span class="ext">HWPX</span>[척따2-1] 2027학년도 교복 학교주관구매 계획(안)</a> <a href="files/chuk-04-1.hwpx" download="04-1_교복 사양서.hwpx"><span class="ext">HWPX</span>[척따4-1] 교복 사양서</a></div>
     </div>
     <div class="doccard" data-role="haeng">
       <div class="dochead"><span class="blabel">척따 5</span><span class="tag h">계약부서 기안</span><span class="when">사전규격 공개 — 추정가격 5천만원 이상일 때</span></div>
-<pre class="doctext title"><span class="ph">2027</span>학년도 학생 교복 입찰 사전규격 공개</pre>
+<pre class="doctext title"><span class="ph" data-k="year">2027</span>학년도 학생 교복 입찰 사전규격 공개</pre>
 <pre class="doctext">1. 관련
    가. 「지방자치단체를 당사자로 하는 계약에 관한 법률」 제9조의2(구매규격 사전공개)
    나. 같은 법 시행령 제32조의2
-2. <span class="ph">2027</span>학년도 학생 교복(동복ㆍ하복) 구입에 대한 물품 구매 규격(사양서)을 아래와 같이 지정정보처리장치를 통하여 사전 공개하고자 합니다.
-  가. 사 업 명: <span class="ph">○○학교</span> 학생 교복 구입
-  나. 기초금액: 단가 <span class="ph">○○</span>원(동복 <span class="ph">○○</span>원, 하복 <span class="ph">○○</span>원)
-  다. 배정예산: <span class="ph">000,000원×000벌=000,000,000원</span>
+2. <span class="ph" data-k="year">2027</span>학년도 학생 교복(동복ㆍ하복) 구입에 대한 물품 구매 규격(사양서)을 아래와 같이 지정정보처리장치를 통하여 사전 공개하고자 합니다.
+  가. 사 업 명: <span class="ph" data-k="school">○○학교</span> 학생 교복 구입
+  나. 기초금액: 단가 <span class="ph" data-k="n:basePrice">○○</span>원(동복 <span class="ph" data-k="n:winterPrice">○○</span>원, 하복 <span class="ph" data-k="n:summerPrice">○○</span>원)
+  다. 배정예산: <span class="ph" data-k="budgetCalc">000,000원×000벌=000,000,000원</span>
   라. 공개방법: 지정정보처리장치(G2B)를 통한 사전규격 공개
-  마. 공개사항: <span class="ph">2027</span>학년도 학생 교복사양서
-  바. 공개기간: <span class="ph">2026. ○. ○. ~ 2026. ○. ○.</span>(5일간)
+  마. 공개사항: <span class="ph" data-k="year">2027</span>학년도 학생 교복사양서
+  바. 공개기간: <span class="ph" data-k="preRange">2026. ○. ○. ~ 2026. ○. ○.</span>(5일간)
 
-붙임  <span class="ph">2027</span>학년도 학생 교복사양서 1부.  끝.</pre>
+붙임  <span class="ph" data-k="year">2027</span>학년도 학생 교복사양서 1부.  끝.</pre>
       <div class="attach"><span class="al">붙임 파일</span><a href="files/chuk-04-1.hwpx" download="04-1_교복 사양서.hwpx"><span class="ext">HWPX</span>[척따4-1] 교복 사양서</a></div>
     </div>
     <div class="doccard" data-role="haeng">
       <div class="dochead"><span class="blabel">척따 6</span><span class="tag h">계약부서 기안</span><span class="when">입찰 공고 전 — 기초금액·계약방법 결정</span></div>
-<pre class="doctext title"><span class="ph">2027</span>학년도 교복 학교주관구매 기초금액 및 계약방법 결정</pre>
-<pre class="doctext">1. 관련: <span class="ph">○○학교-000(2026. ○. ○.)</span>
-2. <span class="ph">2027</span>학년도 교복 학교주관구매를 위하여 「지방자치단체 입찰 및 계약 집행기준」 제2장 예정가격 작성요령(행정안전부 예규)에 따라 아래와 같이 기초금액을 결정하고, 「지방자치단체를 당사자로 하는 계약에 관한 법률 시행령」 제18조 제3항에 따라 2단계 입찰(규격가격 동시입찰)에 의해 계약상대자를 결정하고자 합니다.
-  가. 건    명: <span class="ph">2027</span>학년도 교복 학교주관 구매
+<pre class="doctext title"><span class="ph" data-k="year">2027</span>학년도 교복 학교주관구매 기초금액 및 계약방법 결정</pre>
+<pre class="doctext">1. 관련: <span class="ph" data-k="rel:request">○○학교-000(2026. ○. ○.)</span>
+2. <span class="ph" data-k="year">2027</span>학년도 교복 학교주관구매를 위하여 「지방자치단체 입찰 및 계약 집행기준」 제2장 예정가격 작성요령(행정안전부 예규)에 따라 아래와 같이 기초금액을 결정하고, 「지방자치단체를 당사자로 하는 계약에 관한 법률 시행령」 제18조 제3항에 따라 2단계 입찰(규격가격 동시입찰)에 의해 계약상대자를 결정하고자 합니다.
+  가. 건    명: <span class="ph" data-k="year">2027</span>학년도 교복 학교주관 구매
   나. 물품개요: 교복 제작사양서 참조
-  다. 기초금액: 금<span class="ph">000,000</span>원
+  다. 기초금액: 금<span class="ph" data-k="n:basePrice">000,000</span>원
      (※ 교육청 제시 상한금액(단가) → 동복: 240,950원, 하복: 98,350원 / 학교안전과-3789(2026. 5. 8.))
-  라. 공고기간: <span class="ph">2026. ○. ○.~○. ○.(○일간)</span>
-  마. 계약방법: 2단계 입찰(규격, 가격 동시입찰)로 규격(제안서) 및 가격입찰을 동시에 실시하며, 규격(제안서) 평가 결과 적격자(<span class="ph">80</span>점 이상) 확정된 자에 한하여 가격입찰을 개찰함.
+  라. 공고기간: <span class="ph" data-k="noticeRange">2026. ○. ○.~○. ○.(○일간)</span>
+  마. 계약방법: 2단계 입찰(규격, 가격 동시입찰)로 규격(제안서) 및 가격입찰을 동시에 실시하며, 규격(제안서) 평가 결과 적격자(<span class="ph" data-k="n:passScore">80</span>점 이상) 확정된 자에 한하여 가격입찰을 개찰함.
      ※ 규격(제안서) 평가 결과 적격 점수는 학교 실정에 맞게 선정
 
 붙임  1. 기초금액 산정 조서 1부.
@@ -1587,42 +1705,42 @@ footer p{margin:0 0 7px} footer b{color:var(--ink-2); font-weight:600}
     </div>
     <div class="doccard" data-role="haeng">
       <div class="dochead"><span class="blabel">척따 8</span><span class="tag h">계약부서 기안</span><span class="when">제안서 접수 마감 후</span></div>
-<pre class="doctext title"><span class="ph">2027</span>학년도 교복 학교주관구매 제안서 접수 결과 보고</pre>
-<pre class="doctext">1. <span class="ph">○○학교-000(2026. ○. ○.)</span>호와 관련됩니다.
-2. <span class="ph">2027</span>학년도 학교주관구매 2단계 입찰(규격·가격 동시) 공고와 관련하여 제안서 접수 결과를 아래와 같이 보고합니다.
+<pre class="doctext title"><span class="ph" data-k="year">2027</span>학년도 교복 학교주관구매 제안서 접수 결과 보고</pre>
+<pre class="doctext">1. <span class="ph" data-k="rel:notice">○○학교-000(2026. ○. ○.)</span>호와 관련됩니다.
+2. <span class="ph" data-k="year">2027</span>학년도 학교주관구매 2단계 입찰(규격·가격 동시) 공고와 관련하여 제안서 접수 결과를 아래와 같이 보고합니다.
 
   □ 제안서 접수 결과
-    1) 접수번호 1 / 접수일자 <span class="ph">2026. ○. ○.</span> / 업체명 <span class="ph">○○○</span> / 대표자 <span class="ph">○○○</span>
-    2) 접수번호 2 / 접수일자 <span class="ph">2026. ○. ○.</span> / 업체명 <span class="ph">○○○</span> / 대표자 <span class="ph">○○○</span>
-    3) 접수번호 3 / 접수일자 <span class="ph">2026. ○. ○.</span> / 업체명 <span class="ph">○○○</span> / 대표자 <span class="ph">○○○</span>
+    <span class="ph" data-k="receiptRows">1) 접수번호 1 / 접수일자 2026. ○. ○. / 업체명 ○○○ / 대표자 ○○○
+    2) 접수번호 2 / 접수일자 2026. ○. ○. / 업체명 ○○○ / 대표자 ○○○
+    3) 접수번호 3 / 접수일자 2026. ○. ○. / 업체명 ○○○ / 대표자 ○○○</span>
 
-붙임  <span class="ph">2027</span>학년도 교복 학교주관구매 제안서 접수대장 1부.  끝.</pre>
+붙임  <span class="ph" data-k="year">2027</span>학년도 교복 학교주관구매 제안서 접수대장 1부.  끝.</pre>
       <div class="attach"><span class="al">붙임 파일</span><a href="files/chuk-08-1.hwpx" download="08-1_2027학년도 교복 학교주관구매 제안서 접수대장.hwpx"><span class="ext">HWPX</span>[척따8-1] 2027학년도 교복 학교주관구매 제안서 접수대장</a></div>
     </div>
     <div class="doccard" data-role="gyomu">
       <div class="dochead"><span class="blabel">척따 9</span><span class="tag g">사업부서 기안</span><span class="when">제안서 평가위원회 개최 전</span></div>
-<pre class="doctext title"><span class="ph">2027</span>학년도 교복 학교주관구매 제안서 평가위원회 개최</pre>
-<pre class="doctext">1. <span class="ph">○○학교-000(2026. ○. ○.)</span>호와 관련됩니다.
-2. <span class="ph">2027</span>학년도 교복 학교주관구매 제안서 평가위원회를 아래와 같이 개최하고자 합니다.
-  가. 일시: <span class="ph">2026년 ○월 ○일(○) ○○시</span>
-  나. 장소: 우리 학교 <span class="ph">○○회의실</span>
-  다. 대상: 평가위원 <span class="ph">○</span>명
-    1) 위원장 <span class="ph">○○○</span>
-    2) 부위원장 <span class="ph">○○○</span>
-    3) 위원 <span class="ph">○○○, ○○○, ○○○, ○○○, ○○○</span>
+<pre class="doctext title"><span class="ph" data-k="year">2027</span>학년도 교복 학교주관구매 제안서 평가위원회 개최</pre>
+<pre class="doctext">1. <span class="ph" data-k="rel:notice">○○학교-000(2026. ○. ○.)</span>호와 관련됩니다.
+2. <span class="ph" data-k="year">2027</span>학년도 교복 학교주관구매 제안서 평가위원회를 아래와 같이 개최하고자 합니다.
+  가. 일시: <span class="ph" data-k="evalKor">2026년 ○월 ○일(○) ○○시</span>
+  나. 장소: 우리 학교 <span class="ph" data-k="v:evalPlace">○○회의실</span>
+  다. 대상: 평가위원 <span class="ph" data-k="cnt:">○</span>명
+    1) 위원장 <span class="ph" data-k="role:위원장">○○○</span>
+    2) 부위원장 <span class="ph" data-k="role:부위원장">○○○</span>
+    3) 위원 <span class="ph" data-k="role:위원">○○○, ○○○, ○○○, ○○○, ○○○</span>
   라. 안내방법: 개별통지.  끝.</pre>
       <div class="attach"><span class="al">붙임 파일</span><a href="files/chuk-11-1.hwpx" download="11-1_2027학년도 교복선정 평가위원회 참석 등록부.hwpx"><span class="ext">HWPX</span>[척따11-1] 2027학년도 교복선정 평가위원회 참석 등록부</a> <a href="files/chuk-11-3.hwpx" download="11-3_교복선정위원회 위원 청렴 및 보안 서약서.hwpx"><span class="ext">HWPX</span>[척따11-3] 교복선정위원회 위원 청렴 및 보안 서약서</a> <a href="files/chuk-07-05.hwpx" download="07-05_[2단계] 정성적 평가.hwpx"><span class="ext">HWPX</span>[척따7-5] [2단계] 정성적 평가</a></div>
     </div>
     <div class="doccard" data-role="haeng">
       <div class="dochead"><span class="blabel">척따 10</span><span class="tag h">계약부서 기안</span><span class="when">정량평가 후 — 평가위원회 전에 결과 정리</span></div>
-<pre class="doctext title"><span class="ph">2027</span>학년도 교복 학교주관구매 제안서 정량평가 결과 보고</pre>
-<pre class="doctext">1. <span class="ph">○○학교-000(2026. ○. ○.)</span>호와 관련됩니다.
-2. <span class="ph">2027</span>학년도 교복 학교주관구매 2단계 입찰(규격가격동시) 공고와 관련하여 접수된 제안서에 대한 정량평가를 실시하고, 그 결과를 아래와 같이 보고합니다.
+<pre class="doctext title"><span class="ph" data-k="year">2027</span>학년도 교복 학교주관구매 제안서 정량평가 결과 보고</pre>
+<pre class="doctext">1. <span class="ph" data-k="rel:notice">○○학교-000(2026. ○. ○.)</span>호와 관련됩니다.
+2. <span class="ph" data-k="year">2027</span>학년도 교복 학교주관구매 2단계 입찰(규격가격동시) 공고와 관련하여 접수된 제안서에 대한 정량평가를 실시하고, 그 결과를 아래와 같이 보고합니다.
 
   □ 정량평가 (수행 경험 / 품질 인증 / 접근성 / 단가비율 / 합계)
-    1) <span class="ph">○○○</span>: <span class="ph">○ / ○ / ○ / ○ / ○</span>
-    2) <span class="ph">○○○</span>: <span class="ph">○ / ○ / ○ / ○ / ○</span>
-    3) <span class="ph">○○○</span>: <span class="ph">○ / ○ / ○ / ○ / ○</span>
+    <span class="ph" data-k="quantRows">1) ○○○: ○ / ○ / ○ / ○ / ○
+    2) ○○○: ○ / ○ / ○ / ○ / ○
+    3) ○○○: ○ / ○ / ○ / ○ / ○</span>
   ※ 학교의 제안서 평가항목에 맞게 변경 가능
 
 붙임  1. 정량 평가표 각 1부.
@@ -1631,40 +1749,40 @@ footer p{margin:0 0 7px} footer b{color:var(--ink-2); font-weight:600}
     </div>
     <div class="doccard" data-role="gyomu">
       <div class="dochead"><span class="blabel">척따 11</span><span class="tag g">사업부서 기안</span><span class="when">평가위원회 직후 — 적격 업체 확정</span></div>
-<pre class="doctext title"><span class="ph">2027</span>학년도 교복 업체 선정을 위한 제안서 평가 집계결과 보고</pre>
-<pre class="doctext">1. 관련: <span class="ph">○○학교-○○(2026. ○. ○.</span>, “제안서 평가위원회 구성”)
-2. <span class="ph">2027</span>학년도 교복업체 선정을 위한 제안서 평가위원회 실시 결과를 아래와 같이 보고합니다.
+<pre class="doctext title"><span class="ph" data-k="year">2027</span>학년도 교복 업체 선정을 위한 제안서 평가 집계결과 보고</pre>
+<pre class="doctext">1. 관련: <span class="ph" data-k="relopen:evalmeet">○○학교-○○(2026. ○. ○.</span>, “제안서 평가위원회 구성”)
+2. <span class="ph" data-k="year">2027</span>학년도 교복업체 선정을 위한 제안서 평가위원회 실시 결과를 아래와 같이 보고합니다.
 
   업체명 / 정량평가 / 정성평가 / 합계 / 적격 여부 / 비고
-    A / <span class="ph">○</span> / <span class="ph">○</span> / <span class="ph">○</span> / 적격 / 가격개찰대상
-    B / <span class="ph">○</span> / <span class="ph">○</span> / <span class="ph">○</span> / 적격 / 가격개찰대상
-    C / <span class="ph">○</span> / <span class="ph">○</span> / <span class="ph">○</span> / 부적격 /
-  ※ 적격 여부 판정 점수: 합계 <span class="ph">00</span>점 이상
+    <span class="ph" data-k="evalRows">A / ○ / ○ / ○ / 적격 / 가격개찰대상
+    B / ○ / ○ / ○ / 적격 / 가격개찰대상
+    C / ○ / ○ / ○ / 부적격 /</span>
+  ※ 적격 여부 판정 점수: 합계 <span class="ph" data-k="n:passScore">00</span>점 이상
 
 붙임  1. 제안서 평가위원 등록부 1부.
       2. 제안서 집계표 각 1부.
-      3. 위원별 평가표 <span class="ph">00</span>부.
+      3. 위원별 평가표 <span class="ph" data-k="cnt:">00</span>부.
       4. 평가위원 청렴 및 보안서약서 각 1부.  끝.</pre>
       <div class="attach"><span class="al">붙임 파일</span><a href="files/chuk-11-1.hwpx" download="11-1_2027학년도 교복선정 평가위원회 참석 등록부.hwpx"><span class="ext">HWPX</span>[척따11-1] 2027학년도 교복선정 평가위원회 참석 등록부</a> <a href="files/chuk-11-2.hwpx" download="11-2_2027학년도 교복(동복·하복) 구매 업체별 제안서 집계표.hwpx"><span class="ext">HWPX</span>[척따11-2] 2027학년도 교복(동복·하복) 구매 업체별 제안서 집계표</a> <a href="files/chuk-07-05.hwpx" download="07-05_[2단계] 정성적 평가.hwpx"><span class="ext">HWPX</span>[척따7-5] [2단계] 정성적 평가</a> <a href="files/chuk-11-3.hwpx" download="11-3_교복선정위원회 위원 청렴 및 보안 서약서.hwpx"><span class="ext">HWPX</span>[척따11-3] 교복선정위원회 위원 청렴 및 보안 서약서</a></div>
     </div>
     <div class="doccard" data-role="haeng">
       <div class="dochead"><span class="blabel">척따 12</span><span class="tag h">계약부서 기안</span><span class="when">가격 개찰 후</span></div>
-<pre class="doctext title"><span class="ph">2027</span>학년도 교복 학교주관구매 낙찰자 결정</pre>
-<pre class="doctext">1. 관련: <span class="ph">○○학교-000(2026. ○. ○.)</span>
-2. <span class="ph">2027</span>학년도 교복 학교주관구매 건에 대해 개찰 결과 예정가격 대비 최저가격으로 투찰하여 1순위가 된 아래 업체를 낙찰자로 결정하고자 합니다.
-  가. 건    명: <span class="ph">2027</span>학년도 교복(동복·하복) 학교주관구매
-  나. 기초금액: 금<span class="ph">000,000</span>원
-  다. 예정가격: 금<span class="ph">000,000</span>원
-  라. 낙찰자: 1순위 <span class="ph">○○교복사</span>(대표자 <span class="ph">○○○</span>), 투찰금액 <span class="ph">000,000</span>원, 낙찰률 <span class="ph">00.00</span>%, 주소 <span class="ph">○○</span>
+<pre class="doctext title"><span class="ph" data-k="year">2027</span>학년도 교복 학교주관구매 낙찰자 결정</pre>
+<pre class="doctext">1. 관련: <span class="ph" data-k="rel:evalresult">○○학교-000(2026. ○. ○.)</span>
+2. <span class="ph" data-k="year">2027</span>학년도 교복 학교주관구매 건에 대해 개찰 결과 예정가격 대비 최저가격으로 투찰하여 1순위가 된 아래 업체를 낙찰자로 결정하고자 합니다.
+  가. 건    명: <span class="ph" data-k="year">2027</span>학년도 교복(동복·하복) 학교주관구매
+  나. 기초금액: 금<span class="ph" data-k="n:basePrice">000,000</span>원
+  다. 예정가격: 금<span class="ph" data-k="n:estPrice">000,000</span>원
+  라. 낙찰자: 1순위 <span class="ph" data-k="v:winner">○○교복사</span>(대표자 <span class="ph" data-k="winnerCeo">○○○</span>), 투찰금액 <span class="ph" data-k="n:bidPrice">000,000</span>원, 낙찰률 <span class="ph" data-k="rate">00.00</span>%, 주소 <span class="ph" data-k="v:winnerAddr">○○</span>
   마. 근거: 「지방자치단체를 당사자로 하는 계약에 관한 법률 시행령」 제42조.  끝.</pre>
       <div class="attach"><span class="noatt">붙임 없음 — 개찰 결과(나라장터) 출력물 첨부</span></div>
     </div>
     <div class="doccard" data-role="haeng">
       <div class="dochead"><span class="blabel">척따 13</span><span class="tag h">계약부서 · 시행문</span><span class="when">낙찰자에게 통보 — 수신: 낙찰 업체</span></div>
-<pre class="doctext title"><span class="ph">2027</span>학년도 교복 학교주관 구매 낙찰자 결정 통보</pre>
+<pre class="doctext title"><span class="ph" data-k="year">2027</span>학년도 교복 학교주관 구매 낙찰자 결정 통보</pre>
 <pre class="doctext">1. 귀사의 무궁한 발전을 기원합니다.
-2. 우리학교 <span class="ph">2027</span>학년도 교복 학교주관구매 건에 대하여 귀사를 낙찰자로 결정하여 통보하오니 전자계약[나라장터(G2B)] 체결을 위해 아래 서류를 <span class="ph">2026. ○○. ○○.</span>까지 제출하여 주시기 바랍니다.
-  가. 낙찰자: <span class="ph">○○교복사</span>(대표자 <span class="ph">○○○</span>), 단가 <span class="ph">000,000</span>원, 예정수량 <span class="ph">000</span>벌, 계약체결금액 <span class="ph">00,000,000</span>원
+2. 우리학교 <span class="ph" data-k="year">2027</span>학년도 교복 학교주관구매 건에 대하여 귀사를 낙찰자로 결정하여 통보하오니 전자계약[나라장터(G2B)] 체결을 위해 아래 서류를 <span class="ph" data-k="date:docsDue">2026. ○○. ○○.</span>까지 제출하여 주시기 바랍니다.
+  가. 낙찰자: <span class="ph" data-k="v:winner">○○교복사</span>(대표자 <span class="ph" data-k="winnerCeo">○○○</span>), 단가 <span class="ph" data-k="n:bidPrice">000,000</span>원, 예정수량 <span class="ph" data-k="n:qty">000</span>벌, 계약체결금액 <span class="ph" data-k="contractAmt">00,000,000</span>원
   나. 제출서류
     1) 품목별 단가표 1부.
     2) 원단 의류 시험성적서 1부.
@@ -1674,15 +1792,15 @@ footer p{margin:0 0 7px} footer b{color:var(--ink-2); font-weight:600}
     </div>
     <div class="doccard" data-role="haeng">
       <div class="dochead"><span class="blabel">척따 14</span><span class="tag h">계약부서 기안</span><span class="when">서류를 받은 뒤 — 낙찰 통지 후 10일 이내 계약</span></div>
-<pre class="doctext title"><span class="ph">2027</span>학년도 교복 학교주관구매 계약 체결</pre>
-<pre class="doctext">1. 관련: <span class="ph">○○학교-000(2026. ○. ○.)</span>
-2. <span class="ph">2027</span>학년도 교복 학교주관구매를 위한 계약을 아래와 같이 체결하고자 합니다.
-  가. 계약명: <span class="ph">2027</span>학년도 교복(동복·하복) 학교주관구매
-  나. 계약금액: 금<span class="ph">00,000,000</span>원[<span class="ph">000,000</span>원(단가)×<span class="ph">○○</span>벌(예정수량)]
+<pre class="doctext title"><span class="ph" data-k="year">2027</span>학년도 교복 학교주관구매 계약 체결</pre>
+<pre class="doctext">1. 관련: <span class="ph" data-k="rel:award">○○학교-000(2026. ○. ○.)</span>
+2. <span class="ph" data-k="year">2027</span>학년도 교복 학교주관구매를 위한 계약을 아래와 같이 체결하고자 합니다.
+  가. 계약명: <span class="ph" data-k="year">2027</span>학년도 교복(동복·하복) 학교주관구매
+  나. 계약금액: 금<span class="ph" data-k="contractAmt">00,000,000</span>원[<span class="ph" data-k="n:bidPrice">000,000</span>원(단가)×<span class="ph" data-k="n:qty">○○</span>벌(예정수량)]
      ※ 최종구매수량은 희망 학생 수에 따라 증감될 수 있음.
-3. 계약상대자: <span class="ph">○○교복사</span> / 소재지 <span class="ph">전북특별자치도 ○○시 ○○로</span> / 대표자 <span class="ph">○○○</span> / 전화 <span class="ph">063-000-0000</span>
+3. 계약상대자: <span class="ph" data-k="v:winner">○○교복사</span> / 소재지 <span class="ph" data-k="v:winnerAddr">전북특별자치도 ○○시 ○○로</span> / 대표자 <span class="ph" data-k="winnerCeo">○○○</span> / 전화 <span class="ph" data-k="v:winnerTel">063-000-0000</span>
 4. 계약보증금: 교복단가에 예정 수량을 곱한 금액의 10%(보증서 전자 접수)
-5. 납품기한: 동복 <span class="ph">2027. ○. ○.(○)</span>, 하복 <span class="ph">2027. ○. ○.(○)</span>
+5. 납품기한: 동복 <span class="ph" data-k="dated:winterDue">2027. ○. ○.(○)</span>, 하복 <span class="ph" data-k="dated:summerDue">2027. ○. ○.(○)</span>
 6. 계약방법: 나라장터(G2B)를 통한 전자계약
 
 붙임  1. 계약서(초안) 1부.
@@ -1697,7 +1815,7 @@ footer p{margin:0 0 7px} footer b{color:var(--ink-2); font-weight:600}
 <pre class="doctext title">신입생 교복구매 사전 안내 가정통신문 발송</pre>
 <pre class="doctext">1. 관련: 전북특별자치도교육청 학교안전과-7715(2026. 9. 29.) 「교복 학교주관구매 운영 매뉴얼」
 2. 상급학교 진학 이전에 교복 구매에 대한 사전 안내를 실시하기 위하여 붙임과 같이 가정통신문을 발송하고자 합니다.
-  가. 대상: <span class="ph">2027</span>학년도 예비 중1(예비 고1) 학생 및 학부모
+  가. 대상: <span class="ph" data-k="year">2027</span>학년도 예비 중1(예비 고1) 학생 및 학부모
   나. 내용: 교복 학교주관구매 참여 및 지원 방법, 기타 교복관련 사항
 
 붙임  교복구매 사전 안내 가정통신문 1부.  끝.</pre>
@@ -1708,7 +1826,7 @@ footer p{margin:0 0 7px} footer b{color:var(--ink-2); font-weight:600}
 <pre class="doctext title">신입생 예비소집일 교복구매 수요조사 가정통신문 발송</pre>
 <pre class="doctext">1. 관련: 전북특별자치도교육청 학교안전과-7715(2026. 9. 29.) 「교복 학교주관구매 운영 매뉴얼」
 2. 정확한 교복 물량 파악을 위한 학교주관구매 수요조사를 위해 붙임과 같이 가정통신문을 발송하고자 합니다.
-  가. 대상: <span class="ph">2027</span>학년도 신입생 및 학부모
+  가. 대상: <span class="ph" data-k="year">2027</span>학년도 신입생 및 학부모
   나. 내용: 교복 학교주관구매 참여 여부 조사
 
 붙임  교복구매 수요조사 가정통신문 1부.  끝.</pre>
@@ -1719,7 +1837,7 @@ footer p{margin:0 0 7px} footer b{color:var(--ink-2); font-weight:600}
 <pre class="doctext title">교복 학교주관구매 만족도 설문조사 실시</pre>
 <pre class="doctext">1. 관련: 전북특별자치도교육청 학교안전과-7715(2026. 9. 29.) 「교복 학교주관구매 운영 매뉴얼」
 2. 교복 학교주관구매에 대한 만족도 조사를 실시하기 위하여 붙임과 같이 설문지를 발송하고자 합니다.
-  가. 대상: <span class="ph">2027</span>학년도 교복 학교주관구매 참여 학생 및 학부모
+  가. 대상: <span class="ph" data-k="year">2027</span>학년도 교복 학교주관구매 참여 학생 및 학부모
   나. 내용: 가격, 품질, 구매절차 및 사후관리 등 전반에 걸친 만족도 조사
 
 붙임  교복 학교주관구매 만족도 설문지 1부.  끝.</pre>
@@ -1730,7 +1848,7 @@ footer p{margin:0 0 7px} footer b{color:var(--ink-2); font-weight:600}
 <pre class="doctext title">교복 학교주관구매 만족도 설문조사 결과</pre>
 <pre class="doctext">1. 관련: 전북특별자치도교육청 학교안전과-7715(2026. 9. 29.) 「교복 학교주관구매 운영 매뉴얼」
 2. 교복 학교주관구매에 대한 만족도 설문조사 실시 결과를 붙임과 같이 보고합니다.
-  가. 대상: <span class="ph">2027</span>학년도 교복 학교주관구매 참여 학생 및 학부모
+  가. 대상: <span class="ph" data-k="year">2027</span>학년도 교복 학교주관구매 참여 학생 및 학부모
   나. 내용: 가격, 품질 등 항목별 평균점수 및 총평
 
 붙임  교복 학교주관구매 만족도 설문조사 결과 1부.  끝.</pre>
@@ -1761,7 +1879,7 @@ footer p{margin:0 0 7px} footer b{color:var(--ink-2); font-weight:600}
     s1:"교복선정위원회 구성", s2:"교복 디자인 선정(변경)", s2a:"학생 생활규정 제·개정", s2b:"학교운영위원회 심의 및 디자인 공개", s3:"교복 구매 계획 수립",
     s4:"교복 구매 계획 심의", s5:"교복 납품 사업자 선정·계약", s6:"신입생 대상 희망 조사",
     s7:"최종 수량 확정 및 교복 치수 측정", s8:"교복 검수 및 배부", s9:"대금 지급 및 사후 평가",
-    figures:"확인할 숫자", g2b:"나라장터(G2B) 입찰 진행", forms:"지침 서식 내려받기", pitfalls:"자주 하는 실수", docs:"공문 예시 모음", flow:"추진 절차"
+    figures:"확인할 숫자", g2b:"나라장터(G2B) 입찰 진행", forms:"지침 서식 내려받기", pitfalls:"자주 하는 실수", suui:"수의계약으로 업체 정하기", basedata:"기초자료 입력", docs:"공문 예시 모음", flow:"추진 절차"
   };
   var ROLE_NAME = { gyomu:"교무", haeng:"행정" };
 
@@ -2042,27 +2160,189 @@ footer p{margin:0 0 7px} footer b{color:var(--ink-2); font-weight:600}
     setTimeout(function(){ card.classList.remove("flash"); }, 1600);
   });
 
-  /* ---- 공문 학교명·학년도 입력: 노란 밑줄(.ph)의 학교 이름과 연도를 바꿔 보여 주고, 그대로 복사된다 ---- */
+  /* ---- 기초자료: 한 번 입력하면 공문 예시의 노란 밑줄(.ph[data-k])이 채워지고, 그대로 복사된다 ----
+     값이 없는 칸은 예시 그대로(학교명·학년도만 바꿔서) 보여 준다. 입력값은 이 창(sessionStorage)에만 두고
+     엑셀로 내려받아 보관한다. 서버로는 보내지 않는다. */
   (function(){
     var BASE = 2027;                                   // 예시 공문이 쓰인 학년도
     var SCHOOL = /○{2,4}(?:고등|중)?학교/g;
+    var WD = "일월화수목금토";
+    var FIELDS = [ // [키, 항목 이름, 입력 종류, 묶음, 설명]
+      ["school","학교명","text","기본 정보","예: ○○고등학교 — 문서번호 앞에도 붙습니다"],
+      ["year","학년도","number","기본 정보","교복을 입을 신입생 학년도 (예: 2027)"],
+      ["fax","회신 팩스","text","기본 정보","견적 의뢰 회신용"],
+      ["email","회신 이메일","text","기본 정보","견적 의뢰 회신용"],
+      ["officeTel","행정실 전화","text","기본 정보","입찰 공고문의 입찰·계약 문의처 (예: 063-000-0000)"],
+      ["teachTel","교무실 전화","text","기본 정보","입찰 공고문의 규격 문의처"],
+      ["meetDate","결정회의 날짜","date","교복선정위원회","평가기준·사양서 결정회의"],
+      ["meetTime","결정회의 시간","text","교복선정위원회","예: 13:00~13:50"],
+      ["meetPlace","결정회의 장소","text","교복선정위원회","예: ○○고등학교 교무실"],
+      ["qty","구매 예정 인원(벌)","number","구매 계획·기초금액","신입생 중 주관구매 참여 예정 인원"],
+      ["basePrice","기초금액(1인 단가)","number","구매 계획·기초금액","견적 평균 등으로 산출, 상한가 이내 (원)"],
+      ["winterPrice","동복 단가","number","구매 계획·기초금액","원"],
+      ["summerPrice","하복 단가","number","구매 계획·기초금액","원"],
+      ["quoteDue","견적 회신기한","date","구매 계획·기초금액",""],
+      ["winterDue","동복 납품기한","date","구매 계획·기초금액","치수 측정 완료 후 40일 이상"],
+      ["summerDue","하복 납품기한","date","구매 계획·기초금액",""],
+      ["preStart","사전규격 공개 시작일","date","입찰 일정","추정가격 5천만원 이상일 때, 5일 이상"],
+      ["preEnd","사전규격 공개 종료일","date","입찰 일정",""],
+      ["bidStart","입찰 공고일(제출 시작일)","date","입찰 일정",""],
+      ["bidStartTime","제출 시작 시각","time","입찰 일정","예: 11:00"],
+      ["bidEnd","제출 마감일","date","입찰 일정","견본품 기간 고려: 공고일~평가일 1개월 이상"],
+      ["bidEndTime","제출 마감 시각","time","입찰 일정","예: 14:00"],
+      ["evalDate","제안서 평가일","date","입찰 일정",""],
+      ["evalTime","제안서 평가 시각","time","입찰 일정",""],
+      ["evalPlace","제안서 평가 장소","text","입찰 일정","예: ○○회의실"],
+      ["openDate","개찰일","date","입찰 일정",""],
+      ["openTime","개찰 시각","time","입찰 일정",""],
+      ["passScore","적격 기준 점수","number","입찰 일정","예: 80"],
+      ["estPrice","예정가격(단가)","number","낙찰·계약","원"],
+      ["winner","낙찰 업체명","text","낙찰·계약",""],
+      ["winnerCeo","낙찰 업체 대표자","text","낙찰·계약","비우면 아래 업체 목록에서 가져옵니다"],
+      ["winnerAddr","낙찰 업체 소재지","text","낙찰·계약",""],
+      ["winnerTel","낙찰 업체 전화","text","낙찰·계약",""],
+      ["bidPrice","투찰 단가","number","낙찰·계약","원 — 계약금액 = 투찰 단가 × 구매 예정 인원"],
+      ["docsDue","계약 서류 제출기한","date","낙찰·계약","낙찰 통지 후 10일 이내 계약"]
+    ];
+    var DOCS = [ // 문서번호 대장 — 뒤 공문의 '관련'에 들어간다
+      ["recv","교육청 매뉴얼 안내 공문(접수)"],["committee","교복선정위원회 구성"],["meeting","평가기준·사양서 결정회의 개최"],
+      ["decision","평가기준·사양서 결정"],["plan","교복 학교주관구매 계획"],["review","학운위 심의 안건 제출"],
+      ["request","교복 학교주관구매 요청"],["price","기초금액 산출"],["notice","입찰공고"],
+      ["evalmeet","제안서 평가위원회 개최"],["evalresult","제안서 평가 집계결과 보고"],["award","낙찰자 결정"]
+    ];
+    var MCOLS = [["grp","구분",["교원","학교운영위원","학부모","학생"]],["role","직책",["위원장","부위원장","위원"]],["pos","직위",null],["name","성명",null]];
+    var BCOLS = [["name","업체명"],["ceo","대표자"],["date","접수일"],["q1","수행경험"],["q2","품질인증"],["q3","접근성"],["q4","단가비율"],["qual","정성평가"]];
+
+    var D = { f:{}, members:[], bidders:[], docs:{} };
+    try { var saved = JSON.parse(sessionStorage.getItem("gyobok-bd") || "null"); if (saved) D = saved; } catch (e) {}
+    try { // 예전 학교명·학년도 입력값 이어받기
+      if (!D.f.school) D.f.school = localStorage.getItem("gyobok-dv-school") || "";
+      if (!D.f.year) D.f.year = localStorage.getItem("gyobok-dv-year") || "";
+    } catch (e) {}
+    if (!D.f.year) D.f.year = String(BASE);
+    function store(){
+      try { sessionStorage.setItem("gyobok-bd", JSON.stringify(D)); } catch (e) {}
+      try { localStorage.setItem("gyobok-dv-school", D.f.school || ""); localStorage.setItem("gyobok-dv-year", D.f.year || ""); } catch (e) {}
+    }
+
+    /* 값 모양 만들기 */
+    function F(k){ return String(D.f[k] == null ? "" : D.f[k]).trim(); }
+    function num(v){ var n = Number(String(v).replace(/[^\d.-]/g, "")); return String(v).trim() !== "" && isFinite(n) ? n : null; }
+    function comma(n){ return n == null ? "" : Math.round(n).toLocaleString("ko-KR"); }
+    function han(n){
+      if (n == null || n <= 0) return "";
+      var d = "영일이삼사오육칠팔구", small = ["","십","백","천"], big = ["","만","억","조"], out = "", g = 0;
+      n = Math.floor(n);
+      while (n > 0){
+        var part = n % 10000, s = "";
+        for (var i = 0; i < 4; i++){ var x = Math.floor(part / Math.pow(10, i)) % 10; if (x) s = d[x] + small[i] + s; }
+        if (s) out = s + big[g] + out;
+        n = Math.floor(n / 10000); g++;
+      }
+      return out;
+    }
+    function pd(v){ var m = /^(\d{4})-(\d{1,2})-(\d{1,2})$/.exec(String(v || "").trim()); return m ? new Date(+m[1], +m[2] - 1, +m[3]) : null; }
+    function dot(v, noYear){ var d = pd(v); return d ? (noYear ? "" : d.getFullYear() + ". ") + (d.getMonth() + 1) + ". " + d.getDate() + "." : ""; }
+    function dotw(v, noYear){ var d = pd(v); return d ? dot(v, noYear) + "(" + WD[d.getDay()] + ")" : ""; }
+    function at(dk, tk){ var s = dotw(F(dk)); return s ? s + (F(tk) ? " " + F(tk) : "") : ""; }
+    function rel(k, open){
+      var r = D.docs[k] || {}, no = String(r.no || "").trim(), dt = dot(r.date);
+      if (!F("school") || !no || !dt) return "";
+      return F("school") + "-" + no + "(" + dt + (open ? "" : ")");
+    }
+    function mem(){ return (D.members || []).filter(function(m){ return String(m.name || "").trim(); }); }
+    function bid(){ return (D.bidders || []).filter(function(b){ return String(b.name || "").trim(); }); }
+    function pn(m){ return (String(m.pos || "").trim() ? m.pos.trim() + " " : "") + m.name.trim(); }
+    function qsum(b){ var s = 0, any = false; ["q1","q2","q3","q4"].forEach(function(k){ var n = num(b[k] || ""); if (n != null){ s += n; any = true; } }); return any ? s : null; }
+    function r2(n){ return Math.round(n * 100) / 100; }
+
+    var FMT = {
+      school: function(){ return F("school"); },
+      year: function(){ return /^\d{4}$/.test(F("year")) ? F("year") : ""; },
+      yearPrev: function(){ return /^\d{4}$/.test(F("year")) ? String(+F("year") - 1) : ""; },
+      v: function(a){ return F(a); },
+      n: function(a){ return comma(num(F(a))); },
+      han: function(a){ return han(num(F(a))); },
+      date: function(a){ return dot(F(a)); },
+      dated: function(a){ return dotw(F(a)); },
+      dt: function(a){ return a === "openAt" ? at("openDate", "openTime") : ""; },
+      meetTime: function(){ var s = dotw(F("meetDate")); return s ? s + (F("meetTime") ? " " + F("meetTime") : "") : ""; },
+      bidPeriod: function(){ var a = at("bidStart", "bidStartTime"), b = at("bidEnd", "bidEndTime"); return a && b ? a + " ~ " + b : ""; },
+      evalWhen: function(){ var a = at("evalDate", "evalTime"); return a ? a + (F("evalPlace") ? ", " + F("evalPlace") : "") : ""; },
+      evalKor: function(){
+        var d = pd(F("evalDate")); if (!d) return "";
+        var t = /^(\d{1,2}):(\d{2})$/.exec(F("evalTime")), s = d.getFullYear() + "년 " + (d.getMonth() + 1) + "월 " + d.getDate() + "일(" + WD[d.getDay()] + ")";
+        return t ? s + " " + (+t[1]) + "시" + (+t[2] ? " " + (+t[2]) + "분" : "") : s;
+      },
+      preRange: function(){ var a = dot(F("preStart")), b = dot(F("preEnd")); return a && b ? a + " ~ " + b : ""; },
+      noticeRange: function(){
+        var a = pd(F("bidStart")), b = pd(F("bidEnd")); if (!a || !b) return "";
+        var days = Math.round((b - a) / 86400000) + 1;
+        return dot(F("bidStart")) + "~" + dot(F("bidEnd"), a.getFullYear() === b.getFullYear()) + "(" + days + "일간)";
+      },
+      budgetCalc: function(){ var p = num(F("basePrice")), q = num(F("qty")); return p != null && q != null ? comma(p) + "원×" + comma(q) + "벌=" + comma(p * q) + "원" : ""; },
+      contractAmt: function(){ var p = num(F("bidPrice")), q = num(F("qty")); return p != null && q != null ? comma(p * q) : ""; },
+      rate: function(){ var p = num(F("bidPrice")), e = num(F("estPrice")); return p != null && e ? (p / e * 100).toFixed(3) : ""; },
+      winnerCeo: function(){
+        if (F("winnerCeo")) return F("winnerCeo");
+        var w = bid().filter(function(b){ return b.name.trim() === F("winner"); })[0];
+        return w && String(w.ceo || "").trim() ? w.ceo.trim() : "";
+      },
+      rel: function(a){ return rel(a); },
+      relopen: function(a){ return rel(a, true); },
+      cnt: function(a){ var m = mem().filter(function(x){ return !a || x.grp === a; }); return mem().length ? String(m.length) : ""; },
+      chair: function(){ var c = mem().filter(function(x){ return x.role === "위원장"; })[0]; return c ? pn(c) : ""; },
+      mem: function(a){
+        var gs = a.split(","), m = mem().filter(function(x){ return gs.indexOf(x.grp) > -1 && x.role !== "위원장"; });
+        return m.map(pn).join(", ");
+      },
+      role: function(a){ return mem().filter(function(x){ return (x.role || "위원") === a; }).map(function(x){ return x.name.trim(); }).join(", "); },
+      receiptRows: function(){
+        return bid().map(function(b, i){ return (i + 1) + ") 접수번호 " + (i + 1) + " / 접수일자 " + (dot(b.date) || "○. ○.") + " / 업체명 " + b.name.trim() + " / 대표자 " + (String(b.ceo || "").trim() || "○○○"); }).join("\n    ");
+      },
+      quantRows: function(){
+        return bid().map(function(b, i){
+          var s = qsum(b);
+          return (i + 1) + ") " + b.name.trim() + ": " + ["q1","q2","q3","q4"].map(function(k){ return String(b[k] || "").trim() || "○"; }).join(" / ") + " / " + (s == null ? "○" : r2(s));
+        }).join("\n    ");
+      },
+      evalRows: function(){
+        var pass = num(F("passScore"));
+        return bid().map(function(b){
+          var q = qsum(b), l = num(b.qual || ""), t = q != null && l != null ? r2(q + l) : null;
+          var ok = t != null && pass != null ? t >= pass : null;
+          return b.name.trim() + " / " + (q == null ? "○" : r2(q)) + " / " + (l == null ? "○" : r2(l)) + " / " + (t == null ? "○" : t) + " / " +
+            (ok == null ? "○" : ok ? "적격 / 가격개찰대상" : "부적격 /");
+        }).join("\n    ");
+      }
+    };
+    function fmt(k){
+      var i = k.indexOf(":"), name = i < 0 ? k : k.slice(0, i), arg = i < 0 ? "" : k.slice(i + 1);
+      try { return FMT[name] ? String(FMT[name](arg) || "") : ""; } catch (e) { return ""; }
+    }
+
+    /* 공문에 채우기 */
     var phs = Array.prototype.slice.call(document.querySelectorAll(".doctext .ph"));
     phs.forEach(function(s){ s.dataset.tpl = s.textContent; });
-    function load(k, d){ try { return localStorage.getItem("gyobok-dv-" + k) || d; } catch (e) { return d; } }
-    function save(k, v){ try { localStorage.setItem("gyobok-dv-" + k, v); } catch (e) {} }
-    var vals = { school: load("school", ""), year: load("year", String(BASE)) };
     function apply(){
-      var y = parseInt(vals.year, 10);
-      var shift = (y >= 2000 && y <= 2100) ? y - BASE : 0;
-      var school = vals.school.trim();
+      var y = parseInt(F("year"), 10), shift = (y >= 2000 && y <= 2100) ? y - BASE : 0, school = F("school");
+      var filled = 0, total = 0;
       phs.forEach(function(s){
-        var t = s.dataset.tpl;
-        if (shift) t = t.replace(/20[2-3]\d/g, function(m){ return String(+m + shift); });
-        if (school) t = t.replace(SCHOOL, school);
-        s.textContent = t;
+        var val = s.dataset.k ? fmt(s.dataset.k) : "", ok = !!val;
+        if (!val){
+          val = s.dataset.tpl;
+          if (shift) val = val.replace(/20[2-3]\d/g, function(m){ return String(+m + shift); });
+          if (school) val = val.replace(SCHOOL, school);
+        }
+        s.textContent = val;
+        if (s.dataset.k){
+          s.classList.toggle("ph-ok", ok);
+          if (!s.closest("#docall")){ total++; if (ok) filled++; }
+        }
       });
-      document.querySelectorAll(".docvars input").forEach(function(inp){
-        if (inp.value !== vals[inp.dataset.dv]) inp.value = vals[inp.dataset.dv];
+      document.querySelectorAll(".dv-count").forEach(function(el){ el.textContent = "기초자료로 채운 칸 " + filled + " / " + total; });
+      document.querySelectorAll(".docvars input[data-dv]").forEach(function(inp){
+        if (document.activeElement !== inp && inp.value !== F(inp.dataset.dv)) inp.value = F(inp.dataset.dv);
       });
     }
     function bar(){
@@ -2071,21 +2351,290 @@ footer p{margin:0 0 7px} footer b{color:var(--ink-2); font-weight:600}
       d.innerHTML = '<b>공문에 넣을 값</b>' +
         '<label>학교명 <input type="text" data-dv="school" placeholder="예: ○○고등학교"></label>' +
         '<label>학년도 <input type="number" data-dv="year" min="2020" max="2099" step="1"></label>' +
-        '<span class="dv-note">입력하면 노란 밑줄 부분의 학교 이름과 연도(학년도·시행 연도)가 바뀌고, 복사하면 바뀐 내용 그대로 들어갑니다. 날짜·번호·금액은 붙여넣은 뒤 고치세요.</span>';
+        '<button type="button" class="dv-go" data-go="basedata">기초자료 전체 입력 &#8594;</button>' +
+        '<span class="dv-count"></span>' +
+        '<span class="dv-note">기초자료(일정·금액·위원·업체·문서번호)를 한 번 입력하면 노란 밑줄 칸이 채워지고, 복사하면 채워진 내용 그대로 들어갑니다. 비어 있는 칸은 예시 값이 보이니 붙여넣은 뒤 고치세요.</span>';
       return d;
     }
-    // 단계 화면의 공문 묶음 위, 공문 예시 모음 맨 위에 하나씩
     document.querySelectorAll(".page .docs").forEach(function(box){
       if (box.closest("#docall") || box.closest("#chukdocs")) return;
       box.parentNode.insertBefore(bar(), box);
     });
     var docall = document.getElementById("docall");
     if (docall) docall.parentNode.insertBefore(bar(), docall);
+
+    /* 기초자료 입력 화면 */
+    var form = document.getElementById("bdform");
+    function esc(s){ return String(s == null ? "" : s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+    function cell(tbl, i, c, v){
+      if (c[2]) return '<select data-t="' + tbl + '" data-i="' + i + '" data-c="' + c[0] + '"><option value=""></option>' +
+        c[2].map(function(o){ return '<option' + (o === v ? " selected" : "") + ">" + o + "</option>"; }).join("") + "</select>";
+      var type = tbl === "bidders" && c[0] === "date" ? "date" : (tbl === "bidders" && /^q|qual/.test(c[0]) ? "number" : "text");
+      return '<input type="' + type + '" step="any" data-t="' + tbl + '" data-i="' + i + '" data-c="' + c[0] + '" value="' + esc(v) + '">';
+    }
+    function table(tbl, cols, rows, title, note){
+      return '<section class="bd-sec"><h2>' + title + '</h2>' + (note ? '<p class="bd-note">' + note + "</p>" : "") +
+        '<div class="bd-tablewrap"><table class="bd-table"><thead><tr><th>#</th>' + cols.map(function(c){ return "<th>" + c[1] + "</th>"; }).join("") + "<th></th></tr></thead><tbody>" +
+        rows.map(function(r, i){ return "<tr><td>" + (i + 1) + "</td>" + cols.map(function(c){ return "<td>" + cell(tbl, i, c, r[c[0]]) + "</td>"; }).join("") +
+          '<td><button type="button" class="bd-del" data-t="' + tbl + '" data-i="' + i + '" title="이 줄 지우기">✕</button></td></tr>'; }).join("") +
+        '</tbody></table></div><button type="button" class="bd-add" data-t="' + tbl + '">+ 줄 추가</button></section>';
+    }
+    function draw(){
+      if (!form) return;
+      var groups = [], html = "";
+      FIELDS.forEach(function(f){ if (groups.indexOf(f[3]) < 0) groups.push(f[3]); });
+      groups.forEach(function(g){
+        html += '<section class="bd-sec"><h2>' + g + '</h2><div class="bd-grid">' + FIELDS.filter(function(f){ return f[3] === g; }).map(function(f){
+          return '<label class="bd-field"><span>' + f[1] + '</span><input type="' + f[2] + '" step="any" data-f="' + f[0] + '" value="' + esc(D.f[f[0]]) + '">' +
+            (f[4] ? "<small>" + f[4] + "</small>" : "") + "</label>";
+        }).join("") + "</div></section>";
+        if (g === "교복선정위원회") html += table("members", MCOLS, D.members, "교복선정위원회 위원",
+          "구분·직책·직위·성명. 위원장은 직책에서 고릅니다. 인원수와 명단은 공문에 자동으로 들어갑니다. 7명 이상, 교원 외 위원 과반.");
+        if (g === "입찰 일정") html += table("bidders", BCOLS, D.bidders, "제안서 제출 업체",
+          "정량평가 4항목(수행경험·품질인증·접근성·단가비율)과 정성평가 점수(위원 평균)를 넣으면 합계와 적격 여부가 계산됩니다.");
+      });
+      html += '<section class="bd-sec"><h2>문서번호 대장</h2><p class="bd-note">결재가 끝난 공문의 생산 번호와 날짜를 적으면, 다음 공문의 "관련"에 "학교명-번호(날짜)"로 들어갑니다. 번호만 적으세요(예: 10410).</p>' +
+        '<div class="bd-tablewrap"><table class="bd-table"><thead><tr><th>공문</th><th>번호</th><th>날짜</th></tr></thead><tbody>' +
+        DOCS.map(function(d){ var r = D.docs[d[0]] || {}; return "<tr><td>" + d[1] + '</td><td><input type="text" data-doc="' + d[0] + '" data-c="no" value="' + esc(r.no) + '"></td><td><input type="date" data-doc="' + d[0] + '" data-c="date" value="' + esc(r.date) + '"></td></tr>'; }).join("") +
+        "</tbody></table></div></section>";
+      form.innerHTML = html;
+    }
+    function changed(){ store(); apply(); }
     document.addEventListener("input", function(e){
-      var inp = e.target;
-      if (!inp.dataset || !inp.dataset.dv || !inp.closest(".docvars")) return;
-      vals[inp.dataset.dv] = inp.value; save(inp.dataset.dv, inp.value); apply();
+      var t = e.target; if (!t.dataset) return;
+      if (t.dataset.dv && t.closest(".docvars")){ D.f[t.dataset.dv] = t.value; changed(); return; }
+      if (!form || !form.contains(t)) return;
+      if (t.dataset.f) D.f[t.dataset.f] = t.value;
+      else if (t.dataset.t){ D[t.dataset.t][+t.dataset.i][t.dataset.c] = t.value; }
+      else if (t.dataset.doc){ D.docs[t.dataset.doc] = D.docs[t.dataset.doc] || {}; D.docs[t.dataset.doc][t.dataset.c] = t.value; }
+      changed();
     });
+    document.addEventListener("change", function(e){ if (form && form.contains(e.target) && e.target.tagName === "SELECT"){ D[e.target.dataset.t][+e.target.dataset.i][e.target.dataset.c] = e.target.value; changed(); } });
+    document.addEventListener("click", function(e){
+      var b = e.target.closest ? e.target.closest(".bd-add,.bd-del,[data-bd]") : null; if (!b) return;
+      if (b.classList.contains("bd-add")){ D[b.dataset.t].push(b.dataset.t === "members" ? { grp:"", role:"위원", pos:"", name:"" } : {}); store(); draw(); return; }
+      if (b.classList.contains("bd-del")){ D[b.dataset.t].splice(+b.dataset.i, 1); changed(); draw(); return; }
+      var act = b.dataset.bd;
+      if (act === "clear"){
+        if (!confirm("입력한 기초자료를 모두 지울까요? (엑셀로 저장하지 않았다면 되살릴 수 없습니다)")) return;
+        D = { f:{ year:String(BASE) }, members:[], bidders:[], docs:{} }; changed(); draw();
+      }
+      if (act === "save") withXLSX(saveXlsx);
+      if (act === "load"){ var inp = document.getElementById("bd-file"); if (inp){ inp.value = ""; inp.click(); } }
+    });
+
+    /* 엑셀 양식 내려받기·올리기 (SheetJS는 누를 때만 불러온다) */
+    var XLSX_URL = "https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js";
+    function withXLSX(fn){
+      if (window.XLSX) return fn();
+      var s = document.createElement("script"); s.src = XLSX_URL;
+      s.onload = fn;
+      s.onerror = function(){ alert("엑셀 기능을 불러오지 못했습니다. 인터넷 연결을 확인해 주세요."); };
+      document.head.appendChild(s);
+    }
+    function saveXlsx(){
+      var wb = XLSX.utils.book_new();
+      var guide = [["교복길라잡이 기초자료"],[""],["1. '기초자료' 시트의 '값' 칸을 채웁니다. 날짜는 2026-10-27처럼, 금액은 숫자만 적습니다."],
+        ["2. '위원', '업체', '문서번호' 시트도 필요한 만큼 채웁니다. 줄을 더 늘려도 됩니다."],["3. 교복길라잡이 '기초자료 입력' 화면에서 [엑셀 올리기]로 불러옵니다."],[""],
+        ["※ 위원·업체 대표자 이름이 들어가는 파일입니다. 보관·전달에 주의하세요."]];
+      XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet(guide), "사용법");
+      var base = [["항목","값","설명"]].concat(FIELDS.map(function(f){ return [f[1], D.f[f[0]] || "", f[4]]; }));
+      var ws = XLSX.utils.aoa_to_sheet(base); ws["!cols"] = [{wch:24},{wch:28},{wch:46}];
+      XLSX.utils.book_append_sheet(wb, ws, "기초자료");
+      var mrows = [MCOLS.map(function(c){ return c[1]; })].concat((D.members.length ? D.members : [{},{},{}]).map(function(m){ return MCOLS.map(function(c){ return m[c[0]] || ""; }); }));
+      ws = XLSX.utils.aoa_to_sheet(mrows); ws["!cols"] = [{wch:14},{wch:10},{wch:10},{wch:12}];
+      XLSX.utils.book_append_sheet(wb, ws, "위원");
+      var brows = [BCOLS.map(function(c){ return c[1]; })].concat((D.bidders.length ? D.bidders : [{},{},{}]).map(function(b){ return BCOLS.map(function(c){ return b[c[0]] || ""; }); }));
+      ws = XLSX.utils.aoa_to_sheet(brows); ws["!cols"] = [{wch:16},{wch:10},{wch:12},{wch:9},{wch:9},{wch:9},{wch:9},{wch:9}];
+      XLSX.utils.book_append_sheet(wb, ws, "업체");
+      var drows = [["공문","번호","날짜"]].concat(DOCS.map(function(d){ var r = D.docs[d[0]] || {}; return [d[1], r.no || "", r.date || ""]; }));
+      ws = XLSX.utils.aoa_to_sheet(drows); ws["!cols"] = [{wch:30},{wch:10},{wch:12}];
+      XLSX.utils.book_append_sheet(wb, ws, "문서번호");
+      XLSX.writeFile(wb, "교복길라잡이_기초자료" + (F("school") ? "_" + F("school") : "") + ".xlsx");
+    }
+    function norm(s){ return String(s == null ? "" : s).replace(/[\s()·.\-_/]/g, "").toLowerCase(); }
+    function cellVal(v){ // 엑셀 날짜(직렬번호)·시간(소수)·Date를 글자로
+      if (v instanceof Date) return v.getFullYear() + "-" + ("0" + (v.getMonth() + 1)).slice(-2) + "-" + ("0" + v.getDate()).slice(-2);
+      return v == null ? "" : String(v).trim();
+    }
+    function fixDate(v){
+      if (v === "" || v == null) return "";
+      if (typeof v === "number"){ if (v > 20000 && v < 80000){ var d = new Date(Math.round((v - 25569) * 86400000)); return d.getUTCFullYear() + "-" + ("0" + (d.getUTCMonth() + 1)).slice(-2) + "-" + ("0" + d.getUTCDate()).slice(-2); } return String(v); }
+      var s = cellVal(v), m = /^(\d{4})\s*[.\-\/년]\s*(\d{1,2})\s*[.\-\/월]\s*(\d{1,2})/.exec(s);
+      return m ? m[1] + "-" + ("0" + m[2]).slice(-2) + "-" + ("0" + m[3]).slice(-2) : s;
+    }
+    function fixTime(v){
+      if (typeof v === "number" && v >= 0 && v < 1){ var mm = Math.round(v * 1440); return ("0" + Math.floor(mm / 60)).slice(-2) + ":" + ("0" + mm % 60).slice(-2); }
+      var s = cellVal(v), m = /^(\d{1,2})\s*[:시]\s*(\d{0,2})/.exec(s);
+      return m ? ("0" + m[1]).slice(-2) + ":" + ("0" + (m[2] || "0")).slice(-2) : s;
+    }
+    function sheet(wb, words){ var n = wb.SheetNames.filter(function(x){ return words.some(function(w){ return x.indexOf(w) > -1; }); })[0]; return n ? XLSX.utils.sheet_to_json(wb.Sheets[n], { header:1, raw:true, defval:"" }) : null; }
+    function colIdx(head, names){ for (var i = 0; i < head.length; i++){ var h = norm(head[i]); if (names.some(function(n){ return h === norm(n) || h.indexOf(norm(n)) > -1; })) return i; } return -1; }
+    function loadXlsx(file){
+      var rd = new FileReader();
+      rd.onload = function(){
+        var wb;
+        try { wb = XLSX.read(new Uint8Array(rd.result), { type:"array" }); } catch (e) { alert("엑셀 파일을 읽지 못했습니다."); return; }
+        var got = 0, rows = sheet(wb, ["기초"]);
+        if (rows){
+          var labels = FIELDS.map(function(f){ return norm(f[1]); });
+          rows.slice(1).forEach(function(r){
+            var i = labels.indexOf(norm(r[0])); if (i < 0) i = labels.findIndex(function(l){ return l && norm(r[0]) && (l.indexOf(norm(r[0])) > -1 || norm(r[0]).indexOf(l) > -1); });
+            if (i < 0) return;
+            var f = FIELDS[i], v = r[1];
+            D.f[f[0]] = f[2] === "date" ? fixDate(v) : f[2] === "time" ? fixTime(v) : cellVal(v); if (D.f[f[0]]) got++;
+          });
+        }
+        rows = sheet(wb, ["위원"]);
+        if (rows && rows.length){
+          var h = rows[0], ix = { grp:colIdx(h, ["구분","분류"]), role:colIdx(h, ["직책","역할"]), pos:colIdx(h, ["직위","직급","신분"]), name:colIdx(h, ["성명","이름"]) };
+          D.members = rows.slice(1).map(function(r){ var o = {}; for (var k in ix) o[k] = ix[k] > -1 ? cellVal(r[ix[k]]) : ""; if (!o.role) o.role = "위원"; return o; }).filter(function(o){ return o.name; });
+          got += D.members.length;
+        }
+        rows = sheet(wb, ["업체"]);
+        if (rows && rows.length){
+          var hb = rows[0], bx = {}; BCOLS.forEach(function(c){ bx[c[0]] = colIdx(hb, [c[1]].concat(c[0] === "name" ? ["업체","상호"] : c[0] === "qual" ? ["정성"] : [])); });
+          D.bidders = rows.slice(1).map(function(r){ var o = {}; for (var k in bx) o[k] = bx[k] > -1 ? (k === "date" ? fixDate(r[bx[k]]) : cellVal(r[bx[k]])) : ""; return o; }).filter(function(o){ return o.name; });
+          got += D.bidders.length;
+        }
+        rows = sheet(wb, ["문서"]);
+        if (rows){
+          var dl = DOCS.map(function(d){ return norm(d[1]); });
+          rows.slice(1).forEach(function(r){ var i = dl.indexOf(norm(r[0])); if (i < 0) return; D.docs[DOCS[i][0]] = { no:cellVal(r[1]), date:fixDate(r[2]) }; if (cellVal(r[1])) got++; });
+        }
+        changed(); draw();
+        alert(got ? "기초자료를 불러왔습니다. (" + got + "개 항목)" : "불러올 값을 찾지 못했습니다. 이 화면에서 내려받은 양식인지 확인해 주세요.");
+      };
+      rd.readAsArrayBuffer(file);
+    }
+    var fileInp = document.getElementById("bd-file");
+    if (fileInp) fileInp.addEventListener("change", function(){ var f = fileInp.files[0]; if (f) withXLSX(function(){ loadXlsx(f); }); });
+
+    /* 붙임 한글 서식(hwpx) 채워서 내려받기
+       hwpx는 zip 묶음이고 글자는 Contents/section*.xml 의 <hp:t> 조각 안에 있다. 한 문단의 조각을 이어 붙여
+       빈 칸 표시(○○학교, 000벌, 2026.00.00. 등)를 찾고 기초자료 값으로 바꾼다. 표·글자 모양은 그대로 둔다.
+       값이 비어 있으면 그 칸은 서식 글자를 남긴다. 서식 파일을 fetch로 읽으므로 사이트에서만 동작한다. */
+    var ZIP_URL = "https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js";
+    function base(){ return F("school").replace(/\s+/g, "").replace(/학교$/, ""); }   // 정주고등학교 → 정주고등
+    function nmem(){ return mem().length; }
+    function period(){ var a = at("bidStart", "bidStartTime"), b = at("bidEnd", "bidEndTime"); return a && b ? a + " ∼ " + b : ""; }
+    var COMMON = [ // 모든 서식: 학교명, 학년도
+      [/[○◯](?: [○◯]){1,3} 학 교 장/g, function(){ return base() ? base().split("").join(" ") + " 학 교 장" : ""; }],
+      [/[○◯]{2,4} ?(?:고등|중)?(?=학교)/g, function(){ return base(); }, true],
+      [/202[67](?=학년도|\s*년|\s*\.\s*(?:[0○◯.]|$))/g, function(m){
+        var y = parseInt(F("year"), 10); return y >= 2000 && y <= 2100 ? String(+m + y - BASE) : "";
+      }]
+    ];
+    var FORMS = { // 서식 번호 → 그 서식만의 칸 (COMMON보다 먼저 적용)
+      "01-1":[], "01-2":[], "04-1":[], "07-02":[], "07-04":[], "07-05":[], "07-12":[], "07-17":[], "07-18":[], "11-3":[], "15-1":[], "16-2":[],
+      "07":[ // 입찰 공고문
+        [/금000,000원/g, function(){ var n = comma(num(F("basePrice"))); return n ? "금" + n + "원" : ""; }],
+        [/각 000벌/g, function(){ var n = comma(num(F("qty"))); return n ? "각 " + n + "벌" : ""; }],
+        [/(동복|하복) : \d{4}\.00\.00\.\(요일\)/g, function(m, w){ var s = dotw(F(w === "동복" ? "winterDue" : "summerDue")); return s ? w + " : " + s : ""; }],
+        [/\d{4}\.00\.00\.\(요일\)\[00:00\] ∼ \d{4}\.00\.00\.\(요일\)\[00:00\]/g, period],   // 제안서·가격입찰서 제출기간
+        [/(가격개찰 일시 : +)\d{4}\.00\.00\.\(요일\) 00:00/g, function(m, p){ var s = at("openDate", "openTime"); return s ? p + s : ""; }],
+        [/(일시 : )\d{4}\.00\.00\.\(요일\) 00:00/g, function(m, p){ var s = at("evalDate", "evalTime"); return s ? p + s : ""; }],
+        [/본교 [○◯]{4}실/g, function(){ var p = F("evalPlace"); return p ? (/^본교/.test(p) ? p : "본교 " + p) : ""; }],
+        [/80점(?=\(학교가 정한 기준 점수\))/g, function(){ var n = num(F("passScore")); return n == null ? "" : n + "점"; }],
+        [/(점수가 )00점/g, function(m, p){ var n = num(F("passScore")); return n == null ? "" : p + n + "점"; }],
+        [/^\s*\d{4}\. 00\. 00\.\s*$/g, function(){ return dot(F("bidStart")); }],                    // 공고일
+        [/(행정실|교무실)\(☎063-000-0000/g, function(m, w){ var t = F(w === "행정실" ? "officeTel" : "teachTel"); return t ? w + "(☎" + t : ""; }],
+        [/[○◯]부\(평가위원(용?) [○◯]부/g, function(m, y){ var n = nmem(); return n ? (n + 1) + "부(평가위원" + y + " " + n + "부" : ""; }],
+        [/(평가위원용 )[○◯]부/g, function(m, p){ var n = nmem(); return n ? p + n + "부" : ""; }]
+      ]
+    };
+    function formId(href){ // 원본 "…척척따라하기 서식(2027학년도)/07-01_….hwpx", 사이트 "files/chuk-07-01.hwpx"
+      var m = /(?:척척따라하기 서식\([^)]*\)\/|chuk-)(\d+(?:-\d+)*)(?:_[^\/]*)?\.hwpx$/.exec(decodeURIComponent(href || ""));
+      return m && FORMS.hasOwnProperty(m[1]) ? m[1] : "";
+    }
+    function unx(s){ return s.replace(/&(lt|gt|quot|apos|amp);/g, function(m, e){ return { lt:"<", gt:">", quot:'"', apos:"'", amp:"&" }[e]; }); }
+    function enx(s){ return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+    function put(g, a, b, v, after){ // 이어 붙인 글자의 a~b 자리를 v로: 첫 조각에 v를 넣고 나머지 조각에서는 지운다
+      var pos = 0, placed = false, wait = null;  // after: 빈 칸 표시만 따로 든 조각이면 v를 다음 조각 앞에 넣어 그 글자 모양(크기·색)을 따른다
+      g.forEach(function(n){
+        var s = pos, e = pos + n.t.length; pos = e;
+        if (e <= a) return;
+        if (s >= b){ if (wait && !placed && n.t){ n.t = v + n.t; n.ch = placed = true; } return; }
+        var tail = b < e ? n.t.slice(b - s) : "", mine = !placed && !(after && !tail);
+        n.t = (a > s ? n.t.slice(0, a - s) : "") + (mine ? v : "") + tail;
+        n.ch = true;
+        if (mine) placed = true; else if (!placed) wait = n;
+      });
+      if (!placed && wait){ wait.t += v; wait.ch = true; }
+    }
+    function fillXml(xml, rules){
+      var re = /<hp:t>([^<]*)<\/hp:t>|<hp:t\b[^>]*\/>|<hp:t\b[^>]*>[\s\S]*?<\/hp:t>|<\/?hp:p\b[^>]*>/g, m, nodes = [], groups = [], g = [];
+      while ((m = re.exec(xml))){
+        if (m[1] !== undefined){ var n = { s:m.index + 6, e:m.index + 6 + m[1].length, t:unx(m[1]) }; nodes.push(n); g.push(n); }
+        else if (m[0].indexOf("<hp:t") !== 0 || m[0].slice(-2) !== "/>"){ if (g.length) groups.push(g); g = []; } // 문단 경계·탭 등이 든 조각에서 끊는다
+      }
+      if (g.length) groups.push(g);
+      var count = 0;
+      groups.forEach(function(g){
+        rules.forEach(function(r){
+          var s = g.map(function(n){ return n.t; }).join(""), hits = [], x;
+          r[0].lastIndex = 0;
+          while ((x = r[0].exec(s))){
+            if (!x[0].length){ r[0].lastIndex++; continue; }
+            var v = r[1].apply(null, x);
+            if (v && v !== x[0]) hits.push([x.index, x.index + x[0].length, v]);
+          }
+          for (var i = hits.length - 1; i >= 0; i--){ put(g, hits[i][0], hits[i][1], hits[i][2], r[2]); count++; }
+        });
+      });
+      var out = [], last = 0;
+      nodes.forEach(function(n){ if (n.ch){ out.push(xml.slice(last, n.s), enx(n.t)); last = n.e; } });
+      out.push(xml.slice(last));
+      return { xml:out.join(""), count:count };
+    }
+    function withZip(fn){
+      if (window.JSZip) return fn();
+      var s = document.createElement("script"); s.src = ZIP_URL;
+      s.onload = fn;
+      s.onerror = function(){ alert("한글 서식 기능을 불러오지 못했습니다. 인터넷 연결을 확인해 주세요."); };
+      document.head.appendChild(s);
+    }
+    function fillHwpx(btn){
+      if (location.protocol === "file:"){ alert("[채워서 받기]는 인터넷 사이트(https://gyobok-guide.lynqook.workers.dev)에서 쓸 수 있습니다. 내 컴퓨터에서 파일을 직접 열면 동작하지 않습니다."); return; }
+      if (!F("school")){ alert("기초자료 입력 화면에서 학교명을 먼저 넣어 주세요."); return; }
+      var id = btn.dataset.fill, label = btn.textContent;
+      function end(){ btn.disabled = false; btn.textContent = label; }
+      btn.disabled = true; btn.textContent = "만드는 중…";
+      withZip(function(){
+        fetch(btn.dataset.href).then(function(r){ if (!r.ok) throw new Error(r.status); return r.arrayBuffer(); })
+          .then(function(buf){ return JSZip.loadAsync(buf); })
+          .then(function(zip){
+            var rules = FORMS[id].concat(COMMON), jobs = [];
+            zip.forEach(function(name, f){
+              if (/^Contents\/section\d+\.xml$/.test(name)) jobs.push(f.async("string").then(function(x){ zip.file(name, fillXml(x, rules).xml); }));
+            });
+            var mt = zip.file("mimetype"); // 한글이 알아보도록 mimetype은 압축하지 않는다
+            if (mt) jobs.push(mt.async("string").then(function(x){ zip.file("mimetype", x, { compression:"STORE" }); }));
+            return Promise.all(jobs).then(function(){ return zip.generateAsync({ type:"blob", compression:"DEFLATE", mimeType:"application/hwp+zip" }); });
+          })
+          .then(function(blob){
+            var a = document.createElement("a"), y = FMT.year();
+            a.href = URL.createObjectURL(blob);
+            a.download = F("school") + "_" + (y ? btn.dataset.name.replace(/20\d{2}학년도/, y + "학년도") : btn.dataset.name);
+            document.body.appendChild(a); a.click(); a.remove();
+            setTimeout(function(){ URL.revokeObjectURL(a.href); }, 4000);
+            end();
+          })
+          .catch(function(){ end(); alert("서식 파일을 만들지 못했습니다. 잠시 뒤 다시 눌러 주세요."); });
+      });
+    }
+    Array.prototype.forEach.call(document.querySelectorAll('a[href$=".hwpx"]'), function(a){
+      var href = a.getAttribute("href"), id = formId(href); if (!id) return;
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "hwpfill"; b.textContent = "채워서 받기";
+      b.title = "기초자료의 학교명·학년도" + (id === "07" ? "·일정·금액·문의처" : "") + "를 넣은 한글 파일로 내려받기 (사이트에서만)";
+      b.dataset.fill = id; b.dataset.href = href;
+      b.dataset.name = a.getAttribute("download") || decodeURIComponent(href.split("/").pop());
+      a.insertAdjacentElement("afterend", b);
+    });
+    document.addEventListener("click", function(e){ var b = e.target.closest ? e.target.closest(".hwpfill") : null; if (b) fillHwpx(b); });
+
+    draw();
     apply();
   })();
 

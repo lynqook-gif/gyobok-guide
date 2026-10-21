@@ -1,4 +1,4 @@
-(()=>{const c={"title": "교복길라잡이", "eyebrow": "UNIFORM GUIDE", "line1": "교복 구매 업무,", "line2": "절차부터 서식까지.", "desc": "담당자별 추진 절차와 공문 예시를 차근차근 확인하세요.", "nav": [["홈", "go:home"], ["추진 절차", "go:flow"], ["확인할 숫자", "go:figures"], ["나라장터 입찰", "go:g2b"], ["서식 다운로드", "go:forms"], ["공문 예시", "go:docs"], ["자주 하는 실수", "go:pitfalls"]], "target": "header.topbar", "place": "after", "site": "gyobok-guide"};document.body.classList.add('desk-layout');const rail=document.createElement('aside');rail.className='desk-rail';rail.setAttribute('aria-label',c.title+' 메뉴');rail.innerHTML='<div class="desk-brand">교행<span>e</span></div><div class="desk-product">'+c.title+'</div><div class="desk-label">업무 메뉴</div><nav class="desk-menu" aria-label="주 메뉴"></nav><div class="desk-bottom"><div class="desk-mascot" role="img" aria-label="'+c.title+' 안내 캐릭터"></div><p>복잡한 업무도 차근차근.<br>교행e가 함께합니다.</p></div>';const nav=rail.querySelector('nav');c.nav.forEach(([label,action],i)=>{const el=document.createElement(action.startsWith('file:')?'a':'button');if(el.tagName==='BUTTON')el.type='button';else{el.href=action.slice(5);el.target='_blank';el.rel='noopener';}el.innerHTML='<span class="desk-icon">'+String(i+1).padStart(2,'0')+'</span><span>'+label+'</span>';if(i===0){el.classList.add('selected');el.setAttribute('aria-current','page')}el.addEventListener('click',()=>{nav.querySelectorAll('.selected').forEach(x=>{x.classList.remove('selected');x.removeAttribute('aria-current')});el.classList.add('selected');el.setAttribute('aria-current','page');const [type,id,label]=action.split(':');if(type==='tab')document.querySelector('#tabs [data-tab="'+id+'"]')?.click();if(type==='click')document.getElementById(id)?.click();if(type==='anchor')document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'center'});if(type==='go')document.querySelector('[data-go="'+id+'"]:not(.desk-rail *)')?.click();if(type==='home')window.goHome?.();if(type==='page')window.showPage?.(id,label);});nav.append(el)});document.body.prepend(rail);const hero=document.createElement('section');hero.className='desk-hero';hero.id='design-hero';hero.innerHTML='<div class="desk-copy"><div class="desk-eyebrow">'+c.eyebrow+'</div><h1>'+c.line1+'<br><span>'+c.line2+'</span></h1><p>'+c.desc+'</p><div class="desk-status">'+c.title+' · 업무를 위한 나만의 데스크</div></div><div class="desk-mascot" role="img" aria-label="'+c.title+' 컨셉의 교행e 캐릭터"></div>';const target=document.querySelector(c.target);if(c.place==='prepend')target.prepend(hero);else target.after(hero);
+(()=>{const c={"title": "교복길라잡이", "eyebrow": "UNIFORM GUIDE", "line1": "교복 구매 업무,", "line2": "절차부터 서식까지.", "desc": "담당자별 추진 절차와 공문 예시를 차근차근 확인하세요.", "nav": [["홈", "go:home"], ["추진 절차", "go:flow"], ["확인할 숫자", "go:figures"], ["나라장터 입찰", "go:g2b"], ["수의계약", "go:suui"], ["서식 다운로드", "go:forms"], ["공문 예시", "go:docs"], ["자주 하는 실수", "go:pitfalls"]], "target": "header.topbar", "place": "after", "site": "gyobok-guide"};document.body.classList.add('desk-layout');const rail=document.createElement('aside');rail.className='desk-rail';rail.setAttribute('aria-label',c.title+' 메뉴');rail.innerHTML='<div class="desk-brand">교행<span>e</span></div><div class="desk-product">'+c.title+'</div><div class="desk-label">업무 메뉴</div><nav class="desk-menu" aria-label="주 메뉴"></nav><div class="desk-bottom"><div class="desk-mascot" role="img" aria-label="'+c.title+' 안내 캐릭터"></div><p>복잡한 업무도 차근차근.<br>교행e가 함께합니다.</p></div>';const nav=rail.querySelector('nav');c.nav.forEach(([label,action],i)=>{const el=document.createElement(action.startsWith('file:')?'a':'button');if(el.tagName==='BUTTON')el.type='button';else{el.href=action.slice(5);el.target='_blank';el.rel='noopener';}el.innerHTML='<span class="desk-icon">'+String(i+1).padStart(2,'0')+'</span><span>'+label+'</span>';if(i===0){el.classList.add('selected');el.setAttribute('aria-current','page')}el.addEventListener('click',()=>{nav.querySelectorAll('.selected').forEach(x=>{x.classList.remove('selected');x.removeAttribute('aria-current')});el.classList.add('selected');el.setAttribute('aria-current','page');const [type,id,label]=action.split(':');if(type==='tab')document.querySelector('#tabs [data-tab="'+id+'"]')?.click();if(type==='click')document.getElementById(id)?.click();if(type==='anchor')document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'center'});if(type==='go')document.querySelector('[data-go="'+id+'"]:not(.desk-rail *)')?.click();if(type==='home')window.goHome?.();if(type==='page')window.showPage?.(id,label);});nav.append(el)});document.body.prepend(rail);const hero=document.createElement('section');hero.className='desk-hero';hero.id='design-hero';hero.innerHTML='<div class="desk-copy"><div class="desk-eyebrow">'+c.eyebrow+'</div><h1>'+c.line1+'<br><span>'+c.line2+'</span></h1><p>'+c.desc+'</p><div class="desk-status">'+c.title+' · 업무를 위한 나만의 데스크</div></div><div class="desk-mascot" role="img" aria-label="'+c.title+' 컨셉의 교행e 캐릭터"></div>';const target=document.querySelector(c.target);if(c.place==='prepend')target.prepend(hero);else target.after(hero);
 const workspace=document.createElement('div');workspace.className='desk-workheading';workspace.innerHTML='<div><p class="desk-crumb">'+c.title+' <span>/</span> <span class="desk-current"></span></p><h1></h1><p class="desk-workdesc"></p></div><span class="desk-worktag">'+c.title+'</span>';
 if(c.site==='law')document.querySelector('main').prepend(workspace);
 const descriptions={acc:'회계연도와 학교 정보를 입력하고 예산을 편성하세요.',sechul:'지출결의부터 지출부·현금출납부까지 이어서 관리하세요.',seip:'징수결의와 수입 내역을 정확하게 기록하세요.',settle:'한 해의 회계를 정리하고 결산 서류를 준비하세요.',board:'이사회 회의와 관련 서류를 한곳에서 작성하세요.'};
@@ -35,19 +35,98 @@ document.querySelectorAll('a[href*="open.kakao.com"]').forEach(a=>{if(a.closest(
 document.querySelectorAll('.desk-contact-link img').forEach(img=>img.remove());
 document.querySelectorAll('.chatcta,.askbox,.ls-cta').forEach(el=>el.remove());document.querySelectorAll('.bottom').forEach(el=>{if(!el.children.length)el.remove()});
 
+const latestRelease={"date":"2026-10-20","display":"2026. 10. 20.","title":"매뉴얼(2026. 9.) 기준 점검","items":["[척따] 붙임 파일을 새 매뉴얼 서식으로 교체","수의계약 안내 화면 추가","입찰공고 예시 견본품 기간(1개월 이상) 반영, 유찰 수의계약 근거(시행령 제26조) 수정"]};
 const releaseDialog=document.createElement('dialog');releaseDialog.className='desk-release';releaseDialog.setAttribute('aria-labelledby','desk-release-title');releaseDialog.innerHTML='<div class="desk-release-head"><div><small>변경 내역</small><h2 id="desk-release-title">업데이트 안내</h2></div><button type="button" class="desk-release-close" aria-label="업데이트 안내 닫기">✕</button></div><div class="desk-release-body"><time datetime="2026-10-12">2026. 10. 12.</time><h3>디자인 수정</h3><ul>'+["업무 메뉴와 본문 정렬을 통일했습니다.", "본문과 입력 영역의 글자 크기·대비를 높였습니다.", "문의 안내를 한 곳으로 통합했습니다."].map(t=>'<li>'+t+'</li>').join('')+'</ul><div class="desk-release-history"></div></div>';
+const releaseBody=releaseDialog.querySelector('.desk-release-body');
+const previousRelease=document.createElement('section');previousRelease.className='desk-release-previous';
+[...releaseBody.children].filter(el=>!el.classList.contains('desk-release-history')).forEach(el=>previousRelease.append(el));
+const date=document.createElement('time');date.dateTime=latestRelease.date;date.textContent=latestRelease.display;
+const title=document.createElement('h3');title.textContent=latestRelease.title;
+const list=document.createElement('ul');latestRelease.items.forEach(text=>{const li=document.createElement('li');li.textContent=text;list.append(li)});
+releaseBody.prepend(date,title,list,previousRelease);
 document.body.append(releaseDialog);const history=releaseDialog.querySelector('.desk-release-history');const source=document.querySelector('.news');if(source){const copy=source.cloneNode(true);copy.querySelectorAll('[id]').forEach(el=>el.removeAttribute('id'));copy.removeAttribute('id');history.append(copy);source.classList.add('desk-release-source');}
 const releaseButton=document.createElement('button');releaseButton.type='button';releaseButton.className='desk-update-button';releaseButton.innerHTML='<span aria-hidden="true">↻</span><span>업데이트 안내</span>';releaseButton.addEventListener('click',()=>releaseDialog.showModal());releaseDialog.querySelector('.desk-release-close').addEventListener('click',()=>releaseDialog.close());releaseDialog.addEventListener('click',e=>{if(e.target===releaseDialog){const r=releaseDialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)releaseDialog.close()}});
 
 document.querySelectorAll('.news').forEach(el=>{if(!el.closest('.desk-release'))el.classList.add('desk-release-source')});
 
 const homeUpdates=document.createElement('section');homeUpdates.className='desk-home-updates';homeUpdates.setAttribute('aria-labelledby','desk-home-updates-title');homeUpdates.innerHTML='<header><div><small>서비스 소식</small><h2 id="desk-home-updates-title">업데이트 안내</h2><p>새로 추가된 기능과 개선 내용을 확인하세요.</p></div><button type="button" class="desk-all-updates">전체 내역 보기 ↗</button></header><div class="desk-home-update-latest"><time datetime="2026-10-12">2026. 10. 12.</time><div><h3>디자인 수정</h3><ul></ul></div></div>';
+homeUpdates.querySelector('time').dateTime=latestRelease.date;homeUpdates.querySelector('time').textContent=latestRelease.display;homeUpdates.querySelector('.desk-home-update-latest h3').textContent=latestRelease.title;
 const previewList=homeUpdates.querySelector('ul');releaseDialog.querySelectorAll('.desk-release-body>ul>li').forEach(li=>previewList.append(li.cloneNode(true)));homeUpdates.querySelector('.desk-all-updates').addEventListener('click',()=>releaseDialog.showModal());
 if(c.site==='law'){const shortcuts=document.getElementById('cards');shortcuts.classList.add('desk-home-shortcuts');document.querySelector('#panel-home .sec-head')?.classList.add('desk-home-shortcuts');shortcuts.before(homeUpdates);}
 if(c.site==='jeonbuk-gyohaeng'){const shortcuts=document.querySelector('#menu .menu2');shortcuts.classList.add('desk-home-shortcuts');shortcuts.before(homeUpdates);document.querySelector('#menu .qhead')?.classList.add('desk-home-shortcuts');document.querySelector('#menu .qlist')?.classList.add('desk-home-shortcuts');}
-if(c.site==='gyobok-guide'){document.querySelector('[data-page="home"] .homepage').append(homeUpdates);}
+if(c.site==='gyobok-guide'){
+ const home=document.querySelector('[data-page="home"] .homepage');
+ const references=document.createElement('section');references.className='desk-reference-hub';references.setAttribute('aria-labelledby','desk-reference-title');
+ references.innerHTML='<header><div><small>업무 참고</small><h2 id="desk-reference-title">필요한 안내 바로 찾기</h2></div></header><div class="desk-reference-grid"></div>';
+ const sourceButtons=[...document.querySelectorAll('[data-page="flow"] .reflinks button[data-go]')];
+ ['figures','g2b','suui','forms','docs','pitfalls'].forEach(id=>{
+  const source=sourceButtons.find(button=>button.dataset.go===id);if(!source)return;
+  const card=document.createElement('button');card.type='button';card.className='desk-reference-card';
+  const copy=document.createElement('span');copy.className='desk-reference-copy';
+  [...source.children].forEach(child=>copy.append(child.cloneNode(true)));
+  const arrow=document.createElement('span');arrow.className='desk-reference-arrow';arrow.textContent='↗';arrow.setAttribute('aria-hidden','true');card.append(copy,arrow);
+  card.addEventListener('click',()=>source.click());references.querySelector('.desk-reference-grid').append(card);
+ });
+ home.append(references,homeUpdates);
+}
 if(c.site==='food'){homeUpdates.classList.add('desk-food-updates');const compact=document.createElement('details');compact.className='desk-food-update-summary';compact.innerHTML='<summary>업데이트 안내 <span>새 화면과 개선 사항 확인하기</span></summary>';compact.append(homeUpdates);document.getElementById('design-hero').after(compact);}
 
 const relatedSites=[["전북교행길라잡이", "https://jeonbuk-gyohaeng.pages.dev/"],["법인회계Master", "https://law.lynqook.workers.dev/"],["본예산 길라잡이", "https://lynqook-gif.github.io/budget-guide/"],["식단표 편집기", "https://lynqook-gif.github.io/food/"]];const related=document.createElement('section');related.className='desk-related-sites';related.innerHTML='<h3>교행e 사이트 바로가기</h3><div></div>';relatedSites.forEach(([label,url])=>{const link=document.createElement('a');link.href=url;link.target='_blank';link.rel='noopener';link.innerHTML='<span>'+label+'</span><span aria-hidden="true">↗</span>';related.querySelector('div').append(link)});homeUpdates.after(related);
 if(c.site==='jeonbuk-gyohaeng'){document.querySelectorAll('.quick2').forEach(box=>{const heading=box.querySelector('h4,h3');if(heading)heading.textContent='교행e 사이트 바로가기';box.querySelectorAll('a').forEach(a=>a.remove());relatedSites.forEach(([label,url])=>{const link=document.createElement('a');link.href=url;link.target='_blank';link.rel='noopener';link.innerHTML='<span>'+label+'</span><span aria-hidden="true">↗</span>';box.append(link)});});}
+})();
+/* Visual sentence breaks only: retain every source character and inline emphasis. */
+(()=>{
+ const selectors='.phead>p:not(.pkicker),.bd-note,.dv-note,.flownote,.basis';
+ document.querySelectorAll(selectors).forEach(paragraph=>{
+  if(paragraph.textContent.trim().length<90)return;
+  const walker=document.createTreeWalker(paragraph,NodeFilter.SHOW_TEXT);const nodes=[];
+  while(walker.nextNode())if(!walker.currentNode.parentElement.closest('a,code,button,input,textarea'))nodes.push(walker.currentNode);
+  nodes.forEach(node=>{
+   const text=node.textContent;const pattern=/([가-힣][.!?])(\s+)/g;let match,last=0;const parts=document.createDocumentFragment();
+   while((match=pattern.exec(text))){const end=match.index+match[0].length;parts.append(document.createTextNode(text.slice(last,end)));const br=document.createElement('br');br.className='desk-reading-break';parts.append(br);last=end;}
+   if(!last)return;parts.append(document.createTextNode(text.slice(last)));node.replaceWith(parts);
+  });
+ });
+})();
+
+/* Overview presentation only. Native nodes, navigation and role controls stay in place. */
+(()=>{
+ const flow=document.querySelector('[data-page="flow"]');if(!flow)return;
+ const charts=[...flow.querySelectorAll('.lanechart[data-chart="ov1"],.lanechart[data-chart="ov2"]')];
+ const commonWidth=Math.max(...charts.map(el=>parseFloat(el.style.width)));
+ charts.forEach(chart=>{
+  const nodes=[...chart.querySelectorAll('.lc-node')];
+  const starts=[...new Set(nodes.map(el=>parseFloat(el.style.left)))].sort((a,b)=>a-b);
+  const nodeWidth=parseFloat(nodes[0].style.width),first=starts[0],oldStep=starts[1]-first;
+  const last=starts.at(-1),newStep=(commonWidth-24-nodeWidth-first)/(starts.length-1);
+  function mapX(x){
+   if(x<=first)return x;
+   if(x>=last+nodeWidth)return first+(starts.length-1)*newStep+nodeWidth+(x-last-nodeWidth);
+   const col=Math.min(starts.length-1,Math.floor((x-first)/oldStep));const offset=x-first-col*oldStep;
+   return first+col*newStep+(offset<=nodeWidth?offset:nodeWidth+(offset-nodeWidth)*(newStep-nodeWidth)/(oldStep-nodeWidth));
+  }
+  chart.classList.add('desk-overview-chart');chart.style.setProperty('--desk-overview-width',commonWidth+'px');
+  nodes.forEach(node=>node.style.setProperty('--desk-node-left',mapX(parseFloat(node.style.left))+'px'));
+  const original=chart.querySelector('svg');const svg=original.cloneNode(true);svg.classList.add('desk-overview-svg');svg.setAttribute('width',commonWidth);
+  svg.querySelectorAll('marker[id]').forEach(marker=>{const id=marker.id;marker.id=id+'-desk';svg.querySelectorAll('[marker-end]').forEach(p=>p.setAttribute('marker-end',p.getAttribute('marker-end').replace('#'+id,'#'+id+'-desk')))});
+  svg.querySelectorAll('path.edge').forEach(path=>path.setAttribute('d',path.getAttribute('d').replace(/([ML])\s*([-\d.]+)\s+([-\d.]+)/g,(_,cmd,x,y)=>cmd+mapX(+x)+' '+y)));
+  chart.append(svg);
+ });
+ function fit(){
+  if(flow.hidden)return;
+  const desktop=matchMedia('(min-width:1000px)').matches;
+  const width=Math.min(...charts.map(chart=>chart.parentElement.clientWidth));
+  if(!width)return;const scale=desktop?Math.min(1,(width-2)/commonWidth):1;
+  charts.forEach(chart=>chart.style.setProperty('--desk-overview-zoom',scale));
+ }
+ const observer=new ResizeObserver(fit);charts.forEach(chart=>observer.observe(chart.parentElement));
+ new MutationObserver(fit).observe(flow,{attributes:true,attributeFilter:['hidden']});fit();
+ const source=[...flow.querySelectorAll('.flownote')].find(el=>el.textContent.includes('연간 일정'));if(!source)return;
+ const schedule=document.createElement('section');schedule.className='desk-annual-schedule';schedule.setAttribute('aria-labelledby','desk-annual-title');
+ schedule.innerHTML='<h3 id="desk-annual-title">연간 일정</h3><table><thead><tr><th scope="col">시기</th><th scope="col">할 일</th></tr></thead><tbody></tbody></table>';
+ const rows=[['연중','디자인 변경(필요시)'],['준비','구매 계획 3~4월, 학운위 심의 4~5월'],['입찰','사전규격·공고·업체 선정 6~7월, 계약 7~8월 (8월 말까지 선정 완료)'],['관리','제작과정 수시 점검'],['구매','안내 12월~1월, 치수 측정 1~2월, 납품 2월'],['마무리','검사·검수 2~5월 → 대금 지급 → 평가·환류']];
+ rows.forEach(([period,task])=>{const row=document.createElement('tr');const th=document.createElement('th');th.scope='row';th.textContent=period;const td=document.createElement('td');td.textContent=task;row.append(th,td);schedule.querySelector('tbody').append(row)});
+ const walker=document.createTreeWalker(source,NodeFilter.SHOW_TEXT);let node;
+ while(node=walker.nextNode()){const start=node.textContent.indexOf('2026. 9.');if(start<0)continue;const range=document.createRange();range.setStart(node,start);range.setEnd(source,source.childNodes.length);const note=document.createElement('p');note.className='desk-annual-note';note.append(range.cloneContents());schedule.append(note);break;}
+ source.classList.add('desk-annual-source');source.after(schedule);
 })();

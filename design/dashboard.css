@@ -94,3 +94,109 @@ body.desk-layout{font-size:15px;line-height:1.65;color:#20324b}.desk-menu button
 /* 교복: 홈 화면 (업데이트 안내·사이트 바로가기) */
 .homepage{display:flex;flex-direction:column;gap:28px}
 .homepage .desk-home-updates,.homepage .desk-related-sites{margin:0}
+
+/* 2026-10-20: reference entry points and two contract-method links. */
+.desk-reference-hub{color:var(--desk-dark)}
+.desk-reference-hub>header{margin-bottom:18px}
+.desk-reference-hub small{font-size:12px;font-weight:700;color:var(--desk-accent)}
+.desk-reference-hub h2{font-size:24px;line-height:1.4;margin:6px 0 0}
+.desk-reference-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.desk-reference-card{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;min-width:0;padding:22px;text-align:left;background:#fff;border:1px solid var(--desk-border);border-radius:12px;color:var(--desk-dark);cursor:pointer;box-shadow:0 3px 15px #16365305}
+.desk-reference-card:hover{border-color:var(--desk-accent);background:#f7fbff;box-shadow:0 5px 18px #1636530c}
+.desk-reference-copy{min-width:0}
+.desk-reference-copy b{display:block;font-size:17px;line-height:1.5;margin-bottom:8px}
+.desk-reference-copy>span{display:block;font-size:14px;line-height:1.75;color:#586e87;overflow-wrap:anywhere}
+.desk-reference-arrow{flex:none;color:var(--desk-accent);font-size:20px;line-height:1.4}
+.desk-release-previous{margin-top:26px;padding-top:22px;border-top:1px solid var(--desk-border)}
+@media screen and (max-width:900px){.desk-reference-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media screen and (max-width:600px){
+ .desk-reference-grid{grid-template-columns:minmax(0,1fr);gap:10px}
+ .desk-reference-card{padding:18px}
+ .desk-reference-copy b{font-size:16px;margin-bottom:6px}
+ .desk-reference-hub h2{font-size:22px}
+}
+@media screen and (max-width:900px){
+ .desk-layout [data-page="s5"] .sflow-head{align-items:flex-start;gap:10px}
+ .desk-layout [data-page="s5"] .sflow-head h2,.desk-layout [data-page="s5"] .sflow-head p{flex:0 0 100%;min-width:0}
+ .desk-layout [data-page="s5"] .sflow-head .golink{flex:1 1 210px;min-width:0;min-height:44px;padding:10px 12px;white-space:normal;line-height:1.6;overflow-wrap:anywhere}
+}
+@media print{.desk-reference-hub{display:none!important}}
+
+/* Reading rhythm belongs to the screen; document/print content stays intact. */
+.desk-reading-break{display:none}
+@media screen{
+ .desk-layout .page code{font-family:var(--ui);font-size:.85em;font-weight:400;letter-spacing:normal;word-spacing:normal;color:#687586}
+}
+@media screen{
+ .desk-layout .bd-tools{align-items:stretch;gap:10px;margin-bottom:22px}
+ .desk-layout .bd-tools :is(button,.bd-link){display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;min-height:44px;padding:10px 16px;border:1px solid #b9cde6;border-radius:8px;background:#fff;color:#1e3a5f;font:inherit;font-size:14px;font-weight:700;line-height:1.6;letter-spacing:inherit;text-align:center;text-decoration:none;cursor:pointer;white-space:normal;word-break:keep-all;overflow-wrap:anywhere}
+ .desk-layout .bd-tools :is(button,.bd-link):hover{background:#edf5ff;border-color:#307ce7}
+ .desk-layout .bd-tools button.primary{background:#1e3a5f;border-color:#1e3a5f;color:#fff}
+ .desk-layout .bd-tools button.primary:hover{background:#294f7b}
+ .desk-layout :is(.phead>p:not(.pkicker),.bd-note,.dv-note,.flownote,.basis,.sflow-head p,.band li,.tasks label>span,.gbody li,.gbody p,.pit p,.desk-reference-copy>span,.desk-home-update-latest li){word-break:keep-all;overflow-wrap:anywhere;line-height:1.9;text-wrap:pretty}
+ .desk-layout .phead>p:not(.pkicker){max-width:82ch;margin-top:16px;margin-bottom:22px;color:#4f6178}
+ .desk-layout .desk-reading-break{display:block}
+ .desk-layout .sflow-head{row-gap:12px}
+ .desk-layout .sflow-head p{max-width:82ch}
+ .desk-layout .gbody>p+p,.desk-layout .pit p+p{margin-top:18px}
+ .desk-layout .gbody li+li,.desk-layout .band li+li{margin-top:10px}
+ .desk-layout .tasks li+li{margin-top:10px}
+ .desk-layout .tasks label{align-items:flex-start;gap:12px}
+ .desk-layout .tasks input[type=checkbox]{flex-shrink:0;margin-top:6px}
+ .desk-layout .bd-sec{padding:22px 24px;margin-bottom:22px}
+ .desk-layout .bd-sec h2{margin-bottom:14px;font-size:18px;line-height:1.5}
+ .desk-layout .bd-note{max-width:82ch;margin:0 0 18px;font-size:14px}
+ .desk-layout .bd-grid{gap:20px 24px}
+ .desk-layout .bd-field{gap:7px;min-width:0}
+ .desk-layout .bd-field small{line-height:1.8;word-break:keep-all;overflow-wrap:anywhere}
+ .desk-layout .dv-note{flex-basis:100%;max-width:82ch;margin-top:6px}
+}
+@media screen and (max-width:600px){
+ .desk-layout .bd-tools :is(button,.bd-link){flex:1 1 145px;padding:10px 12px}
+ .desk-layout .bd-sec{padding:20px 16px}
+ .desk-layout .bd-grid{grid-template-columns:minmax(0,1fr)}
+ .desk-layout .phead>p:not(.pkicker){font-size:14px;line-height:1.95}
+}
+
+/* Overview: one aligned canvas, original print arrangement retained. */
+.desk-annual-schedule,.desk-overview-svg{display:none}
+@media screen{
+ .desk-layout [data-page="flow"] .home{display:flex;flex-direction:column;gap:24px;min-width:0;width:100%;max-width:100%}
+ .desk-layout [data-page="flow"] .homebottom{min-width:0;width:100%}
+ .desk-layout [data-page="flow"] .home>*{margin-bottom:0}
+ .desk-layout [data-page="flow"] .homeflow{order:-1;min-width:0;width:100%;max-width:100%;box-sizing:border-box;padding:26px;background:#fff;border:1px solid #dbe5ef;border-radius:16px;box-shadow:0 5px 22px #17375c06}
+ .desk-layout [data-page="flow"] .flowcard-head{align-items:center;gap:8px 18px;margin-bottom:24px}
+ .desk-layout [data-page="flow"] .flowcard-head h2{font-size:24px;color:#172f58}
+ .desk-layout [data-page="flow"] .charttitle{gap:10px;margin:26px 0 10px;font-size:17px;color:#172f58}
+ .desk-layout [data-page="flow"] .ct-no{padding:3px 10px;border-radius:6px;background:#1e3a5f}
+ .desk-layout [data-page="flow"] .lanescroll{width:100%;max-width:100%;min-width:0;box-sizing:border-box;padding:8px 0 4px}
+ .desk-layout [data-page="flow"] .desk-overview-chart{width:var(--desk-overview-width)!important;zoom:var(--desk-overview-zoom,1)}
+ .desk-layout [data-page="flow"] .desk-overview-chart .lc-lane{width:var(--desk-overview-width)!important}
+ .desk-layout [data-page="flow"] .desk-overview-chart .lc-node{left:var(--desk-node-left)!important}
+ .desk-layout [data-page="flow"] .desk-overview-chart>svg:not(.desk-overview-svg){display:none}
+ .desk-layout [data-page="flow"] .desk-overview-svg{display:block}
+ .desk-layout [data-page="flow"] .desk-overview-chart .lc-node{border-radius:9px;box-shadow:0 2px 6px #18395408}
+ .desk-layout [data-page="flow"] .desk-annual-source{display:none}
+ .desk-layout [data-page="flow"] .desk-annual-schedule{display:block;margin-top:24px;padding-top:24px;border-top:1px solid #e3ebf4}
+ .desk-annual-schedule h3{font-size:19px;color:#172f58;margin:0 0 14px}
+ .desk-annual-schedule table{width:100%;min-width:0;max-width:100%;border-collapse:separate;border-spacing:0;table-layout:fixed;border:1px solid #dbe5ef;border-radius:12px;overflow:hidden;font-size:14px;line-height:1.9;color:#425972;background:#fff}
+ .desk-annual-schedule th,.desk-annual-schedule td{text-align:left;padding:13px 18px;vertical-align:top;white-space:normal;word-break:keep-all;overflow-wrap:anywhere}
+ .desk-annual-schedule thead th{background:#1e3a5f;color:white;font-size:14px}
+ .desk-annual-schedule thead th:first-child{width:105px}
+ .desk-annual-schedule tbody th{color:#24456f;font-weight:700;background:#f3f7fc}
+ .desk-annual-schedule tbody td,.desk-annual-schedule tbody th{border-top:1px solid #e3ebf4}
+ .desk-annual-schedule tbody tr:nth-child(even) td{background:#fafcff}
+ .desk-annual-schedule .desk-annual-note{font-size:13px;line-height:1.9;color:#61758c;margin:14px 0 0;max-width:100ch;word-break:keep-all;overflow-wrap:anywhere}
+ .desk-layout [data-page="flow"] .reflinks{gap:14px}
+ .desk-layout [data-page="flow"] .reflink{padding:20px;border-color:#dbe5ef;border-radius:12px}
+ .desk-layout [data-page="flow"] .basis{margin-top:20px;padding:20px;line-height:1.9}
+}
+@media screen and (min-width:1000px){.desk-layout [data-page="flow"] .homeflow>.lc-hint{display:none}}
+@media screen and (max-width:600px){
+ .desk-layout [data-page="flow"] .homeflow{padding:18px 14px}
+ .desk-layout [data-page="flow"] .flowcard-head h2{font-size:21px}
+ .desk-layout [data-page="flow"] .flowcard-head p{font-size:13px;line-height:1.8;word-break:keep-all}
+ .desk-layout [data-page="flow"] .charttitle{font-size:15px;flex-wrap:wrap}
+ .desk-annual-schedule th,.desk-annual-schedule td{padding:12px}
+ .desk-annual-schedule thead th:first-child{width:68px}
+}
