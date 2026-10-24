@@ -2778,7 +2778,7 @@ footer p{margin:0 0 7px} footer b{color:var(--ink-2); font-weight:600}
     });
     document.querySelectorAll(".lc-node").forEach(function(c){
       var l = c.dataset.lane;
-      c.classList.toggle("dim", role !== "all" && l !== "v" && l !== role);
+      c.classList.toggle("dim", role !== "all" && l !== { gyomu:"g", haeng:"h" }[role]); // 흐름도 칸은 g(교무)·h(행정)·v(업체)
     });
     document.querySelectorAll(".doccard").forEach(function(c){
       c.classList.toggle("dim", role !== "all" && c.dataset.role !== role);
