@@ -122,3 +122,39 @@
  body.brand-looks :is(.phead>p:not(.pkicker),.bd-note,.dv-note){box-sizing:border-box;width:100%;max-width:760px!important;white-space:normal;word-break:keep-all;overflow-wrap:break-word;line-height:1.85}
  @media(max-width:800px){body.brand-looks :is(.phead>p:not(.pkicker),.bd-note,.dv-note){max-width:100%!important}}
 }
+
+/* UNIFORM-HEADER-20261029: a calm illustrated masthead and compact release dialog. */
+@media screen{
+ body.brand-looks .desk-hero{min-height:174px!important;padding:26px 36px!important;background:#e9f5ff!important;background-image:radial-gradient(ellipse at 0 100%,#ffffffb0 0 16%,transparent 16.5%),radial-gradient(ellipse at 100% 0,#ffffffb0 0 17%,transparent 17.5%)!important;border:1px solid #d6eafb!important;border-radius:17px!important}
+ body.brand-looks .desk-hero .desk-copy{width:calc(100% - 150px)!important;max-width:none!important}
+ body.brand-looks .desk-hero h1{font-size:clamp(27px,3vw,40px)!important;line-height:1.3!important;margin:7px 0 9px!important;color:#173e68!important;letter-spacing:-.045em!important}
+ body.brand-looks .desk-hero h1 span{color:#2085d5!important}
+ body.brand-looks .desk-hero .desk-eyebrow{color:#5084ad!important;font-size:12px!important}
+ body.brand-looks .desk-hero p{color:#5d7f9d!important;font-size:14px!important}
+ body.brand-looks .desk-hero .desk-mascot{width:102px!important;height:170px!important;right:30px!important;bottom:0!important}
+ body.brand-looks .desk-release{box-sizing:border-box!important;width:min(760px,calc(100vw - 32px))!important;max-width:760px!important;max-height:calc(100dvh - 48px)!important;padding:0!important;border:1px solid #dce8f4!important;border-radius:18px!important;background:#fff!important;box-shadow:0 24px 80px #18314e30!important;overflow:auto!important;color:#294361!important;font-family:var(--ui)!important}
+ body.brand-looks .desk-release::backdrop{background:#18314e65;backdrop-filter:blur(3px)}
+ body.brand-looks .desk-release-head{position:sticky;top:0;z-index:2;display:flex!important;align-items:flex-start!important;justify-content:space-between!important;gap:20px!important;padding:23px 26px!important;background:#f3f9ff!important;border-bottom:1px solid #e3edf6!important}
+ body.brand-looks .desk-release-head small{font-size:11px!important;line-height:1.5!important;color:#668aab!important}
+ body.brand-looks .desk-release-head h2{margin:5px 0 0!important;font-size:23px!important;line-height:1.4!important;color:#244a72!important;letter-spacing:-.035em!important}
+ body.brand-looks .desk-release-head .desk-release-close{box-sizing:border-box!important;display:grid!important;place-items:center!important;align-self:flex-start!important;flex:0 0 36px!important;width:36px!important;height:36px!important;min-height:36px!important;max-height:36px!important;margin:0!important;padding:0!important;border:1px solid #d9e6f3!important;border-radius:10px!important;background:#fff!important;color:#587995!important;font:400 23px/1 var(--ui)!important;cursor:pointer!important}
+ body.brand-looks .desk-release-head .desk-release-close:hover{background:#e3f1ff!important;color:#246da6!important}
+ body.brand-looks .desk-release-body{padding:24px 28px 30px!important;font-size:14px!important;line-height:1.85!important;overflow-wrap:anywhere}
+ body.brand-looks .desk-release-body time{display:block!important;margin:0 0 8px!important;font-size:12px!important;font-weight:650!important;line-height:1.5!important;color:#568bb7!important;font-variant-numeric:tabular-nums}
+ body.brand-looks .desk-release-body h3{font-size:17px!important;line-height:1.6!important;color:#294e73!important;margin:0 0 11px!important;letter-spacing:-.02em!important}
+ body.brand-looks .desk-release-body ul{padding:0 0 0 19px!important;margin:0 0 26px!important}
+ body.brand-looks .desk-release-body li{font-size:14px!important;line-height:1.85!important;margin:7px 0!important;color:#4e6a85!important}
+ body.brand-looks .desk-release-body li::marker{color:#9abbd8}
+ body.brand-looks .desk-release-previous{border-top:1px solid #e5edf6!important;padding-top:23px!important;margin-top:24px!important}
+ body.brand-looks .desk-release-previous>ul+time{border-top:1px solid #edf2f8;padding-top:23px!important}
+ @media(max-width:800px){body.brand-looks .desk-hero{min-height:150px!important;padding:21px 20px!important}body.brand-looks .desk-hero .desk-copy{width:calc(100% - 84px)!important}body.brand-looks .desk-hero h1{font-size:clamp(22px,4.6vw,32px)!important}body.brand-looks .desk-hero .desk-eyebrow{font-size:10px!important}body.brand-looks .desk-hero p{font-size:12px!important}body.brand-looks .desk-hero .desk-mascot{width:78px!important;height:130px!important;right:10px!important}body.brand-looks .desk-release-head{padding:18px!important}body.brand-looks .desk-release-head h2{font-size:21px!important}body.brand-looks .desk-release-body{padding:20px!important}}
+}
+
+@media screen{
+ body.brand-looks .desk-hero.uniform-image-hero{padding:0!important;min-height:0!important;height:220px!important;background:#eaf5ff!important;display:block!important;overflow:hidden!important;border-radius:17px!important;isolation:isolate}
+ body.brand-looks .desk-hero.uniform-image-hero:before{display:none!important}
+ body.brand-looks .uniform-image-hero .uniform-banner-image{display:block!important;width:100%!important;height:100%!important;object-fit:cover!important;object-position:center 35%!important;max-width:none!important;margin:0!important;border:0!important}
+ body.brand-looks .desk-hero.uniform-image-hero[hidden]{display:none!important}
+ @media(min-width:801px){body.brand-looks .desk-hero.uniform-image-hero{height:max(220px,calc((100vw - 280px)/7.5))!important}}
+ @media(max-width:800px){body.brand-looks .desk-hero.uniform-image-hero{padding:0!important;min-height:0!important;height:150px!important;border-radius:12px!important}}
+}

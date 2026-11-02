@@ -247,3 +247,23 @@ if(c.site==='jeonbuk-gyohaeng'){document.querySelectorAll('.quick2').forEach(box
   mobile.addEventListener('change', syncViewport);
   syncViewport();
 })();
+
+/* Uniform banner copy only; existing navigation and business actions are preserved. */
+(()=>{
+ if(!document.body.classList.contains('brand-looks'))return;
+ const hero=document.getElementById('design-hero');if(!hero)return;
+ const title=hero.querySelector('h1');if(title)title.innerHTML='교행e의 <span>교복길라잡이</span>';
+ const eyebrow=hero.querySelector('.desk-eyebrow');if(eyebrow)eyebrow.textContent='학교주관구매, 교행e와 함께';
+ const desc=hero.querySelector('.desk-copy>p');if(desc)desc.textContent='추진 절차부터 공문·서식까지 차근차근 준비하세요.';
+})();
+/* Approved direction: one illustrated banner with its own lettering and mascot. */
+(()=>{
+ if(!document.body.classList.contains('brand-looks'))return;
+ const hero=document.getElementById('design-hero');if(!hero)return;
+ const image=document.createElement('img');image.className='uniform-banner-image';
+ image.src='design/uniform-banner-wide.png';image.alt='교행e의 교복길라잡이 — 추진 절차부터 공문·서식까지 한곳에서';
+ image.width=3600;image.height=480;image.decoding='async';
+ const picture=document.createElement('picture');picture.style.display='contents';
+ const narrow=document.createElement('source');narrow.media='(max-width:560px)';narrow.srcset='design/uniform-banner-v2.png';
+ picture.append(narrow,image);hero.replaceChildren(picture);hero.classList.add('uniform-image-hero');
+})();
