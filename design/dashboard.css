@@ -151,10 +151,12 @@
 }
 
 @media screen{
+ @media screen{
  body.brand-looks .desk-hero.uniform-image-hero{padding:0!important;min-height:0!important;height:220px!important;background:#eaf5ff!important;display:block!important;overflow:hidden!important;border-radius:17px!important;isolation:isolate}
  body.brand-looks .desk-hero.uniform-image-hero:before{display:none!important}
  body.brand-looks .uniform-image-hero .uniform-banner-image{display:block!important;width:100%!important;height:100%!important;object-fit:cover!important;object-position:center 35%!important;max-width:none!important;margin:0!important;border:0!important}
  body.brand-looks .desk-hero.uniform-image-hero[hidden]{display:none!important}
  @media(min-width:801px){body.brand-looks .desk-hero.uniform-image-hero{height:max(220px,calc((100vw - 280px)/7.5))!important}}
  @media(max-width:800px){body.brand-looks .desk-hero.uniform-image-hero{padding:0!important;min-height:0!important;height:150px!important;border-radius:12px!important}}
+ }
 }
